@@ -3,10 +3,7 @@ namespace TSB;
 
 if ( !defined( 'ABSPATH' ) ) { exit; }
 
-/**
- * License Activation Handler
- * Handles Freemius license activation via AJAX
- */
+
 if( !class_exists( 'LicenseActivation' ) ){
 	class LicenseActivation {
 		private $fs_callable;

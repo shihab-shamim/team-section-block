@@ -155,6 +155,7 @@ const Edit = (props) => {
         premiumProps={premiumProps}
       />
       <div>{CPTType === "tsb" && <ClipBoard shortCode={shortcode} />}</div>
+
       <div {...useBlockProps()} id={id}>
         <Style attributes={attributes} id={id} />
 

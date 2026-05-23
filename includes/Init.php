@@ -88,7 +88,7 @@ class Init {
 
             // Free blocks — always register.
             // 'team-section' is the core block, needed by all users.
-            if ( in_array( $block_name, [ 'team-section' ], true ) ) {
+            if ( in_array( $block_name, [ 'team-section', 'parent' ], true ) ) {
                 register_block_type( $block_path );
                 continue;
             }

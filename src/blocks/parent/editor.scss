@@ -1,0 +1,113 @@
+.wp-block-tsb-team-section-selector {
+  .tsb-block-selector {
+    background: linear-gradient(184deg, #0e1e34, #16468b);
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    max-width: 1000px;
+    margin: auto;
+
+    .title {
+      color: #fff;
+      font-size: 1.8rem;
+      text-align: center;
+      margin-top: -10px;
+      letter-spacing: 2px;
+      font-weight: 600;
+    }
+
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+
+      .button {
+        border: none;
+        padding: 18px 12px;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-weight: 500;
+        position: relative;
+        overflow: hidden;
+
+        .icon {
+          svg {
+            width: 30px !important;
+            height: 30px !important;
+          }
+        }
+
+        .text {
+          font-size: 0.9rem;
+          letter-spacing: 1px;
+          display: block;
+          max-width: 100%;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+      }
+
+      .button:hover {
+        transform: translateY(-2px);
+        opacity: .9;
+      }
+
+      // --- Block-specific colors ---
+      .team-section {
+        background: #2b5a7c;
+      }
+
+      .orbit-team {
+        background: #6a1b9a;
+      }
+
+      // --- Pro locked state ---
+      .pro-locked {
+        opacity: 0.6;
+        cursor: not-allowed;
+
+        &:hover {
+          transform: none;
+          opacity: 0.6;
+        }
+      }
+
+      .pro-badge {
+        position: absolute;
+        top: 6px;
+        right: 6px;
+        background: #ff9800;
+        color: #fff;
+        font-size: 0.65rem;
+        font-weight: 700;
+        padding: 2px 6px;
+        border-radius: 4px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+    }
+  }
+
+  @media (max-width: 600px) {
+    .tsb-block-selector {
+      .buttons {
+        grid-template-columns: 1fr;
+
+        .button {
+          height: 100px;
+
+          .icon {
+            font-size: 2rem;
+          }
+        }
+      }
+    }
+  }
+}

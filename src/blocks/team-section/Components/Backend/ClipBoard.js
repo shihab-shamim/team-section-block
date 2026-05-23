@@ -51,8 +51,23 @@ const ClipBoard = ({ shortCode }) => {
 
     function fallbackCopy() {
       try {
-        document.execCommand("copy");
-        feedback();
+        const textArea = document.createElement("textarea");
+        textArea.value = shortCode;
+        // Move outside screen to avoid scrolling
+        textArea.style.position = "fixed";
+        textArea.style.left = "-999999px";
+        textArea.style.top = "-999999px";
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+        const successful = document.execCommand("copy");
+        textArea.remove();
+        
+        if (successful) {
+          feedback();
+        } else {
+          console.error("Fallback copy failed: execCommand returned false");
+        }
       } catch (err) {
         console.error("Fallback copy failed", err);
       }

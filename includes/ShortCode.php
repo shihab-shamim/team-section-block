@@ -14,7 +14,13 @@ class TSB_Shortcode {
 	}
 
 	function onInit(){
-
+		// Mirror info-cards: premium users see the selector UI,
+		// free users get the default team block directly.
+		if ( tsbIsPremium() ) {
+			$template = [ [ 'tsb/team-section-selector' ] ];
+		} else {
+			$template = [ [ 'tsb/team' ] ];
+		}
 
 		register_post_type( 'tsb', [
 			'labels'				=> [
@@ -40,7 +46,7 @@ class TSB_Shortcode {
 			'capability_type'		=> 'page',
 			'rewrite'				=> [ 'slug' => 'apb' ],
 			'supports'				=> [ 'title', 'editor' ],
-			'template' => [ [ 'tsb/team' ] ],
+			'template' => $template,
 			'template_lock'			=> "all",
 		] );
 	}
