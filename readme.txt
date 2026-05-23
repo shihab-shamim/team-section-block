@@ -9,7 +9,7 @@ Requires PHP: 7.1
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
-Showcase your team members in various layouts and designs .
+Showcase your team members in various layouts and designs. 
 
 == Description ==
 
@@ -43,7 +43,6 @@ This block plugin makes the displays fully customizable, so you can create uniqu
 * Beginner Friendly – No coding required.
 
 
-**[Demos](https://bblockswp.com/demo/team-members/)**
 
 
 = How to use =
