@@ -6,58 +6,58 @@ const ClipBoard = ({ shortCode }) => {
   const inputRef = useRef(null);
   const [copied, setCopied] = useState(false);
 
-const handleCopy = (e) => {
-  if (e) {
-    e.preventDefault();
-    e.stopPropagation();
-  }
-
-  if (inputRef.current) {
-    inputRef.current.select();
-    inputRef.current.setSelectionRange(0, 99999);
-  }
-
-  const feedback = () => {
-    setCopied(true);
-
-    if (tooltip.current) {
-      tooltip.current.innerHTML = "Copied Successfully!";
-      tooltip.current.classList.add("copied");
+  const handleCopy = (e) => {
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
     }
 
-    setTimeout(() => {
-      setCopied(false);
+    if (inputRef.current) {
+      inputRef.current.select();
+      inputRef.current.setSelectionRange(0, 99999);
+    }
+
+    const feedback = () => {
+      setCopied(true);
 
       if (tooltip.current) {
-        tooltip.current.innerHTML = "Copy To Clipboard";
-        tooltip.current.classList.remove("copied");
+        tooltip.current.innerHTML = "Copied Successfully!";
+        tooltip.current.classList.add("copied");
       }
-    }, 1500);
-  };
 
-  if (navigator.clipboard && navigator.clipboard.writeText) {
-    navigator.clipboard
-      .writeText(shortCode)
-      .then(() => {
-        feedback();
-      })
-      .catch((err) => {
-        console.error("Clipboard API failed, trying fallback", err);
-        fallbackCopy();
-      });
-  } else {
-    fallbackCopy();
-  }
+      setTimeout(() => {
+        setCopied(false);
 
-  function fallbackCopy() {
-    try {
-      document.execCommand("copy");
-      feedback();
-    } catch (err) {
-      console.error("Fallback copy failed", err);
+        if (tooltip.current) {
+          tooltip.current.innerHTML = "Copy To Clipboard";
+          tooltip.current.classList.remove("copied");
+        }
+      }, 1500);
+    };
+
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard
+        .writeText(shortCode)
+        .then(() => {
+          feedback();
+        })
+        .catch((err) => {
+          // console.error("Clipboard API failed, trying fallback", err);
+          fallbackCopy();
+        });
+    } else {
+      fallbackCopy();
     }
-  }
-};
+
+    function fallbackCopy() {
+      try {
+        document.execCommand("copy");
+        feedback();
+      } catch (err) {
+        console.error("Fallback copy failed", err);
+      }
+    }
+  };
 
   return (
     <div className="pfbFrontShortCode">

@@ -14843,7 +14843,6 @@ const useBlocksSettings = (action, nonce) => {
       setInternalStatus('success');
       return response;
     } catch (error) {
-      console.error('Save failed:', error);
       setInternalStatus('error');
     }
   };

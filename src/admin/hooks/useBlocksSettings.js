@@ -4,7 +4,7 @@ import useWPAjax from '../../../../bpl-tools/hooks/useWPAjax';
 const useBlocksSettings = (action, nonce) => {
 	const [internalStatus, setInternalStatus] = useState(null);
 
-	const { data = [], saveData = () => {}, refetch = () => {}, isLoading = false } = useWPAjax(
+	const { data = [], saveData = () => { }, refetch = () => { }, isLoading = false } = useWPAjax(
 		action,
 		{ _wpnonce: nonce },
 		true
@@ -35,7 +35,7 @@ const useBlocksSettings = (action, nonce) => {
 			return response;
 
 		} catch (error) {
-			console.error('Save failed:', error);
+
 			setInternalStatus('error');
 		}
 	};

@@ -17,7 +17,7 @@ import { produce } from "immer";
 import { BBlocksAds } from "../../../../../../../bpl-tools/Components";
 
 import { primaryColor } from "../../../../../../../bpl-tools/utils/data";
-import { AboutProModal, ProModal } from "../../../../../../../bpl-tools/ProControls";
+import { ProModal } from "../../../../../../../bpl-tools/ProControls";
 
 import { generalStyleTabs, toolTipPresets } from "../../../utils/options";
 import BlockPreview from "./panel/BlockPreview";
