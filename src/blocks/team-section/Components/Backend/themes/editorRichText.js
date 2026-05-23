@@ -1,0 +1,2 @@
+import {  RichText } from '@wordpress/block-editor';
+export const ReusableRichText=({tagName,className,value,onChange,placeholder})=><RichText placeholder={placeholder} tagName={tagName} className={className} value={value} onChange={(val)=>onChange(val)} />

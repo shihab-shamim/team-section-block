@@ -1,0 +1,897 @@
+$primaryColor: #4527a4;
+:root {
+  --position: -0.375rem;
+  // --height:100%;
+}
+
+// Dashicon
+.dashicons {
+  font-family: dashicons !important;
+}
+
+@for $i from 1 through 12 {
+  .columns-#{$i} {
+    grid-template-columns: repeat(#{$i}, 1fr);
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  @for $i from 1 through 12 {
+    .columns-tablet-#{$i} {
+      grid-template-columns: repeat(#{$i}, 1fr);
+    }
+  }
+}
+
+@media only screen and (max-width: 640px) {
+  @for $i from 1 through 12 {
+    .columns-mobile-#{$i} {
+      grid-template-columns: repeat(#{$i}, 1fr);
+    }
+  }
+}
+
+// Team Section
+.wp-block-tsb-team .tsbTeamMembers {
+  display: grid;
+
+  * {
+    box-sizing: border-box;
+  }
+
+  &.horizontal {
+    .tsbMember {
+      display: flex;
+      align-items: center;
+
+      .memberPhoto {
+        width: calc(38% - 20px);
+        max-width: 38%;
+      }
+
+      .memberDetails {
+        padding: 0 20px 0 0;
+        width: 62%;
+      }
+    }
+  }
+
+  &.vertical {
+    .tsbMember {
+      .memberDetails {
+        padding: 0 20px;
+      }
+    }
+  }
+
+  .tsbMember {
+    position: relative;
+
+    .memberPhoto {
+      max-width: 100%;
+      height: auto;
+      display: inline-block;
+    }
+
+    .memberName {
+      font-weight: 600;
+      margin: 0;
+    }
+
+    .memberTitle {
+      margin: 0;
+    }
+
+    .memberSeparator {
+      display: inline-block;
+    }
+
+    .memberBio {
+      display: block;
+    }
+
+    ul.memberSocial {
+      list-style-type: none;
+      line-height: 1;
+      margin: 0;
+      padding: 5px;
+      display: flex;
+      align-items: center;
+
+      li {
+        display: inline-block;
+
+        &:first-child {
+          margin-left: 0 !important;
+        }
+
+        &:last-child {
+          margin-right: 0 !important;
+        }
+
+        a {
+          text-decoration: none;
+          color: #4e4e4e;
+          padding: 8px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 50%;
+
+          &:focus {
+            box-shadow: none;
+          }
+
+          i {
+            font-style: inherit;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+        }
+      }
+    }
+  }
+}
+
+.wp-block-tsb-team {
+  .tsbTeamMembersWrapper {
+    display: flex;
+
+    .tsbTeamMembersTeamContainer {
+      margin: 0;
+      // width: 90%;
+      // padding: 100px;
+      display: grid;
+      // gap: 100px;
+    }
+    .tsbTeamMembersTeamMember {
+      width: 100%;
+      --base-size: calc(720px / 100);
+      margin: 1.5em 0 0.5em;
+      position: relative;
+      list-style: none;
+      display: block;
+
+      transform: scale(0.85);
+      transition: all 0.4s ease 0s;
+    }
+
+    .tsbTeamMembersTeamMember:nth-of-type(even) {
+      // mobile device a thakbena align ta
+      margin-left: -25px;
+
+      text-align: right;
+      @media only screen and (max-width: 640px) {
+        text-align: left;
+      }
+      // background: linear-gradient(
+      //   -83deg,
+      //   #ffdd40 0 97%,
+      //   #fff0 calc(97% + 1px) 100%
+      // );
+    }
+
+    .tsbTeamMembersTeamMemberThumb {
+      /* Changed 13vmin to a fixed size using the --base-size variable for dynamic scaling */
+      // width: calc(var(--base-size) * 13);
+      // height: calc(var(--base-size) * 13);
+      float: left;
+      margin-right: 1.25em;
+      // background: linear-gradient(-86deg, #2f313a 0 70%, #ffdd40 0% 100%);
+      transform: rotate(-4deg);
+      transition: all 0.4s ease 0s;
+      // border-radius: 0.25em;
+      overflow: hidden;
+      margin-left: -3em;
+      // padding: 0.5em;
+    }
+
+    .tsbTeamMembersTeamMember:nth-of-type(even) .tsbTeamMembersTeamMemberThumb {
+      /* --deg: 86deg; */
+      float: right;
+      margin-left: 2em;
+      margin-right: -3em;
+      transform: rotate(4deg);
+      // background: linear-gradient(86deg, #2f313a 0 70%, #ffdd40 70% 100%) !important;
+    }
+
+    .tsbTeamMembersTeamMemberThumb img {
+      width: 100%;
+      height: 100%;
+      border-radius: 0.25em;
+      // filter: grayscale(1);
+      // background: #2f313a;
+      object-fit: cover;
+    }
+
+    .tsbTeamMembersTeamMember:hover {
+      @media (min-width: 1025px) {
+        transform: scale(1);
+      }
+      transition: all 0.4s ease 0s;
+      // filter: drop-shadow(0px 20px 10px #0008);
+    }
+
+    .tsbTeamMembersTeamMember:hover .tsbTeamMembersTeamMemberThumb {
+      // padding: 0.1em;
+      transition: all 0.4s ease 0s;
+      transform: rotate(-1deg);
+    }
+
+    .tsbTeamMembersTeamMember:hover .tsbTeamMembersTeamMemberThumb img {
+      filter: none !important;
+      transition: all 0.4s ease 0s;
+    }
+
+    .tsbTeamMembersTeamMemberThumbDescription {
+      padding-top: calc(var(--base-size) * 1);
+    }
+
+    .tsbTeamMembersTeamMemberThumbDescription p {
+      padding: 0 2em;
+      margin-bottom: 1em;
+    }
+
+    .tsbTeamMemberName {
+      display: inline;
+      transform: rotate(-2deg);
+      position: absolute;
+      margin: 0;
+      margin-top: -2.25em;
+      left: 83px;
+      transform-origin: left bottom;
+    }
+
+    .tsbTeamMembersTeamMember:nth-of-type(even) .tsbTeamMemberName {
+      left: inherit;
+      right: 84px;
+      transform: rotate(2deg);
+      transform-origin: right bottom;
+    }
+
+    .tsbTeamMembersTeamMember:hover .tsbTeamMemberName {
+      transition: all 0.4s ease 0s;
+      transform: rotate(0deg);
+    }
+
+    .co-funder:after {
+      content: attr(data-role);
+      position: absolute;
+      top: -1.5em;
+      @media only screen and (max-width: 640px) {
+        right: 2px;
+      }
+      right: 4em;
+      transform: rotate(3deg);
+    }
+
+    .co-funder:nth-of-type(even):after {
+      right: inherit;
+      @media only screen and (max-width: 640px) {
+        left: 2px;
+      }
+      left: 4em;
+      transform: rotate(-3deg);
+    }
+    .tsbTeamMembersTeamMemberThumbDescription p {
+      transition: none !important;
+    }
+
+    .tsbTeamMembersTeamMemberThumbDescription p .tsbTeamMemberUserName {
+      display: inline-block;
+      margin: 0.5em 0 0 0;
+      transition: all 0.4s ease 0s;
+      text-decoration: none;
+      outline: none;
+    }
+    .tsbTeamMembersTeamMemberThumbDescription p .tsbTeamMemberUserName:focus {
+      outline: none !important;
+      box-shadow: none !important;
+    }
+  }
+
+  .tsbTeamMembersWrapperTheme-6 {
+    * {
+      box-sizing: border-box;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+
+      object-fit: cover;
+      width: 100%;
+    }
+
+    .tsbTeamMemberSocial {
+      list-style-type: none;
+      padding: 0 !important;
+    }
+
+    .tsbTeamMembersBgWatermark {
+      position: absolute;
+      z-index: 0;
+      left: 50%;
+
+      @media (max-width: 576px) {
+        transform: translateX(-50%) translateY(-78%);
+      }
+      user-select: none;
+      letter-spacing: 0.5rem;
+    }
+
+    .tsbTeamMembersTeamContainer {
+      display: grid;
+      .tsbTeamMembersTeamMember {
+        position: relative;
+        cursor: pointer;
+
+        width: 100%;
+
+        // image overly
+        &::after {
+          position: absolute;
+          inset: 0;
+          content: "";
+          width: 100%;
+          height: 100%;
+        }
+
+        img {
+          transition: filter 0.5s ease;
+        }
+
+        &:hover {
+          img {
+            filter: grayscale(0%) !important;
+          }
+
+          &::before {
+            transform: scale(1.03);
+          }
+        }
+
+        &::before {
+          top: var(--position);
+          left: var(--position);
+        }
+
+        .tsbTeamMembersTeamMember-content {
+          position: absolute;
+          bottom: 0;
+          z-index: 99;
+          left: 0;
+          color: #fff;
+          width: 100%;
+          padding: 1.875rem 1.25rem;
+          text-align: center;
+
+          ul {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            // gap: 0.625rem;
+            margin-top: 1.25rem;
+          }
+        }
+      }
+      .tsbTeamMembersTeamMemberShape {
+        &::before {
+          position: absolute;
+          content: "";
+          z-index: 0;
+          transition: 0.3s ease-in-out;
+
+          top: var(--position);
+          left: var(--position);
+        }
+      }
+    }
+  }
+
+  .tsbTeamMembersWrapperTheme-7 {
+    background: #fff;
+    min-height: 600px;
+    display: grid;
+    place-content: center;
+    font-family: Arial, sans-serif;
+    position: relative;
+
+    .team-ring {
+      position: relative;
+      width: 18rem;
+      height: 18rem;
+      display: grid;
+      place-content: center;
+      grid-template-areas: "stack";
+    }
+
+    .tsbInputTpye {
+      display: none;
+    }
+
+    .team-ring label {
+      grid-area: stack;
+      display: grid;
+      place-content: center;
+      font-size: 1.25rem;
+      position: relative;
+      transition: 0.5s;
+      cursor: pointer;
+    }
+
+    .team-ring img {
+      transition: 1s ease-in-out;
+    }
+
+    .team-ring svg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 125px;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      transition: 0.5s ease-in-out;
+      z-index: 5; /* keep above image */
+    }
+
+    .team-ring input:checked + label {
+      transform: scale(1.2);
+      transition: 1s;
+    }
+
+    .team-ring input:checked + label svg {
+      opacity: 1;
+      transition-delay: 0.5s;
+    }
+
+    #center {
+      position: absolute;
+      inset: 0;
+      margin: auto;
+
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      display: grid;
+      place-content: center;
+
+      z-index: 0;
+    }
+
+    #center::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      z-index: -1;
+      transition: 1s;
+    }
+
+    .avatar {
+      --radius: 14rem;
+      --d: calc(var(--i) / var(--total));
+      --r-offset: -0.15turn;
+      --r-amount: 1turn;
+      --r: calc((var(--r-amount) * var(--d)) + var(--r-offset));
+      transform: rotate(var(--r)) translate(var(--radius))
+        rotate(calc(-1 * var(--r)));
+    }
+
+    @media (max-width: 640px) {
+      .team-ring {
+        width: 11rem;
+        height: 11rem;
+      }
+      .team-ring img {
+        width: 55px !important;
+        height: 55px !important;
+      }
+      .team-ring input:checked + label img {
+        transform: scale(2.3) !important;
+      }
+      .team-ring label {
+        width: 55px !important;
+        height: 55px !important;
+      }
+      .avatar {
+        --radius: 9rem;
+      }
+      #center {
+        width: 100px !important;
+        height: 100px !important;
+        font-size: 0.8rem;
+      }
+      .team-ring svg {
+        width: 90px;
+      }
+      .team-ring input:checked + label svg {
+        opacity: 1;
+        font-size: 20px;
+        transform: translate(-50%, -50%) scale(2.25) rotate(0deg);
+      }
+    }
+  }
+  .tsbTeamMembersWrapperTheme-8 {
+    // padding-block: min(20vh, 5rem);
+    // text-align: center;
+    // width: calc(min(90rem, 90%));
+    // margin-inline: auto;
+
+    // img {
+    //   // max-width: 100%;
+    //   // width: 336px;
+    //   // height: 336px;
+    //   display: block;
+    //   object-fit: cover;
+    //   object-position: top;
+    // }
+    a {
+      text-decoration: none;
+    }
+    h3 {
+      margin: 0;
+    }
+
+    .tsbTeamMembersTeamContainer {
+      margin-top: 4rem;
+      display: grid;
+      // grid-template-columns: repeat(3,1fr);
+      // gap: 2rem;
+
+      .tsbTeamMember {
+        position: relative;
+        text-align: left;
+
+        .social-icon {
+          // background: #111;
+          // padding: 1rem 1.75rem;
+          position: absolute;
+          left: 0;
+          z-index: 2;
+
+          i {
+            // color: #fff;
+            // font-size: 1.4rem;
+            transition: 0.3s ease;
+          }
+        }
+        .tsbTeamMember_img_wrapper {
+          width: 100%;
+
+          img {
+            transition: 0.5s ease;
+            display: block;
+            object-position: top;
+          }
+        }
+
+        .tsbTeamMember_content_wrapper {
+          margin-left: auto;
+          max-width: 90%;
+
+          .tsbTeamMember_content {
+            // background: rgb(206, 4, 4);
+            // padding: 4.5rem 2rem 0 3.2rem;
+            transition: 0.5s ease;
+            display: block;
+            outline: none;
+
+            // h3 {
+            //   color: #111;
+            // }
+
+            // p {
+            //   color: #454545;
+            // }
+
+            > div {
+              text-align: right;
+            }
+          }
+        }
+
+        /* Hover Effects */
+      }
+    }
+  }
+
+  .tsbTeamMembersWrapperTheme-9 {
+    .section-text {
+      font-size: 18px;
+      color: #475569;
+      text-align: center;
+      max-width: 560px;
+      margin: auto;
+      margin-bottom: 60px;
+    }
+
+    .tsbTeamMembersTeamContainer {
+      display: grid;
+
+      .tsbTeamMember {
+        transition: 0.3s;
+
+        .tsbTeamMember_img_wrapper {
+          position: relative;
+          overflow: hidden;
+
+          margin-bottom: 16px;
+
+          img {
+            width: 100%;
+            height: 100%;
+            filter: grayscale(100%);
+            transition: 0.5s ease;
+          }
+
+          .tsbTeamMember_social_wrapper {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            transition: opacity 0.3s;
+
+            .tsbTeamMember_social {
+              position: absolute;
+              bottom: 16px;
+              left: 16px;
+              display: flex;
+              flex-wrap: wrap;
+              gap: 10px;
+
+              .tsbMember_social_link {
+                border: none;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                transition: 0.3s;
+
+                &:hover {
+                  background: #0f172a;
+                  color: #ffffff;
+                }
+              }
+            }
+          }
+        }
+
+        &:hover .tsbTeamMember_social_wrapper {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  .tsbTeamMembersWrapperTheme-10 {
+    // .subtext {
+    //   font-size: 22px;
+    //   color: #475569;
+    //   max-width: 600px;
+    // }
+
+    .team-row {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      margin-bottom: 60px;
+      align-items: stretch;
+    }
+
+    @media (min-width: 992px) {
+      .team-row {
+        flex-direction: row;
+      }
+
+      .team-row.reverse {
+        flex-direction: row-reverse;
+      }
+    }
+
+    .tsbTeamMember_img_wrap {
+      width: 100%;
+      @media only screen and (max-width: 1024px) {
+        margin: 0 auto;
+      }
+    }
+
+    .tsbTeamMember_img_box {
+      position: relative;
+    }
+
+    .tsbTeamMember_img_shadow {
+      position: absolute;
+      inset: 0;
+      border-radius: 24px;
+      transform: rotate(3deg);
+      transition: 0.3s ease;
+    }
+
+    .tsbTeamMember_img_profile {
+      width: 100%;
+      border-radius: 24px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .tsbTeamMember_content_card {
+      width: 100%;
+      @media only screen and (max-width: 640px) {
+        padding: 20px 10px !important;
+      }
+    }
+
+    .profile-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .tsbTeamMember_content_card_number_box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .tsbTeamMember_content_card_stats_grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      @media only screen and (max-width: 640px) {
+        grid-template-columns: 1fr;
+        justify-content: center;
+      }
+    }
+
+    .stat-box {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .tsbTeamMember_content_card_stat {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .tsbTeamMember_content_card_stat_value {
+      margin: 0;
+    }
+
+    .tsbTeamMember_content_card_stat_label {
+      margin: 0;
+    }
+
+    .tsbTeamMember_btn {
+      width: 100%;
+      margin-top: 65px;
+      border: none;
+      cursor: pointer;
+      transition: 0.3s;
+      display: block;
+      text-align: center;
+    }
+  }
+  .tsbTeamMemberWrapperTheme-11 {
+    // padding: 80px 20px;
+    // max-width: 1200px;
+    // margin: auto;
+
+    .tsbTeamMember-grid {
+      display: grid;
+      // gap: 24px;
+      // margin-top: 60px;
+      // grid-template-columns: repeat(2,1fr);
+    }
+
+    .tsbTeamMember-card {
+      // background: #ffffff;
+      // border-radius: 18px;
+      overflow: hidden;
+      // box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+      transition: 0.5s ease;
+      cursor: pointer;
+      // max-height: 500px;
+
+      .tsbTeamMember-inner {
+        display: flex;
+        flex-direction: column;
+
+        @media (min-width: 640px) {
+          flex-direction: row;
+        }
+      }
+
+      .tsbTeamMember-img-box {
+        width: 100%;
+        height: 260px;
+        position: relative;
+        overflow: hidden;
+        flex: 1;
+
+        @media (min-width: 640px) {
+          height: auto;
+        }
+
+        .tsbTeamMember-img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: 0.7s ease;
+        }
+
+        .tsbTeamMember-gradient-overlay {
+          position: absolute;
+          inset: 0;
+          // background: linear-gradient(to right, transparent, white);
+          opacity: 1;
+        }
+      }
+
+      .tsbTeamMember-text-box {
+        padding: 32px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        .tsbTeamMemberBio {
+          // color: #475569;
+          // font-size: 16px;
+          margin: 0;
+          margin-bottom: 24px !important;
+        }
+
+        .tsbTeamMember_view_btn {
+          border: none;
+          background: none;
+          // font-weight: 600;
+          // color: #0f172a;
+          // font-size: 16px;
+          display: flex;
+          align-items: center;
+          // gap: 8px;
+          transition: 0.4s ease;
+          cursor: pointer;
+
+          svg {
+            stroke-width: 2;
+          }
+        }
+      }
+    }
+  }
+}
+
+.tsm-premium-slider-wrapper {
+  position: relative;
+  // overflow: hidden;
+  width: 100%;
+}
+.tsm-premium-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(2px);
+  z-index: 10;
+  transition: opacity 0.3s ease;
+}
+.tsm-premium-overlay-content {
+  text-align: center;
+  color: #fff;
+}
+.tsm-upgrade-btn {
+  display: inline-block;
+  margin-top: 10px;
+  background: #136ef5;
+  color: #fff !important;
+  padding: 10px 18px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+}
+.tsm-upgrade-btn:hover {
+  background: #136ef5;
+}

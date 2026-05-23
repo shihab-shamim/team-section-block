@@ -1,0 +1,48 @@
+<?php
+function tsb_sanitize_social_url( $url ) {
+    // Only allow http, https, mailto protocols
+    $allowed_protocols = array( 'http', 'https', 'mailto' );
+    $url = esc_url_raw( $url, $allowed_protocols );
+
+    // Additional validation to reject javascript: and data: schemes
+    if ( preg_match( '/^(javascript|data):/i', $url ) ) {
+        return '';
+    }
+
+    return $url;
+}
+
+// Apply sanitization when saving block attributes
+function tsb_sanitize_block_attributes( $attributes ) {
+    if ( isset( $attributes['members'] ) && is_array( $attributes['members'] ) ) {
+        foreach ( $attributes['members'] as &$member ) {
+            if ( isset( $member['socials'] ) && is_array( $member['socials'] ) ) {
+                foreach ( $member['socials'] as &$social ) {
+                    if ( isset( $social['url'] ) ) {
+                        $social['url'] = tsb_sanitize_social_url( $social['url'] );
+                    }
+                }
+            }
+        }
+    }
+    return $attributes;
+}
+
+// Validate URL scheme before rendering
+function sanitizeSocialUrl(url) {
+    try {
+        const urlObj = new URL(url, window.location.origin);
+        const allowedProtocols = ['http:', 'https:', 'mailto:'];
+
+        if (!allowedProtocols.includes(urlObj.protocol)) {
+            return '#';  // Return safe default
+        }
+
+        return url;
+    } catch (e) {
+        return '#';  // Invalid URL, return safe default
+    }
+}
+
+// When rendering social links
+const sanitizedUrl = sanitizeSocialUrl(social.url);
