@@ -7,13 +7,13 @@ import {
 } from "@wordpress/components";
 import { __ } from "@wordpress/i18n";
 import { useState } from "@wordpress/element";
-import { updateData } from "../../../../../bpl-tools/utils/functions";
+import { updateData } from "../../../../../../../bpl-tools/utils/functions";
 import {
   IconControl,
   InlineMediaUpload,
   Label,
-} from "../../../../../bpl-tools/Components";
-import { sanitizeURL } from "../../../../../bpl-tools/utils/common";
+} from "../../../../../../../bpl-tools/Components";
+import { sanitizeURL } from "../../../../../../../bpl-tools/utils/common";
 
 
 const theme9ProfileSetting = (props) => {
@@ -64,7 +64,7 @@ const theme9ProfileSetting = (props) => {
 
   return (
     <>
-      
+
       <InlineMediaUpload
         label={__("Image", "team-section")}
         value={photo?.url}
@@ -75,7 +75,7 @@ const theme9ProfileSetting = (props) => {
         }
       />
 
-    
+
       <TextControl
         className="mt15"
         placeholder="Name..."
@@ -88,7 +88,7 @@ const theme9ProfileSetting = (props) => {
         }
       />
 
-      
+
       <TextControl
         className="mt15"
         placeholder="Title..."
@@ -112,7 +112,7 @@ const theme9ProfileSetting = (props) => {
           flexWrap: "wrap",
         }}
       >
-        
+
         {social.map((item, socialIndex) => (
           <div
             key={socialIndex}
@@ -137,13 +137,13 @@ const theme9ProfileSetting = (props) => {
           </div>
         ))}
 
-        
+
         <Button
           variant="primary"
           onClick={handleAddSocial}
-          style={{ height: "40px",display:"flex",justifyContent:"center", alignItems:"center" }}
+          style={{ height: "40px", display: "flex", justifyContent: "center", alignItems: "center" }}
         >
-          <i className="fa fa-plus" /> <span style={{marginLeft:"10px"}}>{__(" Add Social", "team-section")}</span>
+          <i className="fa fa-plus" /> <span style={{ marginLeft: "10px" }}>{__(" Add Social", "team-section")}</span>
         </Button>
       </div>
 
@@ -191,7 +191,7 @@ const theme9ProfileSetting = (props) => {
         </div>
       )}
 
-      
+
     </>
   );
 };

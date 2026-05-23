@@ -9,16 +9,30 @@ import OurPlugins from '../../../../bpl-tools/Admin/OurPlugins';
 import Layout from './Layout';
 import Welcome from './Welcome';
 import { demoInfo, pricingInfo } from '../utils/data';
+import useBlocksSettings from '../hooks/useBlocksSettings';
+import blocks from '../utils/blocks';
+import Blocks from '../../../../bpl-tools/Admin/Blocks';
 
 const App = (props) => {
-	const { isPremium, hasPro } = props;
+	const { isPremium, hasPro, action, nonce } = props;
+	const { data, internalStatus, saveToBackend } = useBlocksSettings(action, nonce);
 
 	return <Router>
 		<Routes>
 			<Route path='/' element={<Layout {...props} />}>
-				<Route index element={<Welcome {...props} />} />
+				<Route index element={<Welcome {...props} disabledBlocks={data} status={internalStatus} onChange={saveToBackend} />} />
+				<Route path='welcome' element={<Welcome {...props} disabledBlocks={data} status={internalStatus} onChange={saveToBackend} />} />
 
-				<Route path='welcome' element={<Welcome {...props} />} />
+				{/* Block toggle management — always visible */}
+				<Route path='blocks' element={	<Blocks
+					{...props}
+					pageTitle='All Blocks'
+					allBlocks={blocks}
+					disabledBlocks={data}
+					status={internalStatus}
+					onChange={saveToBackend} />
+				}
+				/>
 
 				<Route path='demos' element={<Demos demoInfo={demoInfo} {...props} />} />
 

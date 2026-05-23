@@ -1,106 +1,106 @@
-import { escapeHTML } from "../../../../bpl-tools/utils/common";
+import { escapeHTML } from "../../../../../../bpl-tools/utils/common";
 import {
-  deskBreakpoint,
-  mobileBreakpoint,
-  tabBreakpoint,
-} from "../../../../bpl-tools/utils/data";
+	deskBreakpoint,
+	mobileBreakpoint,
+	tabBreakpoint,
+} from "../../../../../../bpl-tools/utils/data";
 import {
-  getBackgroundCSS,
-  getBorderCSS,
-  getBoxCSS,
-  getColorsCSS,
-  getMultiShadowCSS,
-  getSeparatorCSS,
-  getSpaceCSS,
-  getTypoCSS,
-} from "../../../../bpl-tools/utils/getCSS";
+	getBackgroundCSS,
+	getBorderCSS,
+	getBoxCSS,
+	getColorsCSS,
+	getMultiShadowCSS,
+	getSeparatorCSS,
+	getSpaceCSS,
+	getTypoCSS,
+} from "../../../../../../bpl-tools/utils/getCSS";
 
 const Style = ({ attributes, id }) => {
-  const {
-    members = [],
-    columns,
-    columnGap,
-    rowGap,
-    layout,
-    textAlign,
-    padding,
-    photoWidth,
-    photoMargin,
-    nameTypo,
-    nameMargin,
-    titleTypo,
-    titleMargin,
-    sepMargin,
-    bioTypo,
-    bioMargin,
-    socialSize,
-    socialIconMargin,
-    styles,
-    theme = "default",
-    options = {},
-  } = attributes;
+	const {
+		members = [],
+		columns,
+		columnGap,
+		rowGap,
+		layout,
+		textAlign,
+		padding,
+		photoWidth,
+		photoMargin,
+		nameTypo,
+		nameMargin,
+		titleTypo,
+		titleMargin,
+		sepMargin,
+		bioTypo,
+		bioMargin,
+		socialSize,
+		socialIconMargin,
+		styles,
+		theme = "default",
+		options = {},
+	} = attributes;
 
-  const { hoverOnScale = true, isShowWaterMark = true } = options || {};
-  const {
-    bg = {},
-    width = "100%",
-    alignment = "center",
-    padding: sectionPadding = {
-      top: "0px",
-      left: "0px",
-      bottom: "0px",
-      right: "0px",
-    },
-    margin = { top: "0px", left: "0px", bottom: "0px", right: "0px" },
-    teamMember = {},
-  } = styles || {};
+	const { hoverOnScale = true, isShowWaterMark = true } = options || {};
+	const {
+		bg = {},
+		width = "100%",
+		alignment = "center",
+		padding: sectionPadding = {
+			top: "0px",
+			left: "0px",
+			bottom: "0px",
+			right: "0px",
+		},
+		margin = { top: "0px", left: "0px", bottom: "0px", right: "0px" },
+		teamMember = {},
+	} = styles || {};
 
 
-  const mainSl = `#${id}`;
-  const membersSl = `${mainSl} .tsbTeamMembers`;
-  const gMemberSl = `${membersSl} .tsbMember`;
-  const gMemberDetailsSl = `${gMemberSl} .memberDetails`;
-  const gMemberSocialSl = `${gMemberDetailsSl} .memberSocial`;
-  const tsbTeamMembersWrapperlSl = `${mainSl} .tsbTeamMembersWrapper`;
-  const tsbTeamMembersTeamContainerSl = `${tsbTeamMembersWrapperlSl} .tsbTeamMembersTeamContainer`;
-  const tsbTeamMembersTeamMemberSl = `${tsbTeamMembersTeamContainerSl} .tsbTeamMembersTeamMember`;
-  const tsbTeamMembersTeamMemberThumbSl = `${tsbTeamMembersTeamMemberSl} .tsbTeamMembersTeamMemberThumb`;
-  const tsbTeamMemberNameSl = `${mainSl} .tsbTeamMemberName`;
-  const coFounderSl = `${tsbTeamMembersTeamContainerSl} .co-funder`;
-  const tsbTeamMemberBioSl = `${tsbTeamMembersTeamMemberSl} .tsbTeamMemberBio`;
-  const tsbTeamMemberUserNameSl = `${tsbTeamMembersTeamMemberSl} .tsbTeamMemberUserName`;
+	const mainSl = `#${id}`;
+	const membersSl = `${mainSl} .tsbTeamMembers`;
+	const gMemberSl = `${membersSl} .tsbMember`;
+	const gMemberDetailsSl = `${gMemberSl} .memberDetails`;
+	const gMemberSocialSl = `${gMemberDetailsSl} .memberSocial`;
+	const tsbTeamMembersWrapperlSl = `${mainSl} .tsbTeamMembersWrapper`;
+	const tsbTeamMembersTeamContainerSl = `${tsbTeamMembersWrapperlSl} .tsbTeamMembersTeamContainer`;
+	const tsbTeamMembersTeamMemberSl = `${tsbTeamMembersTeamContainerSl} .tsbTeamMembersTeamMember`;
+	const tsbTeamMembersTeamMemberThumbSl = `${tsbTeamMembersTeamMemberSl} .tsbTeamMembersTeamMemberThumb`;
+	const tsbTeamMemberNameSl = `${mainSl} .tsbTeamMemberName`;
+	const coFounderSl = `${tsbTeamMembersTeamContainerSl} .co-funder`;
+	const tsbTeamMemberBioSl = `${tsbTeamMembersTeamMemberSl} .tsbTeamMemberBio`;
+	const tsbTeamMemberUserNameSl = `${tsbTeamMembersTeamMemberSl} .tsbTeamMemberUserName`;
 
-  const tsbTeamMembersWrapperTheme6Sl = `${mainSl} .tsbTeamMembersWrapperTheme-6`;
-  const tsbTeamMembersWrapperTheme7Sl = `${mainSl} .tsbTeamMembersWrapperTheme-7`;
-  const tsbTeamMembersWrapperTheme8Sl = `${mainSl} .tsbTeamMembersWrapperTheme-8`;
-  const tsbTeamMembersWrapperTheme9Sl = `${mainSl} .tsbTeamMembersWrapperTheme-9`;
-  const tsbTeamMembersWrapperTheme10Sl = `${mainSl} .tsbTeamMembersWrapperTheme-10`;
-  const tsbTeamMembersWrapperTheme11Sl = `${mainSl} .tsbTeamMemberWrapperTheme-11`;
-  // .threeDinfoCard${index}{
-  // 	${getBackgroundCSS(card.backgroundImage)}
-  // }
-  // .threeDinfoCardContentBox${index}{
-  // background:${card?.backgroundColor};
-  // box-shadow:${getMultiShadowCSS(card?.shadow)};
-  // padding:${getBoxCSS(styles?.card?.contentPadding)}
-  // }
-  // ${dateBoxSl}${index}{
-  // box-shadow:${getMultiShadowCSS(card?.tagShadow)};
+	const tsbTeamMembersWrapperTheme6Sl = `${mainSl} .tsbTeamMembersWrapperTheme-6`;
+	const tsbTeamMembersWrapperTheme7Sl = `${mainSl} .tsbTeamMembersWrapperTheme-7`;
+	const tsbTeamMembersWrapperTheme8Sl = `${mainSl} .tsbTeamMembersWrapperTheme-8`;
+	const tsbTeamMembersWrapperTheme9Sl = `${mainSl} .tsbTeamMembersWrapperTheme-9`;
+	const tsbTeamMembersWrapperTheme10Sl = `${mainSl} .tsbTeamMembersWrapperTheme-10`;
+	const tsbTeamMembersWrapperTheme11Sl = `${mainSl} .tsbTeamMemberWrapperTheme-11`;
+	// .threeDinfoCard${index}{
+	// 	${getBackgroundCSS(card.backgroundImage)}
+	// }
+	// .threeDinfoCardContentBox${index}{
+	// background:${card?.backgroundColor};
+	// box-shadow:${getMultiShadowCSS(card?.shadow)};
+	// padding:${getBoxCSS(styles?.card?.contentPadding)}
+	// }
+	// ${dateBoxSl}${index}{
+	// box-shadow:${getMultiShadowCSS(card?.tagShadow)};
 
-  // }
-  const dynamicAlignment = members
-    .map((card, index) => {
-      return `${tsbTeamMembersWrapperTheme6Sl}  .tsbTeamMembersTeamMemberContentContainer-${index}{
+	// }
+	const dynamicAlignment = members
+		.map((card, index) => {
+			return `${tsbTeamMembersWrapperTheme6Sl}  .tsbTeamMembersTeamMemberContentContainer-${index}{
 			padding-top:${card?.paddingTop};
 			}
 					`;
-    })
-    .join("\n");
+		})
+		.join("\n");
 
-  return (
-    <style
-      dangerouslySetInnerHTML={{
-        __html: escapeHTML(`
+	return (
+		<style
+			dangerouslySetInnerHTML={{
+				__html: escapeHTML(`
 		${getTypoCSS("", nameTypo)?.googleFontLink}
 		${getTypoCSS("", titleTypo)?.googleFontLink}
 		${getTypoCSS("", bioTypo)?.googleFontLink}
@@ -127,32 +127,28 @@ const Style = ({ attributes, id }) => {
 		${getTypoCSS(` ${tsbTeamMembersWrapperTheme10Sl} .tsbTeamMember_content_card_stat_value`, teamMember?.states?.value?.typo)?.styles} 
 		${getTypoCSS(` ${tsbTeamMembersWrapperTheme10Sl} .tsbTeamMember_btn`, teamMember?.btn?.typo)?.styles} 
 		${getTypoCSS(` ${tsbTeamMembersWrapperTheme11Sl} .tsbTeamMember_view_btn`, teamMember?.btn?.typo)?.styles} 
-		${
-      getTypoCSS(
-        `${tsbTeamMembersWrapperTheme6Sl} .tsbTeamMembersTeamContainer .tsbTeamMemberTitle`,
-        teamMember?.title?.typo
-      )?.styles
-    } 
-	${
-      getTypoCSS(
-        `${tsbTeamMembersWrapperTheme8Sl} .tsbTeamMembersTeamContainer .tsbTeamMemberTitle`,
-        teamMember?.title?.typo
-      )?.styles
-    } 
+		${getTypoCSS(
+					`${tsbTeamMembersWrapperTheme6Sl} .tsbTeamMembersTeamContainer .tsbTeamMemberTitle`,
+					teamMember?.title?.typo
+				)?.styles
+					} 
+	${getTypoCSS(
+						`${tsbTeamMembersWrapperTheme8Sl} .tsbTeamMembersTeamContainer .tsbTeamMemberTitle`,
+						teamMember?.title?.typo
+					)?.styles
+					} 
 		${getTypoCSS(`${tsbTeamMemberBioSl}`, teamMember?.bio?.typo)?.styles} 
 		${getTypoCSS(`${tsbTeamMemberUserNameSl}`, teamMember?.userName?.typo)?.styles} 
-		${
-      getTypoCSS(
-        `${tsbTeamMembersWrapperTheme6Sl} .tsbTeamMembersBgWatermark`,
-        styles?.waterMark?.typo
-      )?.styles
-    } 
-		${
-      getTypoCSS(
-        `.tsbTeamMemberTitle`,
-        teamMember?.title?.typo
-      )?.styles
-    } 
+		${getTypoCSS(
+						`${tsbTeamMembersWrapperTheme6Sl} .tsbTeamMembersBgWatermark`,
+						styles?.waterMark?.typo
+					)?.styles
+					} 
+		${getTypoCSS(
+						`.tsbTeamMemberTitle`,
+						teamMember?.title?.typo
+					)?.styles
+					} 
 
 		${membersSl}{
 			grid-gap: ${rowGap} ${columnGap};
@@ -163,9 +159,8 @@ const Style = ({ attributes, id }) => {
 		}
 		${gMemberSl} .memberPhoto{
 			width: ${photoWidth};
-			margin: ${
-        "horizontal" === layout ? "0 20px 0 0" : `${getSpaceCSS(photoMargin)}`
-      };
+			margin: ${"horizontal" === layout ? "0 20px 0 0" : `${getSpaceCSS(photoMargin)}`
+					};
 		}
 		${gMemberDetailsSl} .memberName{
 			margin: ${getSpaceCSS(nameMargin)};
@@ -190,24 +185,24 @@ const Style = ({ attributes, id }) => {
 		}
 
 		${members
-      .map((member, index) => {
-        const {
-          background,
-          border,
-          shadow,
-          photoBorder,
-          nameColor,
-          titleColor,
-          separator,
-          bioColor,
-          socialIconColors,
-        } = member;
+						.map((member, index) => {
+							const {
+								background,
+								border,
+								shadow,
+								photoBorder,
+								nameColor,
+								titleColor,
+								separator,
+								bioColor,
+								socialIconColors,
+							} = member;
 
-        const memberSl = `${mainSl} #tsbMember-${index}`;
-        const memberDetailsSl = `${memberSl} .memberDetails`;
-        const memberSocialSl = `${memberDetailsSl} .memberSocial`;
+							const memberSl = `${mainSl} #tsbMember-${index}`;
+							const memberDetailsSl = `${memberSl} .memberDetails`;
+							const memberSocialSl = `${memberDetailsSl} .memberSocial`;
 
-        return `
+							return `
 				${memberSl}{
 					${getBackgroundCSS(background)}
 					${getBorderCSS(border)}
@@ -229,13 +224,12 @@ const Style = ({ attributes, id }) => {
 					color: ${bioColor};
 				}
 				${memberSocialSl}{
-					justify-content: ${
-            "center" === textAlign
-              ? "center"
-              : "right" === textAlign
-              ? "flex-end"
-              : "flex-start"
-          }
+					justify-content: ${"center" === textAlign
+									? "center"
+									: "right" === textAlign
+										? "flex-end"
+										: "flex-start"
+								}
 				}
 				${memberSocialSl} li a{
 					${getColorsCSS(socialIconColors)}
@@ -247,8 +241,8 @@ const Style = ({ attributes, id }) => {
 					color: ${socialIconColors?.bg};
 				}
 			`;
-      })
-      .join(" ")}
+						})
+						.join(" ")}
 
 	  
 
@@ -311,13 +305,12 @@ const Style = ({ attributes, id }) => {
 		}
 		${mainSl}{
 		
-		${
-			["theme6","theme8","theme9","theme10","theme11","theme12"].includes(theme)  &&`
+		${["theme6", "theme8", "theme9", "theme10", "theme11", "theme12"].includes(theme) && `
 			display:flex;
 		justify-content:${alignment};
 
 			`
-    }
+					}
 		}
 			
 
@@ -394,13 +387,13 @@ const Style = ({ attributes, id }) => {
 	   width: ${teamMember?.photo?.width || "88px"};
        height:${teamMember?.photo?.height || "88px"};
 	   border-radius: ${getBoxCSS(
-       teamMember?.photo?.radius || {
-         top: "50%",
-         left: "50%",
-         bottom: "50%",
-         right: "50%",
-       }
-     )};
+						teamMember?.photo?.radius || {
+							top: "50%",
+							left: "50%",
+							bottom: "50%",
+							right: "50%",
+						}
+					)};
 	    color: ${teamMember?.name?.color};	
 	   
 	  }
@@ -408,13 +401,13 @@ const Style = ({ attributes, id }) => {
 				width: ${teamMember?.photo?.width || "88px"};
 				height: ${teamMember?.photo?.height || "88px"};
 				border-radius: ${getBoxCSS(
-          teamMember?.photo?.radius || {
-            top: "50%",
-            left: "50%",
-            bottom: "50%",
-            right: "50%",
-          }
-        )};
+						teamMember?.photo?.radius || {
+							top: "50%",
+							left: "50%",
+							bottom: "50%",
+							right: "50%",
+						}
+					)};
 				object-fit: ${teamMember?.photo?.object};
 				
 				}
@@ -770,14 +763,14 @@ ${tsbTeamMembersWrapperTheme11Sl} .tsbTeamMember-card:hover{
 		 }
 		}
 		   ${members
-         .map((card, index) => {
-           return `
+						.map((card, index) => {
+							return `
         ${tsbTeamMembersWrapperTheme6Sl} .tsbTeamMembersTeamMemberContentContainer-${index}{
           padding-top: 0 !important;
         }
       `;
-         })
-         .join("\n")}
+						})
+						.join("\n")}
 		 ${tsbTeamMembersWrapperTheme8Sl} .tsbTeamMembersTeamContainer{
 	  grid-template-columns: repeat(${columns?.mobile},1fr);
 	  }
@@ -787,8 +780,8 @@ ${tsbTeamMembersWrapperTheme11Sl} .tsbTeamMember-card:hover{
 
 		}
 		`).replace(/\s+/g, " "),
-      }}
-    />
-  );
+			}}
+		/>
+	);
 };
 export default Style;

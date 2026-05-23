@@ -14,7 +14,7 @@ import {
   Label,
   IconControl,
   MediaPlaceholder,
-} from "../../../../bpl-tools/Components";
+} from "../../../../../../bpl-tools/Components";
 
 import Settings from "./Settings/Settings";
 import Style from "../Common/Style";
@@ -27,7 +27,7 @@ import Theme9 from "../Common/themes/Theme9";
 import Theme10 from "../Common/themes/Theme10";
 import Theme11 from "../Common/themes/Theme11";
 import ClipBoard from "./ClipBoard";
-import { sanitizeURL } from "../../../../bpl-tools/utils/common";
+import { sanitizeURL } from "../../../../../../bpl-tools/utils/common";
 
 const Edit = (props) => {
   const {
@@ -157,193 +157,190 @@ const Edit = (props) => {
       <div>{CPTType === "tsb" && <ClipBoard shortCode={shortcode} />}</div>
       <div {...useBlockProps()} id={id}>
         <Style attributes={attributes} id={id} />
-        
+
 
         {["default", "theme1", "theme2", "theme3", "theme4"].includes(
           theme
         ) && (
-          <div
-            className={`tsbTeamMembers ${
-              layout || "vertical"
-            } columns-${desktop} columns-tablet-${tablet} columns-mobile-${mobile}`}
-          >
-            {members.map((item, index) => {
-              const { photo, name, title, bio, social = [] } = item;
+            <div
+              className={`tsbTeamMembers ${layout || "vertical"
+                } columns-${desktop} columns-tablet-${tablet} columns-mobile-${mobile}`}
+            >
+              {members.map((item, index) => {
+                const { photo, name, title, bio, social = [] } = item;
 
-              return (
-                <div
-                  key={index}
-                  onClick={() => setActiveIndex(index)}
-                  className={`tsbMember ${
-                    index === activeIndex ? "bPlNowEditing" : ""
-                  }`}
-                  id={`tsbMember-${index}`}
-                >
-                  {photo?.url ? (
-                    <>
-                      <img
-                        className="memberPhoto"
-                        src={photo?.url}
-                        alt={photo?.alt}
-                      />
-                      {isBlobURL(photo?.url) && <Spinner />}
-                    </>
-                  ) : (
-                    <MediaPlaceholder
-                      label={__(" Member Photo:", "team-section")}
-                      value={photo}
-                      onChange={(val) => updateMember(index, "photo", val)}
-                    />
-                  )}
-
-                  <div className="memberDetails">
-                    <RichText
-                      className="memberName"
-                      tagName="h4"
-                      value={name}
-                      onChange={(val) => updateMember(index, "name", val)}
-                      placeholder={__("Member name", "team-section")}
-                      inlineToolbar
-                    />
-
-                    {isTitle && (
-                      <RichText
-                        className="memberTitle"
-                        tagName="p"
-                        value={title}
-                        onChange={(val) => updateMember(index, "title", val)}
-                        placeholder={__(
-                          "Member designation/title",
-                          "team-section"
-                        )}
-                        inlineToolbar
+                return (
+                  <div
+                    key={index}
+                    onClick={() => setActiveIndex(index)}
+                    className={`tsbMember ${index === activeIndex ? "bPlNowEditing" : ""
+                      }`}
+                    id={`tsbMember-${index}`}
+                  >
+                    {photo?.url ? (
+                      <>
+                        <img
+                          className="memberPhoto"
+                          src={photo?.url}
+                          alt={photo?.alt}
+                        />
+                        {isBlobURL(photo?.url) && <Spinner />}
+                      </>
+                    ) : (
+                      <MediaPlaceholder
+                        label={__(" Member Photo:", "team-section")}
+                        value={photo}
+                        onChange={(val) => updateMember(index, "photo", val)}
                       />
                     )}
 
-                    {isSep && <span className="memberSeparator" />}
-
-                    {isBio && (
+                    <div className="memberDetails">
                       <RichText
-                        className="memberBio"
-                        tagName="p"
-                        value={bio}
-                        onChange={(val) => updateMember(index, "bio", val)}
-                        placeholder={__(
-                          "Biography of the member",
-                          "team-section"
-                        )}
+                        className="memberName"
+                        tagName="h4"
+                        value={name}
+                        onChange={(val) => updateMember(index, "name", val)}
+                        placeholder={__("Member name", "team-section")}
                         inlineToolbar
                       />
-                    )}
 
-                    {isSocial && (
-                      <ul className="memberSocial">
-                        {social?.map((socialItem, socialIndex) => {
-                          const { icon } = socialItem;
+                      {isTitle && (
+                        <RichText
+                          className="memberTitle"
+                          tagName="p"
+                          value={title}
+                          onChange={(val) => updateMember(index, "title", val)}
+                          placeholder={__(
+                            "Member designation/title",
+                            "team-section"
+                          )}
+                          inlineToolbar
+                        />
+                      )}
 
-                          return (
-                            <li
-                              key={socialIndex}
-                              onClick={() => setSelectedSocial(socialIndex)}
-                              className={`icon icon-${index}-${socialIndex} ${
-                                isSelected &&
-                                index === activeIndex &&
-                                socialIndex === selectedSocial
+                      {isSep && <span className="memberSeparator" />}
+
+                      {isBio && (
+                        <RichText
+                          className="memberBio"
+                          tagName="p"
+                          value={bio}
+                          onChange={(val) => updateMember(index, "bio", val)}
+                          placeholder={__(
+                            "Biography of the member",
+                            "team-section"
+                          )}
+                          inlineToolbar
+                        />
+                      )}
+
+                      {isSocial && (
+                        <ul className="memberSocial">
+                          {social?.map((socialItem, socialIndex) => {
+                            const { icon } = socialItem;
+
+                            return (
+                              <li
+                                key={socialIndex}
+                                onClick={() => setSelectedSocial(socialIndex)}
+                                className={`icon icon-${index}-${socialIndex} ${isSelected &&
+                                  index === activeIndex &&
+                                  socialIndex === selectedSocial
                                   ? "isSelected"
                                   : null
-                              }`}
-                            >
-                              <a href={"#"}>
-                                <i className={icon?.class} />
-                              </a>
-                            </li>
-                          );
-                        })}
-                      </ul>
-                    )}
-
-                    {null !== selectedSocial && index === activeIndex && (
-                      <div className="socialAction memberSocialForm">
-                        <Label className="mb5">
-                          {__("Link:", "team-section")}
-                        </Label>
-                        <InputControl
-                          value={social[selectedSocial]?.link || ""}
-                          onChange={(val) => {
-                            const safeUrl = sanitizeURL(val);
-                            updateMember(
-                              index,
-                              "social",
-                              safeUrl || "", 
-                              selectedSocial,
-                              "link"
+                                  }`}
+                              >
+                                <a href={"#"}>
+                                  <i className={icon?.class} />
+                                </a>
+                              </li>
                             );
-                          }}
-                        />
+                          })}
+                        </ul>
+                      )}
 
-                        <IconControl
-                          value={social[selectedSocial]?.icon}
-                          onChange={(val) =>
-                            updateMember(
-                              index,
-                              "social",
-                              val,
-                              selectedSocial,
-                              "icon"
-                            )
-                          }
-                          defaults={{
-                            class: "fab fa-facebook-f",
-                            fontSize: 22,
-                          }}
-                          isSize={false}
-                          isColor={false}
-                        />
+                      {null !== selectedSocial && index === activeIndex && (
+                        <div className="socialAction memberSocialForm">
+                          <Label className="mb5">
+                            {__("Link:", "team-section")}
+                          </Label>
+                          <InputControl
+                            value={social[selectedSocial]?.link || ""}
+                            onChange={(val) => {
+                              const safeUrl = sanitizeURL(val);
+                              updateMember(
+                                index,
+                                "social",
+                                safeUrl || "",
+                                selectedSocial,
+                                "link"
+                              );
+                            }}
+                          />
 
-                        <a
-                          className="memberSocialRemove mt15"
-                          onClick={(e) => {
-                            e.preventDefault();
-                            updateMember(index, "social", [
-                              ...social.slice(0, selectedSocial),
-                              ...social.slice(selectedSocial + 1),
-                            ]);
-                            setSelectedSocial(null);
-                          }}
-                        >
-                          <i className="fa fa-times" />
-                          {__("Remove this link", "team-section")}
-                        </a>
-                      </div>
-                    )}
+                          <IconControl
+                            value={social[selectedSocial]?.icon}
+                            onChange={(val) =>
+                              updateMember(
+                                index,
+                                "social",
+                                val,
+                                selectedSocial,
+                                "icon"
+                              )
+                            }
+                            defaults={{
+                              class: "fab fa-facebook-f",
+                              fontSize: 22,
+                            }}
+                            isSize={false}
+                            isColor={false}
+                          />
 
-                    {isSelected && isSocial && index === activeIndex && (
-                      <div className="socialAction memberSocialAdd mt20">
-                        <Button
-                          showTooltip={true}
-                          tooltipPosition="top enter"
-                          label={__("Add Social Link", "team-section")}
-                          onClick={() => {
-                            updateMember(index, "social", [
-                              ...social,
-                              {
-                                link: "#",
-                                icon: { class: "fab fa-facebook-f" },
-                              },
-                            ]);
-                            setSelectedSocial(social.length);
-                          }}
-                        >
-                          <i className="fa fa-plus" /> Add new social
-                        </Button>
-                      </div>
-                    )}
+                          <a
+                            className="memberSocialRemove mt15"
+                            onClick={(e) => {
+                              e.preventDefault();
+                              updateMember(index, "social", [
+                                ...social.slice(0, selectedSocial),
+                                ...social.slice(selectedSocial + 1),
+                              ]);
+                              setSelectedSocial(null);
+                            }}
+                          >
+                            <i className="fa fa-times" />
+                            {__("Remove this link", "team-section")}
+                          </a>
+                        </div>
+                      )}
+
+                      {isSelected && isSocial && index === activeIndex && (
+                        <div className="socialAction memberSocialAdd mt20">
+                          <Button
+                            showTooltip={true}
+                            tooltipPosition="top enter"
+                            label={__("Add Social Link", "team-section")}
+                            onClick={() => {
+                              updateMember(index, "social", [
+                                ...social,
+                                {
+                                  link: "#",
+                                  icon: { class: "fab fa-facebook-f" },
+                                },
+                              ]);
+                              setSelectedSocial(social.length);
+                            }}
+                          >
+                            <i className="fa fa-plus" /> Add new social
+                          </Button>
+                        </div>
+                      )}
+                    </div>
                   </div>
-                </div>
-              );
-            })}
-          </div>
-        )}
+                );
+              })}
+            </div>
+          )}
         {themeSwitch(theme)}
 
         {!members.length && (

@@ -536,6 +536,460 @@ const useLicenseStatus = ({
 
 /***/ }),
 
+/***/ "../bpl-tools/Admin/Blocks/Block.js":
+/*!******************************************!*\
+  !*** ../bpl-tools/Admin/Blocks/Block.js ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _utils_icons__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utils/icons */ "../bpl-tools/utils/icons.js");
+
+
+const Block = ({
+  block,
+  isPremium,
+  disableBlockName,
+  handleCheckboxChange,
+  isSaving,
+  isLinks = true
+}) => {
+  const {
+    name,
+    title,
+    icon,
+    demo,
+    docs,
+    badge = '',
+    required = false
+  } = block;
+  const isBlockPremium = !isPremium && block.isPremium;
+  const disabledBlock = isBlockPremium ? false : !disableBlockName.includes(name);
+  const isRequired = required === true;
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: `block ${!disabledBlock ? 'disabled' : ''}`
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "icon"
+  }, icon), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "name"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
+    className: "blockTitle"
+  }, title), isBlockPremium && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+    href: "#pricing"
+  }, "Get Pro")), isLinks && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, demo && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+    className: "actionBtn",
+    href: demo,
+    target: "_blank",
+    rel: "noopener noreferrer"
+  }, _utils_icons__WEBPACK_IMPORTED_MODULE_1__.demoIcon), docs && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+    className: "actionBtn",
+    href: docs,
+    target: "_blank",
+    rel: "noopener noreferrer"
+  }, _utils_icons__WEBPACK_IMPORTED_MODULE_1__.docsIcon)), badge && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
+    className: "blockBadge"
+  }, badge), isBlockPremium && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
+    className: "blockBadge blockProBadge"
+  }, "Pro"), isRequired && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
+    className: "blockBadge blockRequiredBadge"
+  }, "Required"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", {
+    className: "toggleSwitch",
+    ...(isBlockPremium || isRequired ? {
+      htmlFor: 'b-blocks-admin-pro-modal-toggle'
+    } : {})
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
+    type: "checkbox",
+    checked: disabledBlock,
+    ...(isBlockPremium || isRequired ? {} : {
+      onChange: e => handleCheckboxChange(name, e.target.checked)
+    }),
+    disabled: isSaving || isBlockPremium || isRequired
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+    className: "slider"
+  })));
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Block);
+
+/***/ }),
+
+/***/ "../bpl-tools/Admin/Blocks/Card.js":
+/*!*****************************************!*\
+  !*** ../bpl-tools/Admin/Blocks/Card.js ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _card_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./card.scss */ "../bpl-tools/Admin/Blocks/card.scss");
+/* harmony import */ var _Block__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Block */ "../bpl-tools/Admin/Blocks/Block.js");
+/* harmony import */ var _Toast__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Toast */ "../bpl-tools/Admin/Blocks/Toast.js");
+
+
+
+
+
+const BlocksCard = props => {
+  const {
+    isPremium,
+    disabledBlocks,
+    onChange,
+    allBlocks,
+    status,
+    ProModal = null,
+    cardTitle = 'Blocks',
+    seeAllLink = '#blocks'
+  } = props;
+  const publishedBlocks = allBlocks.filter(b => 'published' === b.status || !b.status);
+  const [isSaving, setIsSaving] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
+  const [disableBlockName, setDisableBlockName] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(disabledBlocks || []);
+  const [toast, setToast] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null);
+
+  // Update disabled blocks when disabledBlocks prop changes
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    if (disabledBlocks) {
+      setDisableBlockName(disabledBlocks);
+    }
+  }, [JSON.stringify(disabledBlocks)]);
+
+  // Update toast based on status prop
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    if (status === 'loading') {
+      setToast({
+        message: 'Loading...',
+        type: 'loading'
+      });
+      setIsSaving(true);
+    } else if (status === 'success') {
+      setToast({
+        message: 'Saved successfully!',
+        type: 'success'
+      });
+      setIsSaving(false);
+      setTimeout(() => setToast(null), 3000);
+    } else if (status === 'error') {
+      setToast({
+        message: 'Failed to save',
+        type: 'error'
+      });
+      setIsSaving(false);
+      setTimeout(() => setToast(null), 3000);
+    }
+  }, [status]);
+  const handleCheckboxChange = (blockName, isChecked) => {
+    const updatedBlocksName = isChecked ? disableBlockName.filter(name => name !== blockName) : [...disableBlockName, blockName];
+    setDisableBlockName(updatedBlocksName);
+    onChange?.(updatedBlocksName);
+    setToast({
+      message: 'Saving changes...',
+      type: 'loading'
+    });
+    setIsSaving(true);
+  };
+  return publishedBlocks?.length && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "bPlDashboardBlocksCard bPlDashboardCard"
+  }, !isPremium && ProModal && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(ProModal, null), toast && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Toast__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    message: toast.message,
+    type: toast.type
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "blocksCardHeader"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", null, cardTitle), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+    href: seeAllLink
+  }, "View All")), publishedBlocks.length > 0 && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "dashboardBlocks"
+  }, publishedBlocks?.slice(0, 9)?.map(block => (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Block__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    key: block.name,
+    block: block,
+    isPremium: isPremium,
+    disableBlockName: disableBlockName,
+    handleCheckboxChange: handleCheckboxChange,
+    isSaving: isSaving,
+    isLinks: false
+  }))));
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (BlocksCard);
+
+/***/ }),
+
+/***/ "../bpl-tools/Admin/Blocks/Toast.js":
+/*!******************************************!*\
+  !*** ../bpl-tools/Admin/Blocks/Toast.js ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__);
+
+
+const Toast = ({
+  message,
+  type
+}) => {
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: `bPlDashboardBlocksToast ${type}`
+  }, type === 'loading' && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Spinner, null), type === 'success' && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+    className: "checkmark"
+  }, "\u2713"), type === 'error' && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+    className: "error-icon"
+  }, "\u2715"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+    className: "message"
+  }, message));
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Toast);
+
+/***/ }),
+
+/***/ "../bpl-tools/Admin/Blocks/card.scss":
+/*!*******************************************!*\
+  !*** ../bpl-tools/Admin/Blocks/card.scss ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "../bpl-tools/Admin/Blocks/index.js":
+/*!******************************************!*\
+  !*** ../bpl-tools/Admin/Blocks/index.js ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style.scss */ "../bpl-tools/Admin/Blocks/style.scss");
+/* harmony import */ var _Components_Button_Button__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Components/Button/Button */ "../bpl-tools/Components/Button/Button.js");
+/* harmony import */ var _utils_icons__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../utils/icons */ "../bpl-tools/utils/icons.js");
+/* harmony import */ var _Block__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Block */ "../bpl-tools/Admin/Blocks/Block.js");
+/* harmony import */ var _Toast__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Toast */ "../bpl-tools/Admin/Blocks/Toast.js");
+
+
+
+
+
+
+
+
+/**
+ * Blocks Component
+ * Renders a management interface for enabling/disabling plugin features/blocks.
+ * Includes search, categorization, and "Activate/Deactivate All" functionality.
+ *
+ * @param {object} props - Component props
+ * @param {boolean} props.isPremium - Whether the current user is premium
+ * @param {Array} props.disabledBlocks - List of currently disabled block names
+ * @param {Function} props.onChange - Callback when block status changes
+ * @param {Array} props.allBlocks - Array of block definitions
+ * @param {string} props.status - Saving status ('loading', 'success', 'error')
+ * @param {React.Component} [props.ProModal] - Modal component for Pro upsells
+ * @returns {JSX.Element}
+ */
+const Blocks = props => {
+  const {
+    isPremium,
+    disabledBlocks,
+    onChange,
+    allBlocks,
+    status,
+    ProModal = null,
+    pageTitle = 'All Blocks'
+  } = props;
+  const publishedBlocks = allBlocks.filter(b => 'published' === b.status || !b.status);
+  const [isSaving, setIsSaving] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
+  const [disableBlockName, setDisableBlockName] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(disabledBlocks || []);
+  const [searchTerm, setSearchTerm] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('');
+  const [toast, setToast] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null);
+
+  // Update disabled blocks when disabledBlocks prop changes
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    if (disabledBlocks) {
+      setDisableBlockName(disabledBlocks);
+    }
+  }, [JSON.stringify(disabledBlocks)]);
+
+  // Update toast based on status prop
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    if (status === 'loading') {
+      setToast({
+        message: 'Loading...',
+        type: 'loading'
+      });
+      setIsSaving(true);
+    } else if (status === 'success') {
+      setToast({
+        message: 'Saved successfully!',
+        type: 'success'
+      });
+      setIsSaving(false);
+      setTimeout(() => setToast(null), 3000);
+    } else if (status === 'error') {
+      setToast({
+        message: 'Failed to save',
+        type: 'error'
+      });
+      setIsSaving(false);
+      setTimeout(() => setToast(null), 3000);
+    }
+  }, [status]);
+  const handleCheckboxChange = (blockName, isChecked) => {
+    const updatedBlocksName = isChecked ? disableBlockName.filter(name => name !== blockName) : [...disableBlockName, blockName];
+    setDisableBlockName(updatedBlocksName);
+    onChange?.(updatedBlocksName);
+    setToast({
+      message: 'Saving changes...',
+      type: 'loading'
+    });
+    setIsSaving(true);
+  };
+  const handleActivateAll = () => {
+    setDisableBlockName([]);
+    onChange?.([]);
+    setToast({
+      message: 'Saving changes...',
+      type: 'loading'
+    });
+    setIsSaving(true);
+  };
+  const handleDeactivateAll = () => {
+    // Exclude required blocks from being deactivated
+    const allBlockNames = publishedBlocks.flatMap(block => {
+      if (block.children && Array.isArray(block.children)) {
+        return block.children.filter(child => !child.required).map(child => child.name);
+      } else {
+        return block.required ? [] : block.name;
+      }
+    });
+    setDisableBlockName(allBlockNames);
+    onChange?.(allBlockNames);
+    setToast({
+      message: 'Saving changes...',
+      type: 'loading'
+    });
+    setIsSaving(true);
+  };
+
+  // Separate grouped blocks from individual blocks
+  const groupedBlocks = [];
+  const individualBlocks = [];
+  publishedBlocks.forEach(block => {
+    if (block.children && Array.isArray(block.children)) {
+      groupedBlocks.push(block);
+    } else {
+      individualBlocks.push(block);
+    }
+  });
+
+  // Filter blocks based on search term
+  const filterBlocksBySearch = blocksToFilter => {
+    return blocksToFilter.filter(block => {
+      if (block.children) {
+        // For grouped blocks, check if title or any child matches
+        const matchesTitle = block.title?.toLowerCase().includes(searchTerm.toLowerCase());
+        const matchesChildren = block.children.some(child => child.title?.toLowerCase().includes(searchTerm.toLowerCase()));
+        return matchesTitle || matchesChildren;
+      } else {
+        // For individual blocks
+        return block.title?.toLowerCase().includes(searchTerm.toLowerCase());
+      }
+    });
+  };
+  const filteredGroupedBlocks = filterBlocksBySearch(groupedBlocks);
+  const filteredIndividualBlocks = filterBlocksBySearch(individualBlocks);
+  const hasResults = filteredGroupedBlocks.length > 0 || filteredIndividualBlocks.length > 0;
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "bPlDashboardBlocks"
+  }, !isPremium && ProModal && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(ProModal, null), toast && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Toast__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    message: toast.message,
+    type: toast.type
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "blocksTop"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", null, pageTitle), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "blocksSearch"
+  }, _utils_icons__WEBPACK_IMPORTED_MODULE_3__.searchIcon, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
+    type: "text",
+    placeholder: "Search...",
+    value: searchTerm,
+    onChange: e => setSearchTerm(e.target.value),
+    className: "search-input"
+  }), searchTerm && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+    onClick: () => setSearchTerm('')
+  }, _utils_icons__WEBPACK_IMPORTED_MODULE_3__.closeIcon)), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Components_Button_Button__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    className: "bBlocksDashboardBtn actionBtn activeAllBtn",
+    onClick: handleActivateAll
+  }, "Activate All"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Components_Button_Button__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    className: "bBlocksDashboardBtn actionBtn deActiveAllBtn",
+    onClick: handleDeactivateAll
+  }, "Deactivate All")), !hasResults ? (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", {
+    className: "noBlocksFound"
+  }, "No blocks found matching your search...") : (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "blocksContent"
+  }, filteredGroupedBlocks.map(group => (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    key: group.title,
+    className: "blocksGroup"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", {
+    className: "groupTitle"
+  }, group.title), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "dashboardBlocks"
+  }, group.children.filter(child => child.status === 'published' || !child.status).map(childBlock => (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Block__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    key: childBlock.name,
+    block: childBlock,
+    isPremium: isPremium,
+    disableBlockName: disableBlockName,
+    handleCheckboxChange: handleCheckboxChange,
+    isSaving: isSaving
+  }))))), filteredIndividualBlocks.length > 0 && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "dashboardBlocks"
+  }, filteredIndividualBlocks.map(block => (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Block__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    key: block.name,
+    block: block,
+    isPremium: isPremium,
+    disableBlockName: disableBlockName,
+    handleCheckboxChange: handleCheckboxChange,
+    isSaving: isSaving
+  })))));
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Blocks);
+
+/***/ }),
+
+/***/ "../bpl-tools/Admin/Blocks/style.scss":
+/*!********************************************!*\
+  !*** ../bpl-tools/Admin/Blocks/style.scss ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
 /***/ "../bpl-tools/Admin/Changelog/index.js":
 /*!*********************************************!*\
   !*** ../bpl-tools/Admin/Changelog/index.js ***!
@@ -14112,6 +14566,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Layout__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Layout */ "./src/admin/Components/Layout.js");
 /* harmony import */ var _Welcome__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Welcome */ "./src/admin/Components/Welcome.js");
 /* harmony import */ var _utils_data__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../utils/data */ "./src/admin/utils/data.js");
+/* harmony import */ var _hooks_useBlocksSettings__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../hooks/useBlocksSettings */ "./src/admin/hooks/useBlocksSettings.js");
+/* harmony import */ var _utils_blocks__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../utils/blocks */ "./src/admin/utils/blocks.js");
+/* harmony import */ var _bpl_tools_Admin_Blocks__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../../../bpl-tools/Admin/Blocks */ "../bpl-tools/Admin/Blocks/index.js");
+
+
+
 
 
 
@@ -14125,8 +14585,15 @@ __webpack_require__.r(__webpack_exports__);
 const App = props => {
   const {
     isPremium,
-    hasPro
+    hasPro,
+    action,
+    nonce
   } = props;
+  const {
+    data,
+    internalStatus,
+    saveToBackend
+  } = (0,_hooks_useBlocksSettings__WEBPACK_IMPORTED_MODULE_10__["default"])(action, nonce);
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.HashRouter, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Routes, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Route, {
     path: "/",
     element: (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Layout__WEBPACK_IMPORTED_MODULE_7__["default"], {
@@ -14135,12 +14602,28 @@ const App = props => {
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Route, {
     index: true,
     element: (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Welcome__WEBPACK_IMPORTED_MODULE_8__["default"], {
-      ...props
+      ...props,
+      disabledBlocks: data,
+      status: internalStatus,
+      onChange: saveToBackend
     })
   }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Route, {
     path: "welcome",
     element: (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Welcome__WEBPACK_IMPORTED_MODULE_8__["default"], {
-      ...props
+      ...props,
+      disabledBlocks: data,
+      status: internalStatus,
+      onChange: saveToBackend
+    })
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Route, {
+    path: "blocks",
+    element: (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_bpl_tools_Admin_Blocks__WEBPACK_IMPORTED_MODULE_12__["default"], {
+      ...props,
+      pageTitle: "All Blocks",
+      allBlocks: _utils_blocks__WEBPACK_IMPORTED_MODULE_11__["default"],
+      disabledBlocks: data,
+      status: internalStatus,
+      onChange: saveToBackend
     })
   }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Route, {
     path: "demos",
@@ -14205,6 +14688,9 @@ const navigation = [{
   name: 'Welcome',
   href: '/welcome'
 }, {
+  name: 'Blocks',
+  href: '/blocks'
+}, {
   name: 'Demos',
   href: '/demos'
 }, {
@@ -14259,17 +14745,30 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _bpl_tools_Admin_Overview__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../bpl-tools/Admin/Overview */ "../bpl-tools/Admin/Overview/index.js");
 /* harmony import */ var _bpl_tools_Admin_Changelog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../bpl-tools/Admin/Changelog */ "../bpl-tools/Admin/Changelog/index.js");
 /* harmony import */ var _bpl_tools_Admin_ProAds__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../bpl-tools/Admin/ProAds */ "../bpl-tools/Admin/ProAds/index.js");
+/* harmony import */ var _bpl_tools_Admin_Blocks_Card__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../bpl-tools/Admin/Blocks/Card */ "../bpl-tools/Admin/Blocks/Card.js");
+/* harmony import */ var _utils_blocks__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../utils/blocks */ "./src/admin/utils/blocks.js");
+
+
 
 
 
 
 const Welcome = props => {
   const {
-    isPremium
+    isPremium,
+    disabledBlocks,
+    status,
+    onChange
   } = props;
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_bpl_tools_Admin_Overview__WEBPACK_IMPORTED_MODULE_1__["default"], {
     ...props
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_bpl_tools_Admin_Blocks_Card__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    ...props,
+    allBlocks: _utils_blocks__WEBPACK_IMPORTED_MODULE_5__["default"],
+    disabledBlocks: disabledBlocks,
+    onChange: onChange,
+    status: status
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     style: {
       display: 'grid',
       gridTemplateColumns: isPremium ? '1fr' : 'repeat(auto-fill, minmax(min(480px, 100%), 1fr))',
@@ -14298,6 +14797,108 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./src/admin/hooks/useBlocksSettings.js":
+/*!**********************************************!*\
+  !*** ./src/admin/hooks/useBlocksSettings.js ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _bpl_tools_hooks_useWPAjax__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../bpl-tools/hooks/useWPAjax */ "../bpl-tools/hooks/useWPAjax.js");
+
+
+const useBlocksSettings = (action, nonce) => {
+  const [internalStatus, setInternalStatus] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null);
+  const {
+    data = [],
+    saveData = () => {},
+    refetch = () => {},
+    isLoading = false
+  } = (0,_bpl_tools_hooks_useWPAjax__WEBPACK_IMPORTED_MODULE_1__["default"])(action, {
+    _wpnonce: nonce
+  }, true) || {};
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    if (nonce && action) {
+      refetch();
+    }
+  }, [nonce, action]);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    if (!isLoading && data) {
+      setInternalStatus('');
+    }
+  }, [data, isLoading]);
+  const saveToBackend = async updatedBlocksName => {
+    try {
+      setInternalStatus('loading');
+      const response = await saveData({
+        _wpnonce: nonce,
+        data: JSON.stringify(updatedBlocksName)
+      });
+      setInternalStatus('success');
+      return response;
+    } catch (error) {
+      console.error('Save failed:', error);
+      setInternalStatus('error');
+    }
+  };
+  return {
+    data,
+    internalStatus,
+    saveToBackend,
+    isLoading
+  };
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (useBlocksSettings);
+
+/***/ }),
+
+/***/ "./src/admin/utils/blocks.js":
+/*!***********************************!*\
+  !*** ./src/admin/utils/blocks.js ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _blocks_team_section_utils_icons__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../blocks/team-section/utils/icons */ "./src/blocks/team-section/utils/icons.js");
+/**
+ * blocks.js — Single source of truth for ALL blocks in the Team Section plugin.
+ * Mirrors: info-cards/src/admin/utils/blocks.js
+ *
+ * Used by:
+ *   - Blocks page  (admin dashboard toggle UI)
+ *   - Card component on Welcome page
+ *
+ * Fields:
+ *   name      {string}  — must match the build/blocks/<name> folder
+ *   title     {string}  — human-readable label
+ *   icon      {JSX}     — SVG icon for the block
+ *   isPremium {boolean} — true = pro block (locked without license)
+ *   required  {boolean} — if true, cannot be toggled off
+ */
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ([{
+  name: 'team-section',
+  title: 'Team Section',
+  icon: _blocks_team_section_utils_icons__WEBPACK_IMPORTED_MODULE_0__.teamMembersIcon,
+  isPremium: false,
+  required: true
+}
+// Future blocks are added here
+]);
+
+/***/ }),
+
 /***/ "./src/admin/utils/data.js":
 /*!*********************************!*\
   !*** ./src/admin/utils/data.js ***!
@@ -14311,8 +14912,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   demoInfo: () => (/* binding */ demoInfo),
 /* harmony export */   pricingInfo: () => (/* binding */ pricingInfo)
 /* harmony export */ });
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../utils/icons'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-
 const slug = 'team-section';
 const dashboardInfo = info => {
   const {
@@ -14320,6 +14919,7 @@ const dashboardInfo = info => {
     isPremium,
     hasPro,
     licenseActiveNonce,
+    action,
     nonce
   } = info;
   const proSuffix = isPremium ? ' Pro' : '';
@@ -14353,6 +14953,8 @@ const dashboardInfo = info => {
       public_key: "pk_3ba5bf1bfe18f86fccd5a5995ae77"
     },
     licenseActiveNonce,
+    action,
+    nonce,
     changelogs: [{
       version: "2.0.2",
       type: "update",
@@ -14475,6 +15077,51 @@ const pricingInfo = {
     selected: 3 // choose from licenses item
   }
 };
+
+/***/ }),
+
+/***/ "./src/blocks/team-section/utils/icons.js":
+/*!************************************************!*\
+  !*** ./src/blocks/team-section/utils/icons.js ***!
+  \************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   horizontalLineIcon: () => (/* binding */ horizontalLineIcon),
+/* harmony export */   teamMembersIcon: () => (/* binding */ teamMembersIcon),
+/* harmony export */   verticalLineIcon: () => (/* binding */ verticalLineIcon)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+const teamMembersIcon = (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
+  xmlns: "http://www.w3.org/2000/svg",
+  className: "bPlBlockIcon",
+  viewBox: "0 0 505.4 505.4"
+}, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  d: "M437.1,233.45c14.8-10.4,24.6-27.7,24.6-47.2c0-31.9-25.8-57.7-57.7-57.7c-31.9,0-57.7,25.8-57.7,57.7 c0,19.5,9.7,36.8,24.6,47.2c-12.7,4.4-24.3,11.2-34.1,20c-13.5-11.5-29.4-20.3-46.8-25.5c21.1-12.8,35.3-36.1,35.3-62.6 c0-40.4-32.7-73.1-73.1-73.1c-40.4,0-73.1,32.8-73.1,73.1c0,26.5,14.1,49.8,35.3,62.6c-17.2,5.2-32.9,13.9-46.3,25.2 c-9.8-8.6-21.2-15.3-33.7-19.6c14.8-10.4,24.6-27.7,24.6-47.2c0-31.9-25.8-57.7-57.7-57.7s-57.7,25.8-57.7,57.7 c0,19.5,9.7,36.8,24.6,47.2C28.5,247.25,0,284.95,0,329.25v6.6c0,0.2,0.2,0.4,0.4,0.4h122.3c-0.7,5.5-1.1,11.2-1.1,16.9v6.8 c0,29.4,23.8,53.2,53.2,53.2h155c29.4,0,53.2-23.8,53.2-53.2v-6.8c0-5.7-0.4-11.4-1.1-16.9H505c0.2,0,0.4-0.2,0.4-0.4v-6.6 C505.2,284.85,476.8,247.15,437.1,233.45z M362.3,186.15c0-23,18.7-41.7,41.7-41.7s41.7,18.7,41.7,41.7 c0,22.7-18.3,41.2-40.9,41.7c-0.3,0-0.5,0-0.8,0s-0.5,0-0.8,0C380.5,227.45,362.3,208.95,362.3,186.15z M194.9,165.35 c0-31.5,25.6-57.1,57.1-57.1s57.1,25.6,57.1,57.1c0,30.4-23.9,55.3-53.8,57c-1.1,0-2.2,0-3.3,0c-1.1,0-2.2,0-3.3,0 C218.8,220.65,194.9,195.75,194.9,165.35z M59.3,186.15c0-23,18.7-41.7,41.7-41.7s41.7,18.7,41.7,41.7c0,22.7-18.3,41.2-40.9,41.7 c-0.3,0-0.5,0-0.8,0s-0.5,0-0.8,0C77.6,227.45,59.3,208.95,59.3,186.15z M125.5,320.15H16.2c4.5-42.6,40.5-76,84.2-76.3 c0.2,0,0.4,0,0.6,0s0.4,0,0.6,0c20.8,0.1,39.8,7.8,54.5,20.3C141.7,279.75,131,298.95,125.5,320.15z M366.8,359.95 c0,20.5-16.7,37.2-37.2,37.2h-155c-20.5,0-37.2-16.7-37.2-37.2v-6.8c0-62.1,49.6-112.9,111.3-114.7c1.1,0.1,2.3,0.1,3.4,0.1 s2.3,0,3.4-0.1c61.7,1.8,111.3,52.6,111.3,114.7V359.95z M378.7,320.15c-5.5-21.1-16-40-30.3-55.6c14.8-12.8,34-20.5,55-20.7 c0.2,0,0.4,0,0.6,0s0.4,0,0.6,0c43.7,0.3,79.7,33.7,84.2,76.3H378.7z"
+}));
+const verticalLineIcon = (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
+  xmlns: "http://www.w3.org/2000/svg",
+  width: 24,
+  height: 24,
+  viewBox: "0 0 14.707 14.707"
+}, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+  x: "6.275",
+  y: "0",
+  width: "2.158",
+  height: "14.707"
+}));
+const horizontalLineIcon = (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
+  xmlns: "http://www.w3.org/2000/svg",
+  width: 24,
+  height: 24,
+  viewBox: "0 0 357 357"
+}, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  d: "M357,204H0v-51h357V204z"
+}));
 
 /***/ }),
 

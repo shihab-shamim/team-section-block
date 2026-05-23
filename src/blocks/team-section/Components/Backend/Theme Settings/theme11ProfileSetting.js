@@ -6,31 +6,31 @@ import {
 
 } from "@wordpress/components";
 import { __ } from "@wordpress/i18n";
-import { updateData } from "../../../../../bpl-tools/utils/functions";
+import { updateData } from "../../../../../../../bpl-tools/utils/functions";
 import {
   IconLibrary,
   InlineMediaUpload,
 
-} from "../../../../../bpl-tools/Components";
-import { sanitizeURL } from "../../../../../bpl-tools/utils/common";
+} from "../../../../../../../bpl-tools/Components";
+import { sanitizeURL } from "../../../../../../../bpl-tools/utils/common";
 
 
 const theme11ProfileSetting = (props) => {
   const { attributes, setAttributes, index } = props;
   const { members } = attributes;
-  const { name, title, photo, btn={},bio='' } = members[index];
-const {label="view profile" ,link="#",icon="<svg width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path d=\"M5 12h14\" /><path d=\"M12 5l7 7-7 7\" /></svg>"} =btn || {}
+  const { name, title, photo, btn = {}, bio = '' } = members[index];
+  const { label = "view profile", link = "#", icon = "<svg width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path d=\"M5 12h14\" /><path d=\"M12 5l7 7-7 7\" /></svg>" } = btn || {}
 
   /** Update Member Helper */
 
 
 
- 
+
 
 
   return (
     <>
-      
+
       <InlineMediaUpload
         label={__("Image", "team-section")}
         value={photo?.url}
@@ -41,7 +41,7 @@ const {label="view profile" ,link="#",icon="<svg width=\"20\" height=\"20\" fill
         }
       />
 
-    
+
       <TextControl
         className="mt15"
         placeholder="Name..."
@@ -54,7 +54,7 @@ const {label="view profile" ,link="#",icon="<svg width=\"20\" height=\"20\" fill
         }
       />
 
-      
+
       <TextControl
         className="mt15"
         placeholder="Title..."
@@ -67,7 +67,7 @@ const {label="view profile" ,link="#",icon="<svg width=\"20\" height=\"20\" fill
         }
       />
 
-       <TextareaControl
+      <TextareaControl
         className="mt15"
         placeholder="bio..."
         label={__("Bio", "team-section")}
@@ -82,27 +82,26 @@ const {label="view profile" ,link="#",icon="<svg width=\"20\" height=\"20\" fill
 
 
 
-        <TextControl className="mt10" label={__("Button Label","team-section")} value={label}  onChange={(value) =>
-          setAttributes({
-            members: updateData(members, value, index, "btn","label"),
-          })
-        } />
-             <TextControl className="mt10" label={__("Button Link","team-section")} value={link}  onChange={(value) =>
-          {
-            const safeUrl=sanitizeURL(value);
-            setAttributes({
-            members: updateData(members, safeUrl, index, "btn","link"),
-          })
-        }
-        } />
-        <IconLibrary className="mt10" label={__("Button Icon","team-section")} value={icon}  onChange={(value) =>
-          setAttributes({
-            members: updateData(members, value, index, "btn","icon"),
-          })
-        } />
+      <TextControl className="mt10" label={__("Button Label", "team-section")} value={label} onChange={(value) =>
+        setAttributes({
+          members: updateData(members, value, index, "btn", "label"),
+        })
+      } />
+      <TextControl className="mt10" label={__("Button Link", "team-section")} value={link} onChange={(value) => {
+        const safeUrl = sanitizeURL(value);
+        setAttributes({
+          members: updateData(members, safeUrl, index, "btn", "link"),
+        })
+      }
+      } />
+      <IconLibrary className="mt10" label={__("Button Icon", "team-section")} value={icon} onChange={(value) =>
+        setAttributes({
+          members: updateData(members, value, index, "btn", "icon"),
+        })
+      } />
 
 
-      
+
     </>
   );
 };

@@ -6,13 +6,13 @@ import {
 } from "@wordpress/components";
 import { __ } from "@wordpress/i18n";
 import { useState } from "@wordpress/element";
-import { updateData } from "../../../../../bpl-tools/utils/functions";
+import { updateData } from "../../../../../../../bpl-tools/utils/functions";
 import {
   IconControl,
   InlineMediaUpload,
   Label,
-} from "../../../../../bpl-tools/Components";
-import { sanitizeURL } from "../../../../../bpl-tools/utils/common";
+} from "../../../../../../../bpl-tools/Components";
+import { sanitizeURL } from "../../../../../../../bpl-tools/utils/common";
 
 const theme6ProfileSetting = (props) => {
   const { attributes, setAttributes, index } = props;

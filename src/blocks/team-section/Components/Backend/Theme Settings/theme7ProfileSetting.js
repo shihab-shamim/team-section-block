@@ -3,10 +3,10 @@ import {
 
 } from "@wordpress/components";
 import { __ } from "@wordpress/i18n";
-import { updateData } from "../../../../../bpl-tools/utils/functions";
+import { updateData } from "../../../../../../../bpl-tools/utils/functions";
 import {
   InlineMediaUpload,
-} from "../../../../../bpl-tools/Components";
+} from "../../../../../../../bpl-tools/Components";
 
 const theme7ProfileSetting = (props) => {
   const { attributes, setAttributes, index } = props;
@@ -16,16 +16,16 @@ const theme7ProfileSetting = (props) => {
 
 
   /** Update Member Helper */
-  
+
 
   /** Add new social link */
- 
+
   /** Remove social link */
 
 
   return (
     <>
-      
+
       <InlineMediaUpload
         label={__("Image", "team-section")}
         value={photo?.url}
@@ -36,7 +36,7 @@ const theme7ProfileSetting = (props) => {
         }
       />
 
-    
+
       <TextControl
         className="mt15"
         placeholder="Name..."
@@ -49,7 +49,7 @@ const theme7ProfileSetting = (props) => {
         }
       />
 
-      
+
       <TextControl
         className="mt15"
         placeholder="Title..."
@@ -61,9 +61,9 @@ const theme7ProfileSetting = (props) => {
           })
         }
       />
-  
 
-    
+
+
     </>
   );
 };

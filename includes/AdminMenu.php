@@ -7,6 +7,7 @@ class TSBproAdminMenu {
 	public function __construct() {
 		add_action( 'admin_menu', [ $this, 'adminMenu' ] );
 		add_action( 'admin_enqueue_scripts', [$this, 'adminEnqueueScripts'] );
+		add_action( 'enqueue_block_assets', [ $this, 'enqueueBlockAssets' ] );
 	}
 
 	
@@ -53,7 +54,8 @@ class TSBproAdminMenu {
                 'isPremium' => tsbIsPremium(),
                 'hasPro' => TEAM_SECTION_BLOCK_PRO,
                 'licenseActiveNonce' => wp_create_nonce('bplLicenseActive'),
-                'nonce' => wp_create_nonce( 'tsbCreatePage' ),
+                'action' => 'tsbGetBlocks',
+                'nonce' => wp_create_nonce( 'tsb_admin_nonce' ),
             ] ) ); ?>'
         ></div>
 	<?php }
@@ -65,6 +67,22 @@ class TSBproAdminMenu {
 			wp_set_script_translations( 'tsb-admin-dashboard', 'team-section', TSB_DIR_PATH . 'languages' );
 				
 		}
+	}
+
+	function enqueueBlockAssets() {
+		$disabled_blocks = get_option( 'tsbBlocks', [] );
+		if ( ! is_array( $disabled_blocks ) ) {
+			$disabled_blocks = [];
+		}
+
+		wp_localize_script(
+			'wp-blocks',
+			'TSB_BLOCK_DATA',
+			[
+				'disabledBlocks' => $disabled_blocks,
+				'isPremium'      => tsbIsPremium(),
+			]
+		);
 	}
 }
 new TSBproAdminMenu();

@@ -1,5 +1,5 @@
-import {  sanitizeHTML } from "../../../../../bpl-tools/utils/common";
-import { updateData } from "../../../../../bpl-tools/utils/functions";
+import { sanitizeHTML } from "../../../../../../../bpl-tools/utils/common";
+import { updateData } from "../../../../../../../bpl-tools/utils/functions";
 
 const Theme8 = ({ attributes, ReusableRichText, setAttributes }) => {
   const {
@@ -58,11 +58,11 @@ const Theme8 = ({ attributes, ReusableRichText, setAttributes }) => {
                   <p className="tsbTeamMemberTitle" dangerouslySetInnerHTML={{ __html: sanitizeHTML(member?.title) }}></p>
                 )}
                 {ReusableRichText && isTitle && (
-                  <ReusableRichText tagName="p" className="tsbTeamMemberTitle" value={member?.title} placeholder="Title..."  onChange={(value) =>
-                      setAttributes({
-                        members: updateData(members, value, index, "title"),
-                      })
-                    }></ReusableRichText>
+                  <ReusableRichText tagName="p" className="tsbTeamMemberTitle" value={member?.title} placeholder="Title..." onChange={(value) =>
+                    setAttributes({
+                      members: updateData(members, value, index, "title"),
+                    })
+                  }></ReusableRichText>
                 )}
                 {isShowIcon && (
                   <div>

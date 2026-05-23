@@ -1,16 +1,16 @@
-import { updateData } from "../../../../../bpl-tools/utils/functions";
-	import { sanitizeHTML} from '../../../../../bpl-tools/utils/common'
+import { updateData } from "../../../../../../../bpl-tools/utils/functions";
+import { sanitizeHTML } from '../../../../../../../bpl-tools/utils/common'
 const Theme5 = ({ attributes, ReusableRichText, setAttributes }) => {
   const {
     members = [],
     isLinkNewTab = false,
     isTitle = true,
     isBio = true,
-    options={}
+    options = {}
   } = attributes || {};
 
 
-  const {showUserName=true}=options || {}
+  const { showUserName = true } = options || {}
 
   return (
     <div className="tsbTeamMembersWrapper ">
@@ -32,7 +32,7 @@ const Theme5 = ({ attributes, ReusableRichText, setAttributes }) => {
             <div className="tsbTeamMembersTeamMemberThumbDescription">
               {ReusableRichText ? (
                 <ReusableRichText
-                placeholder=' name ...'
+                  placeholder=' name ...'
 
                   onChange={(value) =>
                     setAttributes({
@@ -48,40 +48,40 @@ const Theme5 = ({ attributes, ReusableRichText, setAttributes }) => {
               )}
               {/* <h3 className="tsbTeamMemberName" >{member?.name || "Name"}</h3> */}
               <p>
-               
-                {ReusableRichText && isBio &&(<ReusableRichText tagName="span"
-                placeholder=' bio...'
+
+                {ReusableRichText && isBio && (<ReusableRichText tagName="span"
+                  placeholder=' bio...'
                   className="tsbTeamMemberBio"
-                  value={member?.bio} 
-                    onChange={(value) =>
+                  value={member?.bio}
+                  onChange={(value) =>
                     setAttributes({
                       members: updateData(members, value, index, "bio"),
                     })
                   }
-                   />)}
-                 {!ReusableRichText&&isBio&&(<span className="tsbTeamMemberBio" dangerouslySetInnerHTML={{ __html: sanitizeHTML(member?.bio) }}></span>)}
+                />)}
+                {!ReusableRichText && isBio && (<span className="tsbTeamMemberBio" dangerouslySetInnerHTML={{ __html: sanitizeHTML(member?.bio) }}></span>)}
                 <br />
-                  
-                {ReusableRichText && showUserName &&(<ReusableRichText placeholder=' username...'  className="tsbTeamMemberUserName" value={member?.userName} tagName='a'  onChange={(value) =>
-                    setAttributes({
-                      members: updateData(members, value, index, "userName"),
-                    })
-                  } />)}
 
-                  {!ReusableRichText && showUserName &&(<a
+                {ReusableRichText && showUserName && (<ReusableRichText placeholder=' username...' className="tsbTeamMemberUserName" value={member?.userName} tagName='a' onChange={(value) =>
+                  setAttributes({
+                    members: updateData(members, value, index, "userName"),
+                  })
+                } />)}
+
+                {!ReusableRichText && showUserName && (<a
                   className="tsbTeamMemberUserName"
                   href={member?.userNameLink || ""}
                   target={isLinkNewTab ? "_blank" : "_self"}
                   rel="noreferrer"
                   dangerouslySetInnerHTML={{ __html: sanitizeHTML(member?.userName) }}
                 >
-                 
+
                 </a>)}
               </p>
             </div>
           </li>
         ))}
-       
+
       </ul>
     </div>
   );

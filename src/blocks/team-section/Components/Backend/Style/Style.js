@@ -19,18 +19,18 @@ import {
   ColorControl,
   Device,
   ShadowControl,
-} from "../../../../../bpl-tools/Components";
-import { SpaceControl } from "../../../../../bpl-tools/Components/Deprecated";
+} from "../../../../../../../bpl-tools/Components";
+import { SpaceControl } from "../../../../../../../bpl-tools/Components/Deprecated";
 import {
   pxUnit,
   perUnit,
   emUnit,
-} from "../../../../../bpl-tools/utils/options";
+} from "../../../../../../../bpl-tools/utils/options";
 
 import { aligns } from "../../../utils/options";
-import { updateData } from "../../../../../bpl-tools/utils/functions";
+import { updateData } from "../../../../../../../bpl-tools/utils/functions";
 import { SelectControl } from "@wordpress/components";
-import { BControlPro } from "../../../../../bpl-tools/ProControls";
+import { BControlPro } from "../../../../../../../bpl-tools/ProControls";
 
 const Style = ({
   attributes,
@@ -954,10 +954,10 @@ const Style = ({
           {options?.isShowShape && <PanelBody className="bPlPanelBody"
             title={__("Background Shape", "team-section")}
             initialOpen={false}>
-              <BControlPro Component={UnitControl} {...premiumProps} label={__("Width","team-section")} value={teamMember?.shape?.width}  onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","shape","width")})} />
-              <BControlPro Component={UnitControl} {...premiumProps} className="mt15" label={__("Height","team-section")} value={teamMember?.shape?.height}  onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","shape","height")})} />
+            <BControlPro Component={UnitControl} {...premiumProps} label={__("Width", "team-section")} value={teamMember?.shape?.width} onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "shape", "width") })} />
+            <BControlPro Component={UnitControl} {...premiumProps} className="mt15" label={__("Height", "team-section")} value={teamMember?.shape?.height} onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "shape", "height") })} />
 
-              <BControlPro Component={Background} {...premiumProps} label={__("Background","team-section")} value={teamMember?.shape?.bg}  onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","shape","bg")})} />
+            <BControlPro Component={Background} {...premiumProps} label={__("Background", "team-section")} value={teamMember?.shape?.bg} onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "shape", "bg") })} />
 
           </PanelBody>}
         </>
@@ -1058,8 +1058,8 @@ const Style = ({
               }
             />
 
-            <BControlPro Component={SelectControl} {...premiumProps} className="mt15" label={__("Object Fit","team-section")}
-            value={teamMember?.photo?.object}
+            <BControlPro Component={SelectControl} {...premiumProps} className="mt15" label={__("Object Fit", "team-section")}
+              value={teamMember?.photo?.object}
               options={[
                 { label: "Cover (Crop & Fill)", value: "cover" },
                 { label: "Contain (Fit Inside)", value: "contain" },
@@ -1079,8 +1079,8 @@ const Style = ({
                 })
               }
             />
-            <BControlPro Component={RangeControl} {...premiumProps} min={1} max={4} step={.1} className="mt15" label={__("Checked Image Scale","team-section")}
-            value={teamMember?.photo?.checkedScale || 2} onChange={(val) =>
+            <BControlPro Component={RangeControl} {...premiumProps} min={1} max={4} step={.1} className="mt15" label={__("Checked Image Scale", "team-section")}
+              value={teamMember?.photo?.checkedScale || 2} onChange={(val) =>
                 setAttributes({
                   styles: updateData(
                     styles,
@@ -1096,10 +1096,10 @@ const Style = ({
           <PanelBody className="bPlPanelBody"
             title={__("Name & Title", "team-section")}
             initialOpen={false}>
-              <BControlPro Component={ColorControl} {...premiumProps} label={__("color","team-section")} value={teamMember?.name?.color} onChange={val=>setAttributes({styles:updateData(styles,val,"teamMember","name","color")})} />
-              <BControlPro Component={Typography} {...premiumProps} className='mt15' label={__("Typography","team-section")} value={teamMember?.name?.typo} onChange={val=>setAttributes({styles:updateData(styles,val,"teamMember","name","typo")})}  />
-                  <RangeControl min={0} max={180} step={1} className="mt15" label={__("Checked Rotate","team-section")}
-            value={teamMember?.name?.rotate || 90} onChange={(val) =>
+            <BControlPro Component={ColorControl} {...premiumProps} label={__("color", "team-section")} value={teamMember?.name?.color} onChange={val => setAttributes({ styles: updateData(styles, val, "teamMember", "name", "color") })} />
+            <BControlPro Component={Typography} {...premiumProps} className='mt15' label={__("Typography", "team-section")} value={teamMember?.name?.typo} onChange={val => setAttributes({ styles: updateData(styles, val, "teamMember", "name", "typo") })} />
+            <RangeControl min={0} max={180} step={1} className="mt15" label={__("Checked Rotate", "team-section")}
+              value={teamMember?.name?.rotate || 90} onChange={(val) =>
                 setAttributes({
                   styles: updateData(
                     styles,
@@ -1111,8 +1111,8 @@ const Style = ({
                 })
               } />
 
-               <BControlPro Component={RangeControl} {...premiumProps} min={2} max={6} step={.1} className="mt15" label={__("Checked Name & Title Scale","team-section")}
-            value={teamMember?.name?.textScale || 2.30} onChange={(val) =>
+            <BControlPro Component={RangeControl} {...premiumProps} min={2} max={6} step={.1} className="mt15" label={__("Checked Name & Title Scale", "team-section")}
+              value={teamMember?.name?.textScale || 2.30} onChange={(val) =>
                 setAttributes({
                   styles: updateData(
                     styles,
@@ -1127,10 +1127,10 @@ const Style = ({
           <PanelBody className="bPlPanelBody"
             title={__("Team Ring", "team-section")}
             initialOpen={false}>
-                   <BControlPro Component={UnitControl} {...premiumProps}
+            <BControlPro Component={UnitControl} {...premiumProps}
               className="mt15"
               label={__("Width", "team-section")}
-              value={teamMember?.teamRing?.width }
+              value={teamMember?.teamRing?.width}
               onChange={(val) =>
                 setAttributes({
                   styles: updateData(
@@ -1143,10 +1143,10 @@ const Style = ({
                 })
               }
             />
-                 <BControlPro Component={UnitControl} {...premiumProps}
+            <BControlPro Component={UnitControl} {...premiumProps}
               className="mt15"
               label={__("Height", "team-section")}
-              value={teamMember?.teamRing?.height }
+              value={teamMember?.teamRing?.height}
               onChange={(val) =>
                 setAttributes({
                   styles: updateData(
@@ -1159,9 +1159,9 @@ const Style = ({
                 })
               }
             />
-              <BControlPro Component={ColorsControl} {...premiumProps} className="mt15"
+            <BControlPro Component={ColorsControl} {...premiumProps} className="mt15"
               label={__("Background", "team-section")}
-              value={teamMember?.teamRing?.bg }
+              value={teamMember?.teamRing?.bg}
               onChange={(val) =>
                 setAttributes({
                   styles: updateData(
@@ -1172,10 +1172,10 @@ const Style = ({
                     "bg"
                   ),
                 })
-              }/>
-              <BControlPro Component={Typography} {...premiumProps} className="mt15"
+              } />
+            <BControlPro Component={Typography} {...premiumProps} className="mt15"
               label={__("Text Typography", "team-section")}
-              value={teamMember?.teamRing?.typo }
+              value={teamMember?.teamRing?.typo}
               onChange={(val) =>
                 setAttributes({
                   styles: updateData(
@@ -1186,12 +1186,12 @@ const Style = ({
                     "typo"
                   ),
                 })
-              }  />
-              
+              } />
+
 
             <BControlPro Component={BoxControl} {...premiumProps} className="mt15"
               label={__("Radius", "team-section")}
-              values={teamMember?.teamRing?.radius }
+              values={teamMember?.teamRing?.radius}
               onChange={(val) =>
                 setAttributes({
                   styles: updateData(
@@ -1202,7 +1202,7 @@ const Style = ({
                     "radius"
                   ),
                 })
-              }/>
+              } />
 
 
 
@@ -1210,553 +1210,553 @@ const Style = ({
         </>
       )}
       {"theme8" === theme && (<>
-       <PanelBody
-            className="bPlPanelBody"
-            title={__("Container", "team-section")}
-            initialOpen={false}
-          >
-            <BControlPro Component={UnitControl} {...premiumProps}
-              label={__("Width", "team-section")}
-              value={width}
-              onChange={(v) =>
-                setAttributes({ styles: updateData(styles, v, "width") })
-              }
-            />
+        <PanelBody
+          className="bPlPanelBody"
+          title={__("Container", "team-section")}
+          initialOpen={false}
+        >
+          <BControlPro Component={UnitControl} {...premiumProps}
+            label={__("Width", "team-section")}
+            value={width}
+            onChange={(v) =>
+              setAttributes({ styles: updateData(styles, v, "width") })
+            }
+          />
 
-            <BControlPro Component={BButtonGroup} {...premiumProps}
-              className="mt15"
-              label={__("Alignment", "team-section")}
-              value={alignment}
-              options={[
-                { label: "Left", value: "left" },
-                { label: "Center", value: "center" },
-                { label: "Right", value: "right" },
-              ]}
-              onChange={(v) =>
-                setAttributes({ styles: updateData(styles, v, "alignment") })
-              }
-            />
+          <BControlPro Component={BButtonGroup} {...premiumProps}
+            className="mt15"
+            label={__("Alignment", "team-section")}
+            value={alignment}
+            options={[
+              { label: "Left", value: "left" },
+              { label: "Center", value: "center" },
+              { label: "Right", value: "right" },
+            ]}
+            onChange={(v) =>
+              setAttributes({ styles: updateData(styles, v, "alignment") })
+            }
+          />
 
-            <BControlPro Component={Background} {...premiumProps}
-              className="mt15"
-              label={__("Background", "team-section")}
-              value={bg}
-              onChange={(v) =>
-                setAttributes({ styles: updateData(styles, v, "bg") })
-              }
-            />
+          <BControlPro Component={Background} {...premiumProps}
+            className="mt15"
+            label={__("Background", "team-section")}
+            value={bg}
+            onChange={(v) =>
+              setAttributes({ styles: updateData(styles, v, "bg") })
+            }
+          />
 
-            <BControlPro Component={BoxControl} {...premiumProps}
-              className="mt15"
-              label={__("Padding", "team-section")}
-              values={sectionPadding}
-              onChange={(v) =>
-                setAttributes({ styles: updateData(styles, v, "padding") })
-              }
-            />
+          <BControlPro Component={BoxControl} {...premiumProps}
+            className="mt15"
+            label={__("Padding", "team-section")}
+            values={sectionPadding}
+            onChange={(v) =>
+              setAttributes({ styles: updateData(styles, v, "padding") })
+            }
+          />
 
-            <BControlPro Component={BoxControl} {...premiumProps}
-              className="mt15"
-              label={__("Margin", "team-section")}
-              values={margin}
-              onChange={(v) =>
-                setAttributes({ styles: updateData(styles, v, "margin") })
-              }
-            />
-          </PanelBody>
+          <BControlPro Component={BoxControl} {...premiumProps}
+            className="mt15"
+            label={__("Margin", "team-section")}
+            values={margin}
+            onChange={(v) =>
+              setAttributes({ styles: updateData(styles, v, "margin") })
+            }
+          />
+        </PanelBody>
 
-          <PanelBody     className="bPlPanelBody"
-            title={__("Member Photo", "team-section")}
-            initialOpen={false}>
-              <BControlPro Component={UnitControl} {...premiumProps} label={__("Width","team-section")} value={teamMember.memberPhoto?.width}  onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","memberPhoto","width")})} />
-              <BControlPro Component={UnitControl} {...premiumProps} className="mt15" label={__("Height","team-section")} value={teamMember.memberPhoto?.height} onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","memberPhoto","height")})} />
+        <PanelBody className="bPlPanelBody"
+          title={__("Member Photo", "team-section")}
+          initialOpen={false}>
+          <BControlPro Component={UnitControl} {...premiumProps} label={__("Width", "team-section")} value={teamMember.memberPhoto?.width} onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "memberPhoto", "width") })} />
+          <BControlPro Component={UnitControl} {...premiumProps} className="mt15" label={__("Height", "team-section")} value={teamMember.memberPhoto?.height} onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "memberPhoto", "height") })} />
 
-                <BControlPro Component={SelectControl} {...premiumProps} value={teamMember.memberPhoto?.objectFit} className="mt15" label={__("Image  Fit","team-section")}  options={[
-                { label: "Cover", value: "cover" },
-                { label: "Contain", value: "contain" },
-                { label: "Fill", value: "fill" },
-                { label: "None", value: "none" },
-                { label: "Scale Down", value: "scale-down" }
-              ]}
-              onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","memberPhoto","objectFit")})}
-              />
-              <BControlPro Component={RangeControl} {...premiumProps} min={0} max={100} label={__("Image Filter(gray)","team-section")} className="mt15" value={teamMember.memberPhoto?.grayScale}  onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","memberPhoto","grayScale")})} />
+          <BControlPro Component={SelectControl} {...premiumProps} value={teamMember.memberPhoto?.objectFit} className="mt15" label={__("Image  Fit", "team-section")} options={[
+            { label: "Cover", value: "cover" },
+            { label: "Contain", value: "contain" },
+            { label: "Fill", value: "fill" },
+            { label: "None", value: "none" },
+            { label: "Scale Down", value: "scale-down" }
+          ]}
+            onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "memberPhoto", "objectFit") })}
+          />
+          <BControlPro Component={RangeControl} {...premiumProps} min={0} max={100} label={__("Image Filter(gray)", "team-section")} className="mt15" value={teamMember.memberPhoto?.grayScale} onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "memberPhoto", "grayScale") })} />
 
-                 <BControlPro Component={RangeControl} {...premiumProps} min={0} max={100} label={__("Hover Image Filter(gray)","team-section")} className="mt15" value={teamMember.memberPhoto?.hoverGrayScale}  onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","memberPhoto","hoverGrayScale")})} />
+          <BControlPro Component={RangeControl} {...premiumProps} min={0} max={100} label={__("Hover Image Filter(gray)", "team-section")} className="mt15" value={teamMember.memberPhoto?.hoverGrayScale} onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "memberPhoto", "hoverGrayScale") })} />
 
-          </PanelBody>
+        </PanelBody>
 
-         {isSocial &&  <PanelBody className="bPlPanelBody"
-            title={__("Member Social", "team-section")}
-            initialOpen={false}>
-              <BControlPro Component={Background} {...premiumProps} label={__("Background", "team-section")} value={teamMember?.social?.bg}  onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","social","bg")})} />
+        {isSocial && <PanelBody className="bPlPanelBody"
+          title={__("Member Social", "team-section")}
+          initialOpen={false}>
+          <BControlPro Component={Background} {...premiumProps} label={__("Background", "team-section")} value={teamMember?.social?.bg} onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "social", "bg") })} />
 
-                  <BControlPro Component={ColorControl} {...premiumProps} className="mt15" label={__("Color", "team-section")} value={teamMember?.social?.color}  onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","social","color")})} />
+          <BControlPro Component={ColorControl} {...premiumProps} className="mt15" label={__("Color", "team-section")} value={teamMember?.social?.color} onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "social", "color") })} />
 
-                  <BControlPro Component={ColorControl} {...premiumProps} className="mt15" label={__("Hover Color", "team-section")} value={teamMember?.social?.hoverColor}  onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","social","hoverColor")})} />
-                  <BControlPro Component={BoxControl} {...premiumProps} values={teamMember?.social?.padding} className="mt15" label={__("Padding", "team-section")} onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","social","padding")})} />
+          <BControlPro Component={ColorControl} {...premiumProps} className="mt15" label={__("Hover Color", "team-section")} value={teamMember?.social?.hoverColor} onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "social", "hoverColor") })} />
+          <BControlPro Component={BoxControl} {...premiumProps} values={teamMember?.social?.padding} className="mt15" label={__("Padding", "team-section")} onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "social", "padding") })} />
 
-                    <BControlPro Component={RangeControl} {...premiumProps} min={0} max={100} className="mt15" label={__("Icon Size", "team-section")} value={teamMember?.social?.size} onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","social","size")})} />
+          <BControlPro Component={RangeControl} {...premiumProps} min={0} max={100} className="mt15" label={__("Icon Size", "team-section")} value={teamMember?.social?.size} onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "social", "size") })} />
 
-          </PanelBody>}
+        </PanelBody>}
 
-          <PanelBody   className="bPlPanelBody"
-            title={__("Member Content", "team-section")}
-            initialOpen={false} >
-              <BControlPro Component={Background} {...premiumProps} label={__("Background", "team-section")} value={teamMember?.content?.bg}  onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","content","bg")})} />
-              <BControlPro Component={Background} {...premiumProps} className='mt15' label={__("Hover Background", "team-section")} value={teamMember?.content?.hoverBg}  onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","content","hoverBg")})} />
-              <BControlPro Component={ColorControl} {...premiumProps} className='mt15' label={__("Hover Color", "team-section")} value={teamMember?.content?.hoverColor}  onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","content","hoverColor")})} />
-              <BControlPro Component={BoxControl} {...premiumProps} className='mt15' label={__("Padding", "team-section")} values={teamMember?.content?.padding} onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","content","padding")})} />
-
-
-          </PanelBody>
-
-          <PanelBody  className="bPlPanelBody"
-            title={__("Member Name", "team-section")}
-            initialOpen={false}>
-              <BControlPro Component={ColorControl} {...premiumProps} className='mt15' label={__(" Color", "team-section")} value={teamMember?.name?.color}  onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","name","color")})} />
-               <BControlPro Component={Typography} {...premiumProps} className='mt15' label={__(" Typography", "team-section")} value={teamMember?.name?.typo}  onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","name","typo")})} />
-               <BControlPro Component={BoxControl} {...premiumProps} className='mt15' label={__(" Margin", "team-section")} values={teamMember?.name?.margin}  onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","name","margin")})} />
+        <PanelBody className="bPlPanelBody"
+          title={__("Member Content", "team-section")}
+          initialOpen={false} >
+          <BControlPro Component={Background} {...premiumProps} label={__("Background", "team-section")} value={teamMember?.content?.bg} onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "content", "bg") })} />
+          <BControlPro Component={Background} {...premiumProps} className='mt15' label={__("Hover Background", "team-section")} value={teamMember?.content?.hoverBg} onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "content", "hoverBg") })} />
+          <BControlPro Component={ColorControl} {...premiumProps} className='mt15' label={__("Hover Color", "team-section")} value={teamMember?.content?.hoverColor} onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "content", "hoverColor") })} />
+          <BControlPro Component={BoxControl} {...premiumProps} className='mt15' label={__("Padding", "team-section")} values={teamMember?.content?.padding} onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "content", "padding") })} />
 
 
-          </PanelBody>
+        </PanelBody>
 
-            <PanelBody  className="bPlPanelBody"
-            title={__("Member Title", "team-section")}
-            initialOpen={false}>
-              <BControlPro Component={ColorControl} {...premiumProps} className='mt15' label={__(" Color", "team-section")} value={teamMember?.title?.color}  onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","title","color")})} />
-               <BControlPro Component={Typography} {...premiumProps} className='mt15' label={__(" Typography", "team-section")} value={teamMember?.title?.typo}  onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","title","typo")})} />
-               <BControlPro Component={BoxControl} {...premiumProps} className='mt15' label={__(" Margin", "team-section")} values={teamMember?.title?.margin}  onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","title","margin")})} />
-
-
-          </PanelBody>
-
-          {options?.isShowIcon &&<PanelBody className="bPlPanelBody"
-            title={__("Icon", "team-section")}
-            initialOpen={false}>
-              <BControlPro Component={ColorControl} {...premiumProps} className='mt15' label={__(" Color", "team-section")} value={teamMember?.icon?.color}  onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","icon","color")})} />
-               <BControlPro Component={RangeControl} {...premiumProps} className='mt15' label={__("Size", "team-section")} value={teamMember?.icon?.size}  onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","icon","size")})} />
+        <PanelBody className="bPlPanelBody"
+          title={__("Member Name", "team-section")}
+          initialOpen={false}>
+          <BControlPro Component={ColorControl} {...premiumProps} className='mt15' label={__(" Color", "team-section")} value={teamMember?.name?.color} onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "name", "color") })} />
+          <BControlPro Component={Typography} {...premiumProps} className='mt15' label={__(" Typography", "team-section")} value={teamMember?.name?.typo} onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "name", "typo") })} />
+          <BControlPro Component={BoxControl} {...premiumProps} className='mt15' label={__(" Margin", "team-section")} values={teamMember?.name?.margin} onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "name", "margin") })} />
 
 
-          </PanelBody>}
+        </PanelBody>
+
+        <PanelBody className="bPlPanelBody"
+          title={__("Member Title", "team-section")}
+          initialOpen={false}>
+          <BControlPro Component={ColorControl} {...premiumProps} className='mt15' label={__(" Color", "team-section")} value={teamMember?.title?.color} onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "title", "color") })} />
+          <BControlPro Component={Typography} {...premiumProps} className='mt15' label={__(" Typography", "team-section")} value={teamMember?.title?.typo} onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "title", "typo") })} />
+          <BControlPro Component={BoxControl} {...premiumProps} className='mt15' label={__(" Margin", "team-section")} values={teamMember?.title?.margin} onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "title", "margin") })} />
+
+
+        </PanelBody>
+
+        {options?.isShowIcon && <PanelBody className="bPlPanelBody"
+          title={__("Icon", "team-section")}
+          initialOpen={false}>
+          <BControlPro Component={ColorControl} {...premiumProps} className='mt15' label={__(" Color", "team-section")} value={teamMember?.icon?.color} onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "icon", "color") })} />
+          <BControlPro Component={RangeControl} {...premiumProps} className='mt15' label={__("Size", "team-section")} value={teamMember?.icon?.size} onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "icon", "size") })} />
+
+
+        </PanelBody>}
 
 
       </>)}
-      {"theme9"===theme &&(<>
+      {"theme9" === theme && (<>
 
-       <PanelBody
-            className="bPlPanelBody"
-            title={__("Container", "team-section")}
-            initialOpen={false}
-          >
-            <BControlPro Component={UnitControl} {...premiumProps}
-              step={1}
-              label={__("Width", "team-section")}
-              value={width}
-              onChange={(v) =>
-                setAttributes({ styles: updateData(styles, v, "width") })
-              }
-            />
+        <PanelBody
+          className="bPlPanelBody"
+          title={__("Container", "team-section")}
+          initialOpen={false}
+        >
+          <BControlPro Component={UnitControl} {...premiumProps}
+            step={1}
+            label={__("Width", "team-section")}
+            value={width}
+            onChange={(v) =>
+              setAttributes({ styles: updateData(styles, v, "width") })
+            }
+          />
 
-            <BControlPro Component={BButtonGroup} {...premiumProps}
-              className="mt15"
-              label={__("Alignment", "team-section")}
-              value={alignment}
-              options={[
-                { label: "Left", value: "left" },
-                { label: "Center", value: "center" },
-                { label: "Right", value: "right" },
-              ]}
-              onChange={(v) =>
-                setAttributes({ styles: updateData(styles, v, "alignment") })
-              }
-            />
+          <BControlPro Component={BButtonGroup} {...premiumProps}
+            className="mt15"
+            label={__("Alignment", "team-section")}
+            value={alignment}
+            options={[
+              { label: "Left", value: "left" },
+              { label: "Center", value: "center" },
+              { label: "Right", value: "right" },
+            ]}
+            onChange={(v) =>
+              setAttributes({ styles: updateData(styles, v, "alignment") })
+            }
+          />
 
-            <BControlPro Component={Background} {...premiumProps}
-              className="mt15"
-              label={__("Background", "team-section")}
-              value={bg}
-              onChange={(v) =>
-                setAttributes({ styles: updateData(styles, v, "bg") })
-              }
-            />
+          <BControlPro Component={Background} {...premiumProps}
+            className="mt15"
+            label={__("Background", "team-section")}
+            value={bg}
+            onChange={(v) =>
+              setAttributes({ styles: updateData(styles, v, "bg") })
+            }
+          />
 
-            <BControlPro Component={BoxControl} {...premiumProps}
-              className="mt15"
-              label={__("Padding", "team-section")}
-              values={sectionPadding}
-              onChange={(v) =>
-                setAttributes({ styles: updateData(styles, v, "padding") })
-              }
-            />
+          <BControlPro Component={BoxControl} {...premiumProps}
+            className="mt15"
+            label={__("Padding", "team-section")}
+            values={sectionPadding}
+            onChange={(v) =>
+              setAttributes({ styles: updateData(styles, v, "padding") })
+            }
+          />
 
-            <BControlPro Component={BoxControl} {...premiumProps}
-              className="mt15"
-              label={__("Margin", "team-section")}
-              values={margin}
-              onChange={(v) =>
-                setAttributes({ styles: updateData(styles, v, "margin") })
-              }
-            />
-          </PanelBody>
+          <BControlPro Component={BoxControl} {...premiumProps}
+            className="mt15"
+            label={__("Margin", "team-section")}
+            values={margin}
+            onChange={(v) =>
+              setAttributes({ styles: updateData(styles, v, "margin") })
+            }
+          />
+        </PanelBody>
 
-           <PanelBody     className="bPlPanelBody"
-            title={__("Member Photo", "team-section")}
-            initialOpen={false}>
-              <BControlPro Component={Background} {...premiumProps} label={__("Photo Overly","team-section")} value={teamMember?.memberPhoto?.bg} onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","memberPhoto","bg")})} />
-              <BControlPro Component={UnitControl} {...premiumProps} className="mt15" label={__("Height","team-section")} value={teamMember.memberPhoto?.height} onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","memberPhoto","height")})} />
+        <PanelBody className="bPlPanelBody"
+          title={__("Member Photo", "team-section")}
+          initialOpen={false}>
+          <BControlPro Component={Background} {...premiumProps} label={__("Photo Overly", "team-section")} value={teamMember?.memberPhoto?.bg} onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "memberPhoto", "bg") })} />
+          <BControlPro Component={UnitControl} {...premiumProps} className="mt15" label={__("Height", "team-section")} value={teamMember.memberPhoto?.height} onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "memberPhoto", "height") })} />
 
-                <BControlPro Component={SelectControl} {...premiumProps} value={teamMember.memberPhoto?.objectFit} className="mt15" label={__("Photo  Fit","team-section")}  options={[
-                { label: "Cover", value: "cover" },
-                { label: "Contain", value: "contain" },
-                { label: "Fill", value: "fill" },
-                { label: "None", value: "none" },
-                { label: "Scale Down", value: "scale-down" }
-              ]}
-              onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","memberPhoto","objectFit")})}
-              />
-              <BControlPro Component={RangeControl} {...premiumProps} min={0} max={100} label={__("Photo Filter(gray)","team-section")} className="mt15" value={teamMember.memberPhoto?.grayScale}  onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","memberPhoto","grayScale")})} />
+          <BControlPro Component={SelectControl} {...premiumProps} value={teamMember.memberPhoto?.objectFit} className="mt15" label={__("Photo  Fit", "team-section")} options={[
+            { label: "Cover", value: "cover" },
+            { label: "Contain", value: "contain" },
+            { label: "Fill", value: "fill" },
+            { label: "None", value: "none" },
+            { label: "Scale Down", value: "scale-down" }
+          ]}
+            onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "memberPhoto", "objectFit") })}
+          />
+          <BControlPro Component={RangeControl} {...premiumProps} min={0} max={100} label={__("Photo Filter(gray)", "team-section")} className="mt15" value={teamMember.memberPhoto?.grayScale} onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "memberPhoto", "grayScale") })} />
 
-                 <BControlPro Component={RangeControl} {...premiumProps} min={0} max={100} label={__("Hover Photo Filter(gray)","team-section")} className="mt15" value={teamMember.memberPhoto?.hoverGrayScale}  onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","memberPhoto","hoverGrayScale")})} />
-                 <BControlPro Component={RangeControl} {...premiumProps} min={0} max={3} label={__("Hover Photo Scale","team-section")} className="mt15" value={teamMember.memberPhoto?.hoverScale}  onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","memberPhoto","hoverScale")})} />
+          <BControlPro Component={RangeControl} {...premiumProps} min={0} max={100} label={__("Hover Photo Filter(gray)", "team-section")} className="mt15" value={teamMember.memberPhoto?.hoverGrayScale} onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "memberPhoto", "hoverGrayScale") })} />
+          <BControlPro Component={RangeControl} {...premiumProps} min={0} max={3} label={__("Hover Photo Scale", "team-section")} className="mt15" value={teamMember.memberPhoto?.hoverScale} onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "memberPhoto", "hoverScale") })} />
 
-          </PanelBody>
+        </PanelBody>
 
-          {isSocial && (<PanelBody  className="bPlPanelBody"
-            title={__("Member Social", "team-section")}
-            initialOpen={false}>
-             <BControlPro Component={UnitControl} {...premiumProps} label={__("Width","team-section")} value={teamMember?.social?.width} onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","social","width")})} />
-             <BControlPro Component={UnitControl} {...premiumProps} label={__("Height","team-section")} className="mt15" value={teamMember?.social?.width} onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","social","height")})} />
-              <BControlPro Component={ColorsControl} {...premiumProps} value={teamMember?.social?.colors} label={__("Colors","team-section")} className="mt15" onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","social","colors")})} />
-              <BControlPro Component={ColorsControl} {...premiumProps} value={teamMember?.social?.hoverColors} label={__("Hover Colors","team-section")} className="mt15" onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","social","hoverColors")})} />
-             <BControlPro Component={BoxControl} {...premiumProps} label={__("Radius","team-section")} className="mt15" values={teamMember?.social?.radius} onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","social","radius")})} />
-              <BControlPro Component={RangeControl} {...premiumProps} label={__("Icon Size","team-section")} className="mt15" value={teamMember?.social?.size} onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","social","size")})} />
-            
-          </PanelBody>)}
+        {isSocial && (<PanelBody className="bPlPanelBody"
+          title={__("Member Social", "team-section")}
+          initialOpen={false}>
+          <BControlPro Component={UnitControl} {...premiumProps} label={__("Width", "team-section")} value={teamMember?.social?.width} onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "social", "width") })} />
+          <BControlPro Component={UnitControl} {...premiumProps} label={__("Height", "team-section")} className="mt15" value={teamMember?.social?.width} onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "social", "height") })} />
+          <BControlPro Component={ColorsControl} {...premiumProps} value={teamMember?.social?.colors} label={__("Colors", "team-section")} className="mt15" onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "social", "colors") })} />
+          <BControlPro Component={ColorsControl} {...premiumProps} value={teamMember?.social?.hoverColors} label={__("Hover Colors", "team-section")} className="mt15" onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "social", "hoverColors") })} />
+          <BControlPro Component={BoxControl} {...premiumProps} label={__("Radius", "team-section")} className="mt15" values={teamMember?.social?.radius} onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "social", "radius") })} />
+          <BControlPro Component={RangeControl} {...premiumProps} label={__("Icon Size", "team-section")} className="mt15" value={teamMember?.social?.size} onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "social", "size") })} />
 
-          <PanelBody className="bPlPanelBody"
-            title={__("Member Name", "team-section")}
-            initialOpen={false}>
-              
-              <BControlPro Component={ColorControl} {...premiumProps} label={__("Color","team-section")} value={teamMember?.name?.color} onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","name","color")})}  />
-              <BControlPro Component={Typography} {...premiumProps} label={__("Typography","team-section")} value={teamMember?.name?.typo} onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","name","typo")})}  />
-                <BControlPro Component={BoxControl} {...premiumProps} label={__("Margin","team-section")} values={teamMember?.name?.margin} onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","name","margin")})}  />
+        </PanelBody>)}
 
-            
-          </PanelBody>
-          
-          <PanelBody className="bPlPanelBody"
-            title={__("Member Title", "team-section")}
-            initialOpen={false}>
-                 <BControlPro Component={ColorControl} {...premiumProps} label={__("Color","team-section")} value={teamMember?.title?.color} onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","title","color")})}  />
-              <BControlPro Component={Typography} {...premiumProps} label={__("Typography","team-section")} value={teamMember?.title?.typo} onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","title","typo")})}  />
-                <BControlPro Component={BoxControl} {...premiumProps} label={__("Margin","team-section")} values={teamMember?.title?.margin} onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","title","margin")})}  />
+        <PanelBody className="bPlPanelBody"
+          title={__("Member Name", "team-section")}
+          initialOpen={false}>
+
+          <BControlPro Component={ColorControl} {...premiumProps} label={__("Color", "team-section")} value={teamMember?.name?.color} onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "name", "color") })} />
+          <BControlPro Component={Typography} {...premiumProps} label={__("Typography", "team-section")} value={teamMember?.name?.typo} onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "name", "typo") })} />
+          <BControlPro Component={BoxControl} {...premiumProps} label={__("Margin", "team-section")} values={teamMember?.name?.margin} onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "name", "margin") })} />
 
 
-            
-          </PanelBody>
+        </PanelBody>
+
+        <PanelBody className="bPlPanelBody"
+          title={__("Member Title", "team-section")}
+          initialOpen={false}>
+          <BControlPro Component={ColorControl} {...premiumProps} label={__("Color", "team-section")} value={teamMember?.title?.color} onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "title", "color") })} />
+          <BControlPro Component={Typography} {...premiumProps} label={__("Typography", "team-section")} value={teamMember?.title?.typo} onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "title", "typo") })} />
+          <BControlPro Component={BoxControl} {...premiumProps} label={__("Margin", "team-section")} values={teamMember?.title?.margin} onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "title", "margin") })} />
+
+
+
+        </PanelBody>
       </>)}
 
       {"theme10" === theme && (<>
-       <PanelBody
-            className="bPlPanelBody"
-            title={__("Container", "team-section")}
-            initialOpen={false}
-          >
-            <BControlPro Component={UnitControl} {...premiumProps}
-              step={1}
-              label={__("Width", "team-section")}
-              value={width}
-              onChange={(v) =>
-                setAttributes({ styles: updateData(styles, v, "width") })
-              }
-            />
+        <PanelBody
+          className="bPlPanelBody"
+          title={__("Container", "team-section")}
+          initialOpen={false}
+        >
+          <BControlPro Component={UnitControl} {...premiumProps}
+            step={1}
+            label={__("Width", "team-section")}
+            value={width}
+            onChange={(v) =>
+              setAttributes({ styles: updateData(styles, v, "width") })
+            }
+          />
 
-            <BControlPro Component={BButtonGroup} {...premiumProps}
-              className="mt15"
-              label={__("Alignment", "team-section")}
-              value={alignment}
-              options={[
-                { label: "Left", value: "left" },
-                { label: "Center", value: "center" },
-                { label: "Right", value: "right" },
-              ]}
-              onChange={(v) =>
-                setAttributes({ styles: updateData(styles, v, "alignment") })
-              }
-            />
+          <BControlPro Component={BButtonGroup} {...premiumProps}
+            className="mt15"
+            label={__("Alignment", "team-section")}
+            value={alignment}
+            options={[
+              { label: "Left", value: "left" },
+              { label: "Center", value: "center" },
+              { label: "Right", value: "right" },
+            ]}
+            onChange={(v) =>
+              setAttributes({ styles: updateData(styles, v, "alignment") })
+            }
+          />
 
-            <BControlPro Component={Background} {...premiumProps}
-              className="mt15"
-              label={__("Background", "team-section")}
-              value={bg}
-              onChange={(v) =>
-                setAttributes({ styles: updateData(styles, v, "bg") })
-              }
-            />
+          <BControlPro Component={Background} {...premiumProps}
+            className="mt15"
+            label={__("Background", "team-section")}
+            value={bg}
+            onChange={(v) =>
+              setAttributes({ styles: updateData(styles, v, "bg") })
+            }
+          />
 
-            <BControlPro Component={BoxControl} {...premiumProps}
-              className="mt15"
-              label={__("Padding", "team-section")}
-              values={sectionPadding}
-              onChange={(v) =>
-                setAttributes({ styles: updateData(styles, v, "padding") })
-              }
-            />
+          <BControlPro Component={BoxControl} {...premiumProps}
+            className="mt15"
+            label={__("Padding", "team-section")}
+            values={sectionPadding}
+            onChange={(v) =>
+              setAttributes({ styles: updateData(styles, v, "padding") })
+            }
+          />
 
-            <BControlPro Component={BoxControl} {...premiumProps}
-              className="mt15"
-              label={__("Margin", "team-section")}
-              values={margin}
-              onChange={(v) =>
-                setAttributes({ styles: updateData(styles, v, "margin") })
-              }
-            />
-          </PanelBody>
-          <PanelBody  className="bPlPanelBody"
-            title={__("Member Photo", "team-section")}
-            initialOpen={false}
-          >
-            <BControlPro Component={UnitControl} {...premiumProps} label={__("Max Width","team-section")} value={teamMember?.memberPhoto?.width} onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","memberPhoto","width")})} />
-            <BControlPro Component={UnitControl} {...premiumProps} className="mt15" label={__("Height","team-section")} value={teamMember?.memberPhoto?.height} onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","memberPhoto","height")})} />
-                <BControlPro Component={SelectControl} {...premiumProps} value={teamMember.memberPhoto?.objectFit} className="mt15" label={__("Photo  Fit","team-section")}  options={[
-                { label: "Cover", value: "cover" },
-                { label: "Contain", value: "contain" },
-                { label: "Fill", value: "fill" },
-                { label: "None", value: "none" },
-                { label: "Scale Down", value: "scale-down" }
-              ]}
-              onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","memberPhoto","objectFit")})}
-              />
+          <BControlPro Component={BoxControl} {...premiumProps}
+            className="mt15"
+            label={__("Margin", "team-section")}
+            values={margin}
+            onChange={(v) =>
+              setAttributes({ styles: updateData(styles, v, "margin") })
+            }
+          />
+        </PanelBody>
+        <PanelBody className="bPlPanelBody"
+          title={__("Member Photo", "team-section")}
+          initialOpen={false}
+        >
+          <BControlPro Component={UnitControl} {...premiumProps} label={__("Max Width", "team-section")} value={teamMember?.memberPhoto?.width} onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "memberPhoto", "width") })} />
+          <BControlPro Component={UnitControl} {...premiumProps} className="mt15" label={__("Height", "team-section")} value={teamMember?.memberPhoto?.height} onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "memberPhoto", "height") })} />
+          <BControlPro Component={SelectControl} {...premiumProps} value={teamMember.memberPhoto?.objectFit} className="mt15" label={__("Photo  Fit", "team-section")} options={[
+            { label: "Cover", value: "cover" },
+            { label: "Contain", value: "contain" },
+            { label: "Fill", value: "fill" },
+            { label: "None", value: "none" },
+            { label: "Scale Down", value: "scale-down" }
+          ]}
+            onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "memberPhoto", "objectFit") })}
+          />
 
-              <BControlPro Component={Background} {...premiumProps}  className="mt15" label={__("Photo Shape Background ","team-section")} value={teamMember?.memberPhoto?.bg} onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","memberPhoto","bg")})} />
+          <BControlPro Component={Background} {...premiumProps} className="mt15" label={__("Photo Shape Background ", "team-section")} value={teamMember?.memberPhoto?.bg} onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "memberPhoto", "bg") })} />
 
-          </PanelBody>
+        </PanelBody>
 
-          <PanelBody className="bPlPanelBody"
-            title={__("Member Content", "team-section")}
-            initialOpen={false}>
-                <BControlPro Component={Background} {...premiumProps}  className="mt15" label={__("Background ","team-section")} value={teamMember?.content?.bg} onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","content","bg")})} />
-                  <BControlPro Component={BoxControl} {...premiumProps}  className="mt15" label={__("Padding ","team-section")} values={teamMember?.content?.padding} onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","content","padding")})} />
-                      <BControlPro Component={BoxControl} {...premiumProps}  className="mt15" label={__("Radius ","team-section")} values={teamMember?.content?.radius} onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","content","radius")})} />
+        <PanelBody className="bPlPanelBody"
+          title={__("Member Content", "team-section")}
+          initialOpen={false}>
+          <BControlPro Component={Background} {...premiumProps} className="mt15" label={__("Background ", "team-section")} value={teamMember?.content?.bg} onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "content", "bg") })} />
+          <BControlPro Component={BoxControl} {...premiumProps} className="mt15" label={__("Padding ", "team-section")} values={teamMember?.content?.padding} onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "content", "padding") })} />
+          <BControlPro Component={BoxControl} {...premiumProps} className="mt15" label={__("Radius ", "team-section")} values={teamMember?.content?.radius} onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "content", "radius") })} />
 
-                  <BControlPro Component={ShadowControl} {...premiumProps} className="mt15" label={__("Shadow ","team-section")} value={teamMember?.content?.shadow} onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","content","shadow")})} />
+          <BControlPro Component={ShadowControl} {...premiumProps} className="mt15" label={__("Shadow ", "team-section")} value={teamMember?.content?.shadow} onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "content", "shadow") })} />
 
-                    <BControlPro Component={RangeControl} {...premiumProps} max={360} className="mt15" label={__("Shape hover Rotate ","team-section")} value={teamMember?.content?.hoverRotate} onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","content","hoverRotate")})} />
+          <BControlPro Component={RangeControl} {...premiumProps} max={360} className="mt15" label={__("Shape hover Rotate ", "team-section")} value={teamMember?.content?.hoverRotate} onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "content", "hoverRotate") })} />
 
 
-          </PanelBody>
+        </PanelBody>
 
-          {options?.isShowSereal && (<PanelBody className="bPlPanelBody"
-            title={__("Member Serial", "team-section")}
-            initialOpen={false}>
-                    {/*
+        {options?.isShowSereal && (<PanelBody className="bPlPanelBody"
+          title={__("Member Serial", "team-section")}
+          initialOpen={false}>
+          {/*
                         width: ${teamMember?.serial?.width};
                         height: ${teamMember?.serial?.height};
                         border-radius: ${getBoxCSS(teamMember?.serial?.radius)}; */}
-                        <BControlPro Component={UnitControl} {...premiumProps} label={__("Width ","team-section")} value={teamMember?.serial?.width} onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","serial","width")})}/>
-                        <BControlPro Component={UnitControl} {...premiumProps} className="mt15" label={__("Height ","team-section")} value={teamMember?.serial?.height} onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","serial","height")})}/>
+          <BControlPro Component={UnitControl} {...premiumProps} label={__("Width ", "team-section")} value={teamMember?.serial?.width} onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "serial", "width") })} />
+          <BControlPro Component={UnitControl} {...premiumProps} className="mt15" label={__("Height ", "team-section")} value={teamMember?.serial?.height} onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "serial", "height") })} />
 
-                        <BControlPro Component={ColorControl} {...premiumProps} className="mt15" label={__("Colors ","team-section")} value={teamMember?.serial?.colors} onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","serial","colors")})}/>
+          <BControlPro Component={ColorControl} {...premiumProps} className="mt15" label={__("Colors ", "team-section")} value={teamMember?.serial?.colors} onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "serial", "colors") })} />
 
-                        <BControlPro Component={BoxControl} {...premiumProps} className="mt15" label={__("Radius ","team-section")} values={teamMember?.serial?.radius} onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","serial","radius")})}/>
-                        <BControlPro Component={Typography} {...premiumProps} className="mt15" label={__("Typography ","team-section")} value={teamMember?.serial?.typo} onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","serial","typo")})}/>
-
-
-          </PanelBody>)}
-
-          <PanelBody className="bPlPanelBody"
-            title={__("Member Name", "team-section")}
-            initialOpen={false}>
-              <BControlPro Component={ColorControl} {...premiumProps} className="mt15" label={__("Color ","team-section")} value={teamMember?.name?.color} onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","name","color")})}/>
-              <BControlPro Component={BoxControl} {...premiumProps} className="mt15" label={__("Margin ","team-section")} values={teamMember?.name?.margin} onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","name","margin")})}/>
-            <BControlPro Component={Typography} {...premiumProps} className="mt15" label={__("Typography ","team-section")} value={teamMember?.name?.typo} onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","name","typo")})}/>
-
-          </PanelBody>
-
-          {isTitle &&  <PanelBody className="bPlPanelBody"
-            title={__("Member Title", "team-section")}
-            initialOpen={false}>
-              <BControlPro Component={ColorControl} {...premiumProps} className="mt15" label={__("Color ","team-section")} value={teamMember?.title?.color} onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","title","color")})}/>
-              <BControlPro Component={BoxControl} {...premiumProps} className="mt15" label={__("Margin ","team-section")} values={teamMember?.title?.margin} onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","title","margin")})}/>
-            <BControlPro Component={Typography} {...premiumProps} className="mt15" label={__("Typography ","team-section")} value={teamMember?.title?.typo} onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","title","typo")})}/>
-
-          </PanelBody>}
-
-         {isSocial && <PanelBody className="bPlPanelBody"
-            title={__("Member State", "team-section")}
-            initialOpen={false}>
+          <BControlPro Component={BoxControl} {...premiumProps} className="mt15" label={__("Radius ", "team-section")} values={teamMember?.serial?.radius} onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "serial", "radius") })} />
+          <BControlPro Component={Typography} {...premiumProps} className="mt15" label={__("Typography ", "team-section")} value={teamMember?.serial?.typo} onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "serial", "typo") })} />
 
 
-              <BControlPro Component={BoxControl} {...premiumProps} label={__("Padding ","team-section")} values={teamMember?.states?.padding}  onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","states","padding")})} />
-              <BControlPro Component={BoxControl} {...premiumProps} label={__("Margin ","team-section")} values={teamMember?.states?.margin}  onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","states","margin")})} />
-              <BControlPro Component={BorderBoxControl} {...premiumProps} className="mt15" label={__("Border ","team-section")} value={teamMember?.states?.border}  onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","states","border")})} />
+        </PanelBody>)}
 
-                   <BControlPro Component={ColorControl} {...premiumProps} className="mt15" label={__("Value Color ","team-section")} value={teamMember?.states?.value?.color}  onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","states","value","color")})} />
-                   <BControlPro Component={ColorControl} {...premiumProps} className="mt15" label={__("Label Color ","team-section")} value={teamMember?.states?.label?.color}  onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","states","label","color")})} />
+        <PanelBody className="bPlPanelBody"
+          title={__("Member Name", "team-section")}
+          initialOpen={false}>
+          <BControlPro Component={ColorControl} {...premiumProps} className="mt15" label={__("Color ", "team-section")} value={teamMember?.name?.color} onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "name", "color") })} />
+          <BControlPro Component={BoxControl} {...premiumProps} className="mt15" label={__("Margin ", "team-section")} values={teamMember?.name?.margin} onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "name", "margin") })} />
+          <BControlPro Component={Typography} {...premiumProps} className="mt15" label={__("Typography ", "team-section")} value={teamMember?.name?.typo} onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "name", "typo") })} />
 
-                <BControlPro Component={Typography} {...premiumProps} className="mt15" label={__("Value Typography ","team-section")} value={teamMember?.states?.value?.typo}  onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","states","value","typo")})} />
-                   <BControlPro Component={Typography} {...premiumProps} className="mt15" label={__("Label Typography ","team-section")} value={teamMember?.states?.label?.typo}  onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","states","label","typo")})} />
+        </PanelBody>
 
+        {isTitle && <PanelBody className="bPlPanelBody"
+          title={__("Member Title", "team-section")}
+          initialOpen={false}>
+          <BControlPro Component={ColorControl} {...premiumProps} className="mt15" label={__("Color ", "team-section")} value={teamMember?.title?.color} onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "title", "color") })} />
+          <BControlPro Component={BoxControl} {...premiumProps} className="mt15" label={__("Margin ", "team-section")} values={teamMember?.title?.margin} onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "title", "margin") })} />
+          <BControlPro Component={Typography} {...premiumProps} className="mt15" label={__("Typography ", "team-section")} value={teamMember?.title?.typo} onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "title", "typo") })} />
 
-                   <BControlPro Component={UnitControl} {...premiumProps} className="mt15" label={__("Icon Container width ","team-section")} value={teamMember?.states?.width}  onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","states","width")})} />
-                      <BControlPro Component={UnitControl} {...premiumProps} className="mt15" label={__("Icon Container Height ","team-section")} value={teamMember?.states?.height}  onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","states","height")})} />
-                      <BControlPro Component={BoxControl} {...premiumProps} className="mt15" label={__("Radius ","team-section")} values={teamMember?.states?.radius}  onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","states","radius")})} />
+        </PanelBody>}
 
-                      <BControlPro Component={ColorsControl} {...premiumProps} className="mt15" label={__("Icon One Colors","team-section")} value={teamMember?.states?.iconOne?.colors}  onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","states","iconOne","colors")})} />
-
-                      <BControlPro Component={RangeControl} {...premiumProps} className="mt15" label={__("Icon Size","team-section")} value={teamMember?.states?.size}  onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","states","size")})} />
-
-          </PanelBody>}
-       
-       <PanelBody className="bPlPanelBody"
-            title={__("Member Button", "team-section")}
-            initialOpen={false}>
-              <BControlPro Component={Typography} {...premiumProps} className="mt15" label={__(" Typography","team-section")} value={teamMember?.btn?.typo}  onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","btn","typo")})} />
-              <BControlPro Component={ColorsControl} {...premiumProps} className="mt15" label={__(" Colors","team-section")} value={teamMember?.btn?.colors}  onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","btn","colors")})} />
-              <BControlPro Component={BoxControl} {...premiumProps} className="mt15" label={__(" Padding","team-section")} values={teamMember?.btn?.padding}  onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","btn","padding")})} />
-              <BControlPro Component={BoxControl} {...premiumProps} className="mt15" label={__(" Radius","team-section")} values={teamMember?.btn?.radius}  onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","btn","radius")})} />
+        {isSocial && <PanelBody className="bPlPanelBody"
+          title={__("Member State", "team-section")}
+          initialOpen={false}>
 
 
-       </PanelBody>
+          <BControlPro Component={BoxControl} {...premiumProps} label={__("Padding ", "team-section")} values={teamMember?.states?.padding} onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "states", "padding") })} />
+          <BControlPro Component={BoxControl} {...premiumProps} label={__("Margin ", "team-section")} values={teamMember?.states?.margin} onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "states", "margin") })} />
+          <BControlPro Component={BorderBoxControl} {...premiumProps} className="mt15" label={__("Border ", "team-section")} value={teamMember?.states?.border} onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "states", "border") })} />
+
+          <BControlPro Component={ColorControl} {...premiumProps} className="mt15" label={__("Value Color ", "team-section")} value={teamMember?.states?.value?.color} onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "states", "value", "color") })} />
+          <BControlPro Component={ColorControl} {...premiumProps} className="mt15" label={__("Label Color ", "team-section")} value={teamMember?.states?.label?.color} onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "states", "label", "color") })} />
+
+          <BControlPro Component={Typography} {...premiumProps} className="mt15" label={__("Value Typography ", "team-section")} value={teamMember?.states?.value?.typo} onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "states", "value", "typo") })} />
+          <BControlPro Component={Typography} {...premiumProps} className="mt15" label={__("Label Typography ", "team-section")} value={teamMember?.states?.label?.typo} onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "states", "label", "typo") })} />
+
+
+          <BControlPro Component={UnitControl} {...premiumProps} className="mt15" label={__("Icon Container width ", "team-section")} value={teamMember?.states?.width} onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "states", "width") })} />
+          <BControlPro Component={UnitControl} {...premiumProps} className="mt15" label={__("Icon Container Height ", "team-section")} value={teamMember?.states?.height} onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "states", "height") })} />
+          <BControlPro Component={BoxControl} {...premiumProps} className="mt15" label={__("Radius ", "team-section")} values={teamMember?.states?.radius} onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "states", "radius") })} />
+
+          <BControlPro Component={ColorsControl} {...premiumProps} className="mt15" label={__("Icon One Colors", "team-section")} value={teamMember?.states?.iconOne?.colors} onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "states", "iconOne", "colors") })} />
+
+          <BControlPro Component={RangeControl} {...premiumProps} className="mt15" label={__("Icon Size", "team-section")} value={teamMember?.states?.size} onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "states", "size") })} />
+
+        </PanelBody>}
+
+        <PanelBody className="bPlPanelBody"
+          title={__("Member Button", "team-section")}
+          initialOpen={false}>
+          <BControlPro Component={Typography} {...premiumProps} className="mt15" label={__(" Typography", "team-section")} value={teamMember?.btn?.typo} onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "btn", "typo") })} />
+          <BControlPro Component={ColorsControl} {...premiumProps} className="mt15" label={__(" Colors", "team-section")} value={teamMember?.btn?.colors} onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "btn", "colors") })} />
+          <BControlPro Component={BoxControl} {...premiumProps} className="mt15" label={__(" Padding", "team-section")} values={teamMember?.btn?.padding} onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "btn", "padding") })} />
+          <BControlPro Component={BoxControl} {...premiumProps} className="mt15" label={__(" Radius", "team-section")} values={teamMember?.btn?.radius} onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "btn", "radius") })} />
+
+
+        </PanelBody>
 
       </>)}
       {"theme11" === theme && (<>
-             <PanelBody
-            className="bPlPanelBody"
-            title={__("Container", "team-section")}
-            initialOpen={false}
-          >
-            <BControlPro Component={UnitControl} {...premiumProps}
-              step={1}
-              label={__("Width", "team-section")}
-              value={width}
-              onChange={(v) =>
-                setAttributes({ styles: updateData(styles, v, "width") })
-              }
-            />
+        <PanelBody
+          className="bPlPanelBody"
+          title={__("Container", "team-section")}
+          initialOpen={false}
+        >
+          <BControlPro Component={UnitControl} {...premiumProps}
+            step={1}
+            label={__("Width", "team-section")}
+            value={width}
+            onChange={(v) =>
+              setAttributes({ styles: updateData(styles, v, "width") })
+            }
+          />
 
-            <BControlPro Component={BButtonGroup} {...premiumProps}
-              className="mt15"
-              label={__("Alignment", "team-section")}
-              value={alignment}
-              options={[
-                { label: "Left", value: "left" },
-                { label: "Center", value: "center" },
-                { label: "Right", value: "right" },
-              ]}
-              onChange={(v) =>
-                setAttributes({ styles: updateData(styles, v, "alignment") })
-              }
-            />
+          <BControlPro Component={BButtonGroup} {...premiumProps}
+            className="mt15"
+            label={__("Alignment", "team-section")}
+            value={alignment}
+            options={[
+              { label: "Left", value: "left" },
+              { label: "Center", value: "center" },
+              { label: "Right", value: "right" },
+            ]}
+            onChange={(v) =>
+              setAttributes({ styles: updateData(styles, v, "alignment") })
+            }
+          />
 
-            <BControlPro Component={Background} {...premiumProps}
-              className="mt15"
-              label={__("Background", "team-section")}
-              value={bg}
-              onChange={(v) =>
-                setAttributes({ styles: updateData(styles, v, "bg") })
-              }
-            />
+          <BControlPro Component={Background} {...premiumProps}
+            className="mt15"
+            label={__("Background", "team-section")}
+            value={bg}
+            onChange={(v) =>
+              setAttributes({ styles: updateData(styles, v, "bg") })
+            }
+          />
 
-            <BControlPro Component={BoxControl} {...premiumProps}
-              className="mt15"
-              label={__("Padding", "team-section")}
-              values={sectionPadding}
-              onChange={(v) =>
-                setAttributes({ styles: updateData(styles, v, "padding") })
-              }
-            />
+          <BControlPro Component={BoxControl} {...premiumProps}
+            className="mt15"
+            label={__("Padding", "team-section")}
+            values={sectionPadding}
+            onChange={(v) =>
+              setAttributes({ styles: updateData(styles, v, "padding") })
+            }
+          />
 
-            <BControlPro Component={BoxControl} {...premiumProps}
-              className="mt15"
-              label={__("Margin", "team-section")}
-              values={margin}
-              onChange={(v) =>
-                setAttributes({ styles: updateData(styles, v, "margin") })
-              }
-            />
-          </PanelBody>
-          
-            <PanelBody className="bPlPanelBody"
-            title={__("Member Content", "team-section")}
-            initialOpen={false}>
-                <BControlPro Component={Background} {...premiumProps}  className="mt15" label={__("Background ","team-section")} value={teamMember?.content?.bg} onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","content","bg")})} />
-                  <BControlPro Component={BoxControl} {...premiumProps}  className="mt15" label={__("Padding ","team-section")} values={teamMember?.content?.padding} onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","content","padding")})} />
-                      <BControlPro Component={BoxControl} {...premiumProps}  className="mt15" label={__("Radius ","team-section")} values={teamMember?.content?.radius} onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","content","radius")})} />
+          <BControlPro Component={BoxControl} {...premiumProps}
+            className="mt15"
+            label={__("Margin", "team-section")}
+            values={margin}
+            onChange={(v) =>
+              setAttributes({ styles: updateData(styles, v, "margin") })
+            }
+          />
+        </PanelBody>
 
-                  <BControlPro Component={ShadowControl} {...premiumProps} className="mt15" label={__("Shadow ","team-section")} value={teamMember?.content?.shadow} onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","content","shadow")})} />
+        <PanelBody className="bPlPanelBody"
+          title={__("Member Content", "team-section")}
+          initialOpen={false}>
+          <BControlPro Component={Background} {...premiumProps} className="mt15" label={__("Background ", "team-section")} value={teamMember?.content?.bg} onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "content", "bg") })} />
+          <BControlPro Component={BoxControl} {...premiumProps} className="mt15" label={__("Padding ", "team-section")} values={teamMember?.content?.padding} onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "content", "padding") })} />
+          <BControlPro Component={BoxControl} {...premiumProps} className="mt15" label={__("Radius ", "team-section")} values={teamMember?.content?.radius} onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "content", "radius") })} />
+
+          <BControlPro Component={ShadowControl} {...premiumProps} className="mt15" label={__("Shadow ", "team-section")} value={teamMember?.content?.shadow} onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "content", "shadow") })} />
 
 
 
-          </PanelBody>
+        </PanelBody>
 
-          <PanelBody className="bPlPanelBody"
-            title={__("Member Photo", "team-section")}
-            initialOpen={true}>
-              <BControlPro Component={UnitControl} {...premiumProps} label={__("Height","team-section")} value={teamMember?.memberPhoto?.height} onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","memberPhoto","height")})} />
-                     <BControlPro Component={SelectControl} {...premiumProps} className="mt15" label={__("Object Fit","team-section")}
+        <PanelBody className="bPlPanelBody"
+          title={__("Member Photo", "team-section")}
+          initialOpen={true}>
+          <BControlPro Component={UnitControl} {...premiumProps} label={__("Height", "team-section")} value={teamMember?.memberPhoto?.height} onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "memberPhoto", "height") })} />
+          <BControlPro Component={SelectControl} {...premiumProps} className="mt15" label={__("Object Fit", "team-section")}
             value={teamMember?.memberPhoto?.objectFit}
-              options={[
-                { label: "Cover (Crop & Fill)", value: "cover" },
-                { label: "Contain (Fit Inside)", value: "contain" },
-                { label: "Fill (Stretch)", value: "fill" },
-                { label: "None (Original Size)", value: "none" },
-                { label: "Scale Down (Smaller Fit)", value: "scale-down" },
-              ]}
-              onChange={(val) =>
-                setAttributes({
-                  styles: updateData(
-                    styles,
-                    val,
-                    "teamMember",
-                    "memberPhoto",
-                    "objectFit"
-                  ),
-                })
-              }
-            />
-             <BControlPro Component={RangeControl} {...premiumProps} min={0} max={3} step={.1} label={__("Hover Photo Scale","team-section")} className="mt15" value={teamMember.memberPhoto?.hoverScale}  onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","memberPhoto","hoverScale")})} />
+            options={[
+              { label: "Cover (Crop & Fill)", value: "cover" },
+              { label: "Contain (Fit Inside)", value: "contain" },
+              { label: "Fill (Stretch)", value: "fill" },
+              { label: "None (Original Size)", value: "none" },
+              { label: "Scale Down (Smaller Fit)", value: "scale-down" },
+            ]}
+            onChange={(val) =>
+              setAttributes({
+                styles: updateData(
+                  styles,
+                  val,
+                  "teamMember",
+                  "memberPhoto",
+                  "objectFit"
+                ),
+              })
+            }
+          />
+          <BControlPro Component={RangeControl} {...premiumProps} min={0} max={3} step={.1} label={__("Hover Photo Scale", "team-section")} className="mt15" value={teamMember.memberPhoto?.hoverScale} onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "memberPhoto", "hoverScale") })} />
 
-              <BControlPro Component={Background} {...premiumProps} label={__("Overly Color","team-section")} value={teamMember?.memberPhoto?.bg}  onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","memberPhoto","bg")})}/>
+          <BControlPro Component={Background} {...premiumProps} label={__("Overly Color", "team-section")} value={teamMember?.memberPhoto?.bg} onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "memberPhoto", "bg") })} />
 
-          </PanelBody>
+        </PanelBody>
 
-           {isTitle &&  <PanelBody className="bPlPanelBody"
-            title={__("Member Title", "team-section")}
-            initialOpen={false}>
-              <BControlPro Component={ColorControl} {...premiumProps} className="mt15" label={__("Color ","team-section")} value={teamMember?.title?.color} onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","title","color")})}/>
-              <BControlPro Component={BoxControl} {...premiumProps} className="mt15" label={__("Margin ","team-section")} values={teamMember?.title?.margin} onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","title","margin")})}/>
-            <BControlPro Component={Typography} {...premiumProps} className="mt15" label={__("Typography ","team-section")} value={teamMember?.title?.typo} onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","title","typo")})}/>
+        {isTitle && <PanelBody className="bPlPanelBody"
+          title={__("Member Title", "team-section")}
+          initialOpen={false}>
+          <BControlPro Component={ColorControl} {...premiumProps} className="mt15" label={__("Color ", "team-section")} value={teamMember?.title?.color} onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "title", "color") })} />
+          <BControlPro Component={BoxControl} {...premiumProps} className="mt15" label={__("Margin ", "team-section")} values={teamMember?.title?.margin} onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "title", "margin") })} />
+          <BControlPro Component={Typography} {...premiumProps} className="mt15" label={__("Typography ", "team-section")} value={teamMember?.title?.typo} onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "title", "typo") })} />
 
-          </PanelBody>}
+        </PanelBody>}
 
-         <PanelBody className="bPlPanelBody"
-            title={__("Member Name", "team-section")}
-            initialOpen={false}>
-              <BControlPro Component={ColorControl} {...premiumProps} className="mt15" label={__("Color ","team-section")} value={teamMember?.name?.color} onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","name","color")})}/>
-              <BControlPro Component={BoxControl} {...premiumProps} className="mt15" label={__("Margin ","team-section")} values={teamMember?.name?.margin} onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","name","margin")})}/>
-            <BControlPro Component={Typography} {...premiumProps} className="mt15" label={__("Typography ","team-section")} value={teamMember?.name?.typo} onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","name","typo")})}/>
+        <PanelBody className="bPlPanelBody"
+          title={__("Member Name", "team-section")}
+          initialOpen={false}>
+          <BControlPro Component={ColorControl} {...premiumProps} className="mt15" label={__("Color ", "team-section")} value={teamMember?.name?.color} onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "name", "color") })} />
+          <BControlPro Component={BoxControl} {...premiumProps} className="mt15" label={__("Margin ", "team-section")} values={teamMember?.name?.margin} onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "name", "margin") })} />
+          <BControlPro Component={Typography} {...premiumProps} className="mt15" label={__("Typography ", "team-section")} value={teamMember?.name?.typo} onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "name", "typo") })} />
 
-          </PanelBody>
-            <PanelBody className="bPlPanelBody"
-            title={__("Member Bio", "team-section")}
-            initialOpen={false}>
-              <BControlPro Component={ColorControl} {...premiumProps} className="mt15" label={__("Color ","team-section")} value={teamMember?.bio?.color} onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","bio","color")})}/>
-            <BControlPro Component={Typography} {...premiumProps} className="mt15" label={__("Typography ","team-section")} value={teamMember?.bio?.typo} onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","bio","typo")})}/>
+        </PanelBody>
+        <PanelBody className="bPlPanelBody"
+          title={__("Member Bio", "team-section")}
+          initialOpen={false}>
+          <BControlPro Component={ColorControl} {...premiumProps} className="mt15" label={__("Color ", "team-section")} value={teamMember?.bio?.color} onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "bio", "color") })} />
+          <BControlPro Component={Typography} {...premiumProps} className="mt15" label={__("Typography ", "team-section")} value={teamMember?.bio?.typo} onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "bio", "typo") })} />
 
-          </PanelBody>
+        </PanelBody>
 
-             <PanelBody className="bPlPanelBody"
-            title={__("Member Button", "team-section")}
-            initialOpen={false}>
-              <BControlPro Component={ColorControl} {...premiumProps} className="mt15" label={__("Color ","team-section")} value={teamMember?.btn?.color} onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","btn","color")})}/>
-              <BControlPro Component={RangeControl} {...premiumProps} className="mt15" label={__("Gap ","team-section")} value={teamMember?.btn?.gap} onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","btn","gap")})}/>
-            <BControlPro Component={Typography} {...premiumProps} className="mt15" label={__("Typography ","team-section")} value={teamMember?.btn?.typo} onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","btn","typo")})}/>
-              <BControlPro Component={RangeControl} {...premiumProps} className="mt15" label={__("Icon Size ","team-section")} value={teamMember?.btn?.iconSize} onChange={v=>setAttributes({styles:updateData(styles,v,"teamMember","btn","iconSize")})}/>
+        <PanelBody className="bPlPanelBody"
+          title={__("Member Button", "team-section")}
+          initialOpen={false}>
+          <BControlPro Component={ColorControl} {...premiumProps} className="mt15" label={__("Color ", "team-section")} value={teamMember?.btn?.color} onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "btn", "color") })} />
+          <BControlPro Component={RangeControl} {...premiumProps} className="mt15" label={__("Gap ", "team-section")} value={teamMember?.btn?.gap} onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "btn", "gap") })} />
+          <BControlPro Component={Typography} {...premiumProps} className="mt15" label={__("Typography ", "team-section")} value={teamMember?.btn?.typo} onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "btn", "typo") })} />
+          <BControlPro Component={RangeControl} {...premiumProps} className="mt15" label={__("Icon Size ", "team-section")} value={teamMember?.btn?.iconSize} onChange={v => setAttributes({ styles: updateData(styles, v, "teamMember", "btn", "iconSize") })} />
 
 
-          </PanelBody>
+        </PanelBody>
       </>)}
     </>
   );

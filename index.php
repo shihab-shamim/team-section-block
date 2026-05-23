@@ -73,9 +73,14 @@ if ( !defined( 'ABSPATH' ) ) { exit; }
     }
 		require_once TSB_DIR_PATH . '/includes/ShortCode.php';
         require_once TSB_DIR_PATH . '/includes/AdminMenu.php';
+		require_once TSB_DIR_PATH . 'includes/Init.php';
+		require_once TSB_DIR_PATH . 'includes/RestApi.php';
 		if (TEAM_SECTION_BLOCK_PRO) {
 	require_once TSB_DIR_PATH . 'includes/LicenseActivation.php';
 }
+
+		new TSB\Init();
+		new TSB\RestApi();
 
 		if( !class_exists( 'TSBPlugin' ) ){
 							class TSBPlugin{
@@ -109,7 +114,7 @@ if ( !defined( 'ABSPATH' ) ) { exit; }
 											}
 
 								function onInit(){
-									register_block_type( __DIR__ . '/build' );
+									// Block registration is now handled by TSB\Init
 								}
 									function defaultTitle( $title, $post ) {
 			if ( 'page' === $post->post_type && isset( $_GET['title'] ) ) {

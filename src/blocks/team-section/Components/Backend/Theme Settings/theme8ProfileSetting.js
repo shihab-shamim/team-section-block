@@ -5,19 +5,19 @@ import {
 
 } from "@wordpress/components";
 import { __ } from "@wordpress/i18n";
-import { updateData } from "../../../../../bpl-tools/utils/functions";
+import { updateData } from "../../../../../../../bpl-tools/utils/functions";
 import {
   IconControl,
   InlineMediaUpload,
   Label,
-} from "../../../../../bpl-tools/Components";
-import { sanitizeURL } from "../../../../../bpl-tools/utils/common";
+} from "../../../../../../../bpl-tools/Components";
+import { sanitizeURL } from "../../../../../../../bpl-tools/utils/common";
 
 
 const theme8ProfileSetting = (props) => {
   const { attributes, setAttributes, index } = props;
   const { members } = attributes;
-  const { name, title, photo, social = [] ,icon} = members[index];
+  const { name, title, photo, social = [], icon } = members[index];
 
 
   /** Update Member Helper */
@@ -47,7 +47,7 @@ const theme8ProfileSetting = (props) => {
 
   return (
     <>
-      
+
       <InlineMediaUpload
         label={__("Image", "team-section")}
         value={photo?.url}
@@ -58,7 +58,7 @@ const theme8ProfileSetting = (props) => {
         }
       />
 
-    
+
       <TextControl
         className="mt15"
         placeholder="Name..."
@@ -71,7 +71,7 @@ const theme8ProfileSetting = (props) => {
         }
       />
 
-      
+
       <TextControl
         className="mt15"
         placeholder="Title..."
@@ -95,78 +95,78 @@ const theme8ProfileSetting = (props) => {
           flexWrap: "wrap",
         }}
       >
-        
+
         {/* {social.map((item, socialIndex) => ( */}
-          <div
-            // key={socialIndex}
-            // onClick={() => setSelectedSocial(socialIndex)}
-            style={{
-              cursor: "pointer",
-              padding: "8px 12px",
-              border:"2px solid #0073aa",
+        <div
+          // key={socialIndex}
+          // onClick={() => setSelectedSocial(socialIndex)}
+          style={{
+            cursor: "pointer",
+            padding: "8px 12px",
+            border: "2px solid #0073aa",
             //     selectedSocial === socialIndex
             //       ? "2px solid #0073aa"
             //       : "1px solid #ddd",
-              borderRadius: "8px",
+            borderRadius: "8px",
             //   background:
             //     selectedSocial === socialIndex ? "#f0f8ff" : "#fff",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              transition: "all 0.2s",
-            }}
-          >
-            <i style={{ fontSize: "22px" }} className={social[0].icon?.class} />
-          </div>
-       
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            transition: "all 0.2s",
+          }}
+        >
+          <i style={{ fontSize: "22px" }} className={social[0].icon?.class} />
+        </div>
 
-        
-      
+
+
+
       </div>
 
       {/* {selectedSocial !== null && social[selectedSocial] && ( */}
-        <div
-          className="selectedSocialControls"
-          style={{
-            marginTop: "15px",
-            padding: "10px",
-            border: "1px solid #ddd",
-            borderRadius: "8px",
-            background: "#f9f9f9",
-            maxWidth: "350px",
+      <div
+        className="selectedSocialControls"
+        style={{
+          marginTop: "15px",
+          padding: "10px",
+          border: "1px solid #ddd",
+          borderRadius: "8px",
+          background: "#f9f9f9",
+          maxWidth: "350px",
+        }}
+      >
+        <Label className="mb5">{__("Link:", "team-section")}</Label>
+        <InputControl
+          value={social[0].link}
+          onChange={(val) => {
+            const safeUrl = sanitizeURL(val);
+            updateMember("social", safeUrl, 0, "link")
           }}
-        >
-          <Label className="mb5">{__("Link:", "team-section")}</Label>
-          <InputControl
-            value={social[0].link}
-            onChange={(val) => {
-              const safeUrl = sanitizeURL(val);
-              updateMember("social", safeUrl, 0, "link")
-            }}
-            placeholder={__("Link URL", "team-section")}
-          />
+          placeholder={__("Link URL", "team-section")}
+        />
 
-          <Label className="mb5 mt10">{__("Change Icon:", "team-section")}</Label>
-          <IconControl
-            value={social[0].icon}
-            onChange={(val) =>
-              updateMember("social", val, 0, "icon")
-            }
-            defaults={{ class: "fab fa-facebook-f", fontSize: 22 }}
-            isSize={false}
-            isColor={false}
-          />
+        <Label className="mb5 mt10">{__("Change Icon:", "team-section")}</Label>
+        <IconControl
+          value={social[0].icon}
+          onChange={(val) =>
+            updateMember("social", val, 0, "icon")
+          }
+          defaults={{ class: "fab fa-facebook-f", fontSize: 22 }}
+          isSize={false}
+          isColor={false}
+        />
 
-        </div>
+      </div>
 
-        <TextControl label={__("Arrow Icon Link", "team-section")} className="mt15" value={icon}   onChange={(value) =>
-          setAttributes({
-            members: updateData(members, value, index, "icon"),
-          })
-        } />
- 
+      <TextControl label={__("Arrow Icon Link", "team-section")} className="mt15" value={icon} onChange={(value) =>
+        setAttributes({
+          members: updateData(members, value, index, "icon"),
+        })
+      } />
 
-       
+
+
     </>
   );
 };

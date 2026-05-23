@@ -26,22 +26,22 @@ import {
   SeparatorControl,
   ItemsPanel,
   IconLibrary,
-} from "../../../../../bpl-tools/Components";
+} from "../../../../../../../bpl-tools/Components";
 import {
   BorderControl,
   ChangeImageData,
-} from "../../../../../bpl-tools/Components/Deprecated";
-import { gearIcon } from "../../../../../bpl-tools/utils/icons";
+} from "../../../../../../../bpl-tools/Components/Deprecated";
+import { gearIcon } from "../../../../../../../bpl-tools/utils/icons";
 import {
   pxUnit,
   perUnit,
   emUnit,
-} from "../../../../../bpl-tools/utils/options";
-import { primaryColor } from "../../../../../bpl-tools/utils/data";
+} from "../../../../../../../bpl-tools/utils/options";
+import { primaryColor } from "../../../../../../../bpl-tools/utils/data";
 
 import { themes, layouts } from "../../../utils/options";
 import theme5ProfileSetting from "../Theme Settings/theme5ProfileSetting";
-import { updateData } from "../../../../../bpl-tools/utils/functions";
+import { updateData } from "../../../../../../../bpl-tools/utils/functions";
 import theme6ProfileSetting from "../Theme Settings/theme6ProfileSetting";
 import theme7ProfileSetting from "../Theme Settings/theme7ProfileSetting";
 import theme8ProfileSetting from "../Theme Settings/theme8ProfileSetting";
@@ -49,7 +49,7 @@ import theme9ProfileSetting from "../Theme Settings/theme9ProfileSetting";
 import theme10ProfileSetting from "../Theme Settings/theme10ProfileSetting";
 import theme11ProfileSetting from "../Theme Settings/theme11ProfileSetting";
 import { themeSwitch } from "../../../utils/functions";
-import { BControlPro } from "../../../../../bpl-tools/ProControls";
+import { BControlPro } from "../../../../../../../bpl-tools/ProControls";
 
 const General = ({
   attributes,
@@ -83,13 +83,13 @@ const General = ({
     isShowWaterMark = true,
     isShowShape = true,
     waterMark = "TEAM",
-    isShowIcon=true
+    isShowIcon = true
   } = options || {};
-  
-    const handleClick = (value) => {
-      setAttributes(themeSwitch(value,attributes));
-    
-    };
+
+  const handleClick = (value) => {
+    setAttributes(themeSwitch(value, attributes));
+
+  };
   const newMember = {
     background: { color: "#0000" },
     border: { radius: "3px" },
@@ -166,7 +166,7 @@ const General = ({
       members: [
         ...members,
         {
-        paddingTop:"0px",
+          paddingTop: "0px",
 
           background,
           border,
@@ -456,287 +456,287 @@ const General = ({
               <Label className="">{__("Theme:", "team-section")}</Label>
               <SelectControl
                 value={theme}
-             onChange={(val) => {
-            setAttributes({ theme: val });
-            "default" === val &&
-              setAttributes({
-                padding: { ...padding, vertical: "50px", horizontal: "20px" },
-                photoWidth: "170px",
-                nameTypo: { ...nameTypo, fontSize: 20, textTransform: "none" },
-                titleTypo: {
-                  ...titleTypo,
-                  fontSize: 16,
-                  textTransform: "none",
-                },
-                isSep: true,
-                isBio: true,
-                socialSize: "22px",
-              columns: {
-				"desktop": 3,
-				"tablet": 2,
-				"mobile": 1
-			},
-      rowGap:"30px",
-      columnGap:"30px"
+                onChange={(val) => {
+                  setAttributes({ theme: val });
+                  "default" === val &&
+                    setAttributes({
+                      padding: { ...padding, vertical: "50px", horizontal: "20px" },
+                      photoWidth: "170px",
+                      nameTypo: { ...nameTypo, fontSize: 20, textTransform: "none" },
+                      titleTypo: {
+                        ...titleTypo,
+                        fontSize: 16,
+                        textTransform: "none",
+                      },
+                      isSep: true,
+                      isBio: true,
+                      socialSize: "22px",
+                      columns: {
+                        "desktop": 3,
+                        "tablet": 2,
+                        "mobile": 1
+                      },
+                      rowGap: "30px",
+                      columnGap: "30px"
 
-		
-              });
-            "theme1" === val &&
-              setAttributes({
-                padding: { ...padding, vertical: "50px", horizontal: "20px" },
-                photoWidth: "190px",
-                nameTypo: { ...nameTypo, fontSize: 20, textTransform: "none" },
-                titleTypo: {
-                  ...titleTypo,
-                  fontSize: 14,
-                  textTransform: "uppercase",
-                },
-                isSep: true,
-                isBio: true,
-                socialSize: "22px",
-                     columns: {
-				"desktop": 3,
-				"tablet": 2,
-				"mobile": 1
-			},
-      rowGap:"30px",
-      columnGap:"30px"
 
-              });
-            "theme2" === val &&
-              setAttributes({
-                padding: { ...padding, vertical: "50px", horizontal: "20px" },
-                photoWidth: "190px",
-                nameTypo: { ...nameTypo, fontSize: 20, textTransform: "none" },
-                titleTypo: {
-                  ...titleTypo,
-                  fontSize: 14,
-                  textTransform: "uppercase",
-                },
-                isSep: true,
-                isBio: false,
-                socialSize: "22px",
-                     columns: {
-				"desktop": 3,
-				"tablet": 2,
-				"mobile": 1
-			},
-      rowGap:"30px",
-      columnGap:"30px"
+                    });
+                  "theme1" === val &&
+                    setAttributes({
+                      padding: { ...padding, vertical: "50px", horizontal: "20px" },
+                      photoWidth: "190px",
+                      nameTypo: { ...nameTypo, fontSize: 20, textTransform: "none" },
+                      titleTypo: {
+                        ...titleTypo,
+                        fontSize: 14,
+                        textTransform: "uppercase",
+                      },
+                      isSep: true,
+                      isBio: true,
+                      socialSize: "22px",
+                      columns: {
+                        "desktop": 3,
+                        "tablet": 2,
+                        "mobile": 1
+                      },
+                      rowGap: "30px",
+                      columnGap: "30px"
 
-              });
-            "theme3" === val &&
-              setAttributes({
-                padding: { ...padding, vertical: "50px", horizontal: "20px" },
-                photoWidth: "170px",
-                nameTypo: { ...nameTypo, fontSize: 24, textTransform: "none" },
-                titleTypo: {
-                  ...titleTypo,
-                  fontSize: 18,
-                  textTransform: "none",
-                },
-                isSep: false,
-                isBio: false,
-                socialSize: "28px",
-                     columns: {
-				"desktop": 3,
-				"tablet": 2,
-				"mobile": 1
-			},
-      rowGap:"30px",
-      columnGap:"30px"
+                    });
+                  "theme2" === val &&
+                    setAttributes({
+                      padding: { ...padding, vertical: "50px", horizontal: "20px" },
+                      photoWidth: "190px",
+                      nameTypo: { ...nameTypo, fontSize: 20, textTransform: "none" },
+                      titleTypo: {
+                        ...titleTypo,
+                        fontSize: 14,
+                        textTransform: "uppercase",
+                      },
+                      isSep: true,
+                      isBio: false,
+                      socialSize: "22px",
+                      columns: {
+                        "desktop": 3,
+                        "tablet": 2,
+                        "mobile": 1
+                      },
+                      rowGap: "30px",
+                      columnGap: "30px"
 
-              });
-            "theme4" === val &&
-              setAttributes({
-                padding: { ...padding, vertical: "15px", horizontal: "15px" },
-                photoWidth: "100%",
-                nameTypo: {
-                  ...nameTypo,
-                  fontSize: 20,
-                  textTransform: "uppercase",
-                },
-                titleTypo: {
-                  ...titleTypo,
-                  fontSize: 15,
-                  textTransform: "none",
-                },
-                isSep: false,
-                isBio: false,
-                socialSize: "22px",
-                     columns: {
-				"desktop": 3,
-				"tablet": 2,
-				"mobile": 1
-			},
-      rowGap:"30px",
-      columnGap:"30px"
+                    });
+                  "theme3" === val &&
+                    setAttributes({
+                      padding: { ...padding, vertical: "50px", horizontal: "20px" },
+                      photoWidth: "170px",
+                      nameTypo: { ...nameTypo, fontSize: 24, textTransform: "none" },
+                      titleTypo: {
+                        ...titleTypo,
+                        fontSize: 18,
+                        textTransform: "none",
+                      },
+                      isSep: false,
+                      isBio: false,
+                      socialSize: "28px",
+                      columns: {
+                        "desktop": 3,
+                        "tablet": 2,
+                        "mobile": 1
+                      },
+                      rowGap: "30px",
+                      columnGap: "30px"
 
-              });
-           [ "theme5","theme6","theme7","theme8","theme9","theme10","theme11","theme12"].includes(val) && handleClick(val) 
+                    });
+                  "theme4" === val &&
+                    setAttributes({
+                      padding: { ...padding, vertical: "15px", horizontal: "15px" },
+                      photoWidth: "100%",
+                      nameTypo: {
+                        ...nameTypo,
+                        fontSize: 20,
+                        textTransform: "uppercase",
+                      },
+                      titleTypo: {
+                        ...titleTypo,
+                        fontSize: 15,
+                        textTransform: "none",
+                      },
+                      isSep: false,
+                      isBio: false,
+                      socialSize: "22px",
+                      columns: {
+                        "desktop": 3,
+                        "tablet": 2,
+                        "mobile": 1
+                      },
+                      rowGap: "30px",
+                      columnGap: "30px"
 
-            members.map((member) => {
-              const {
-                background,
-                border,
-                photoBorder,
-                separator,
-                socialIconColors,
-              } = member;
+                    });
+                  ["theme5", "theme6", "theme7", "theme8", "theme9", "theme10", "theme11", "theme12"].includes(val) && handleClick(val)
 
-              const defaultParams = [
-                ["background", { ...background, color: "#0000" }],
-                ["border", { ...border, radius: "3px" }],
-                [
-                  "shadow",
-                  [{ hOffset: "", vOffset: "", blur: "0px", color: "#7090b0" }],
-                ],
-                [
-                  "photoBorder",
-                  {
-                    ...photoBorder,
-                    width: "0px",
-                    color: "#0000",
-                    radius: "50%",
-                  },
-                ],
-                ["nameColor", "#333"],
-                ["titleColor", "#333"],
-                ["separator", { ...separator, color: "#777" }],
-                ["bioColor", "#333"],
-                [
-                  "socialIconColors",
-                  { ...socialIconColors, color: "#fff", bg: primaryColor },
-                ],
-              ];
-              const theme1Params = [
-                ["background", { ...background, color: "#0000" }],
-                ["border", { ...border, radius: "3px" }],
-                [
-                  "shadow",
-                  [
-                    {
-                      hOffset: "",
-                      vOffset: "",
-                      blur: "20px",
-                      color: "#e8edfb",
-                    },
-                  ],
-                ],
-                [
-                  "photoBorder",
-                  {
-                    ...photoBorder,
-                    width: "10px",
-                    color: "#e8edfb",
-                    radius: "50%",
-                  },
-                ],
-                ["nameColor", "#333"],
-                ["titleColor", "#7a7a7a"],
-                ["separator", { ...separator, color: primaryColor }],
-                ["bioColor", "#7a7a7a"],
-                [
-                  "socialIconColors",
-                  { ...socialIconColors, color: "#fff", bg: primaryColor },
-                ],
-              ];
-              const theme2Params = [
-                ["background", { ...background, color: "#0000" }],
-                ["border", { ...border, radius: "3px" }],
-                [
-                  "shadow",
-                  [{ hOffset: "", vOffset: "", blur: "0px", color: "#7090b0" }],
-                ],
-                [
-                  "photoBorder",
-                  {
-                    ...photoBorder,
-                    width: "0px",
-                    color: "#0000",
-                    radius: "50%",
-                  },
-                ],
-                ["nameColor", "#333"],
-                ["titleColor", "#7a7a7a"],
-                ["separator", { ...separator, color: "#999" }],
-                ["bioColor", "#7a7a7a"],
-                [
-                  "socialIconColors",
-                  { ...socialIconColors, color: primaryColor, bg: "#0000" },
-                ],
-              ];
-              const theme3Params = [
-                ["background", { ...background, color: "#f2f3f7" }],
-                ["border", { ...border, radius: "10px" }],
-                [
-                  "shadow",
-                  [
-                    {
-                      hOffset: "-10px",
-                      vOffset: "-10px",
-                      blur: "20px",
-                      color: "#f7f7f7",
-                    },
-                    {
-                      hOffset: "10px",
-                      vOffset: "10px",
-                      blur: "20px",
-                      color: "#d7e0e8",
-                    },
-                  ],
-                ],
-                [
-                  "photoBorder",
-                  {
-                    ...photoBorder,
-                    width: "0px",
-                    color: "#0000",
-                    radius: "50%",
-                  },
-                ],
-                ["nameColor", "#32285C"],
-                ["titleColor", "#677592"],
-                ["separator", { ...separator, color: "#777" }],
-                ["bioColor", "#333"],
-                [
-                  "socialIconColors",
-                  { ...socialIconColors, color: "#677592", bg: "#0000" },
-                ],
-              ];
-              const theme4Params = [
-                ["background", { ...background, color: primaryColor }],
-                ["border", { ...border, radius: "0px" }],
-                [
-                  "shadow",
-                  [{ hOffset: "", vOffset: "", blur: "0px", color: "#7090b0" }],
-                ],
-                [
-                  "photoBorder",
-                  {
-                    ...photoBorder,
-                    width: "0px",
-                    color: "#0000",
-                    radius: "0px",
-                  },
-                ],
-                ["nameColor", "#fff"],
-                ["titleColor", "#fff"],
-                ["separator", { ...separator, color: "#777" }],
-                ["bioColor", "#fff"],
-                [
-                  "socialIconColors",
-                  { ...socialIconColors, color: primaryColor, bg: "#fff" },
-                ],
-              ];
+                  members.map((member) => {
+                    const {
+                      background,
+                      border,
+                      photoBorder,
+                      separator,
+                      socialIconColors,
+                    } = member;
 
-              "default" === val && updateAllMembers(defaultParams);
-              "theme1" === val && updateAllMembers(theme1Params);
-              "theme2" === val && updateAllMembers(theme2Params);
-              "theme3" === val && updateAllMembers(theme3Params);
-              "theme4" === val && updateAllMembers(theme4Params);
-            });
-          }}
+                    const defaultParams = [
+                      ["background", { ...background, color: "#0000" }],
+                      ["border", { ...border, radius: "3px" }],
+                      [
+                        "shadow",
+                        [{ hOffset: "", vOffset: "", blur: "0px", color: "#7090b0" }],
+                      ],
+                      [
+                        "photoBorder",
+                        {
+                          ...photoBorder,
+                          width: "0px",
+                          color: "#0000",
+                          radius: "50%",
+                        },
+                      ],
+                      ["nameColor", "#333"],
+                      ["titleColor", "#333"],
+                      ["separator", { ...separator, color: "#777" }],
+                      ["bioColor", "#333"],
+                      [
+                        "socialIconColors",
+                        { ...socialIconColors, color: "#fff", bg: primaryColor },
+                      ],
+                    ];
+                    const theme1Params = [
+                      ["background", { ...background, color: "#0000" }],
+                      ["border", { ...border, radius: "3px" }],
+                      [
+                        "shadow",
+                        [
+                          {
+                            hOffset: "",
+                            vOffset: "",
+                            blur: "20px",
+                            color: "#e8edfb",
+                          },
+                        ],
+                      ],
+                      [
+                        "photoBorder",
+                        {
+                          ...photoBorder,
+                          width: "10px",
+                          color: "#e8edfb",
+                          radius: "50%",
+                        },
+                      ],
+                      ["nameColor", "#333"],
+                      ["titleColor", "#7a7a7a"],
+                      ["separator", { ...separator, color: primaryColor }],
+                      ["bioColor", "#7a7a7a"],
+                      [
+                        "socialIconColors",
+                        { ...socialIconColors, color: "#fff", bg: primaryColor },
+                      ],
+                    ];
+                    const theme2Params = [
+                      ["background", { ...background, color: "#0000" }],
+                      ["border", { ...border, radius: "3px" }],
+                      [
+                        "shadow",
+                        [{ hOffset: "", vOffset: "", blur: "0px", color: "#7090b0" }],
+                      ],
+                      [
+                        "photoBorder",
+                        {
+                          ...photoBorder,
+                          width: "0px",
+                          color: "#0000",
+                          radius: "50%",
+                        },
+                      ],
+                      ["nameColor", "#333"],
+                      ["titleColor", "#7a7a7a"],
+                      ["separator", { ...separator, color: "#999" }],
+                      ["bioColor", "#7a7a7a"],
+                      [
+                        "socialIconColors",
+                        { ...socialIconColors, color: primaryColor, bg: "#0000" },
+                      ],
+                    ];
+                    const theme3Params = [
+                      ["background", { ...background, color: "#f2f3f7" }],
+                      ["border", { ...border, radius: "10px" }],
+                      [
+                        "shadow",
+                        [
+                          {
+                            hOffset: "-10px",
+                            vOffset: "-10px",
+                            blur: "20px",
+                            color: "#f7f7f7",
+                          },
+                          {
+                            hOffset: "10px",
+                            vOffset: "10px",
+                            blur: "20px",
+                            color: "#d7e0e8",
+                          },
+                        ],
+                      ],
+                      [
+                        "photoBorder",
+                        {
+                          ...photoBorder,
+                          width: "0px",
+                          color: "#0000",
+                          radius: "50%",
+                        },
+                      ],
+                      ["nameColor", "#32285C"],
+                      ["titleColor", "#677592"],
+                      ["separator", { ...separator, color: "#777" }],
+                      ["bioColor", "#333"],
+                      [
+                        "socialIconColors",
+                        { ...socialIconColors, color: "#677592", bg: "#0000" },
+                      ],
+                    ];
+                    const theme4Params = [
+                      ["background", { ...background, color: primaryColor }],
+                      ["border", { ...border, radius: "0px" }],
+                      [
+                        "shadow",
+                        [{ hOffset: "", vOffset: "", blur: "0px", color: "#7090b0" }],
+                      ],
+                      [
+                        "photoBorder",
+                        {
+                          ...photoBorder,
+                          width: "0px",
+                          color: "#0000",
+                          radius: "0px",
+                        },
+                      ],
+                      ["nameColor", "#fff"],
+                      ["titleColor", "#fff"],
+                      ["separator", { ...separator, color: "#777" }],
+                      ["bioColor", "#fff"],
+                      [
+                        "socialIconColors",
+                        { ...socialIconColors, color: primaryColor, bg: "#fff" },
+                      ],
+                    ];
+
+                    "default" === val && updateAllMembers(defaultParams);
+                    "theme1" === val && updateAllMembers(theme1Params);
+                    "theme2" === val && updateAllMembers(theme2Params);
+                    "theme3" === val && updateAllMembers(theme3Params);
+                    "theme4" === val && updateAllMembers(theme4Params);
+                  });
+                }}
                 options={themes}
               />
             </PanelRow>
@@ -848,287 +848,287 @@ const General = ({
               <Label className="">{__("Theme:", "team-section")}</Label>
               <SelectControl
                 value={theme}
-        onChange={(val) => {
-            setAttributes({ theme: val });
-            "default" === val &&
-              setAttributes({
-                padding: { ...padding, vertical: "50px", horizontal: "20px" },
-                photoWidth: "170px",
-                nameTypo: { ...nameTypo, fontSize: 20, textTransform: "none" },
-                titleTypo: {
-                  ...titleTypo,
-                  fontSize: 16,
-                  textTransform: "none",
-                },
-                isSep: true,
-                isBio: true,
-                socialSize: "22px",
-              columns: {
-				"desktop": 3,
-				"tablet": 2,
-				"mobile": 1
-			},
-      rowGap:"30px",
-      columnGap:"30px"
+                onChange={(val) => {
+                  setAttributes({ theme: val });
+                  "default" === val &&
+                    setAttributes({
+                      padding: { ...padding, vertical: "50px", horizontal: "20px" },
+                      photoWidth: "170px",
+                      nameTypo: { ...nameTypo, fontSize: 20, textTransform: "none" },
+                      titleTypo: {
+                        ...titleTypo,
+                        fontSize: 16,
+                        textTransform: "none",
+                      },
+                      isSep: true,
+                      isBio: true,
+                      socialSize: "22px",
+                      columns: {
+                        "desktop": 3,
+                        "tablet": 2,
+                        "mobile": 1
+                      },
+                      rowGap: "30px",
+                      columnGap: "30px"
 
-		
-              });
-            "theme1" === val &&
-              setAttributes({
-                padding: { ...padding, vertical: "50px", horizontal: "20px" },
-                photoWidth: "190px",
-                nameTypo: { ...nameTypo, fontSize: 20, textTransform: "none" },
-                titleTypo: {
-                  ...titleTypo,
-                  fontSize: 14,
-                  textTransform: "uppercase",
-                },
-                isSep: true,
-                isBio: true,
-                socialSize: "22px",
-                     columns: {
-				"desktop": 3,
-				"tablet": 2,
-				"mobile": 1
-			},
-      rowGap:"30px",
-      columnGap:"30px"
 
-              });
-            "theme2" === val &&
-              setAttributes({
-                padding: { ...padding, vertical: "50px", horizontal: "20px" },
-                photoWidth: "190px",
-                nameTypo: { ...nameTypo, fontSize: 20, textTransform: "none" },
-                titleTypo: {
-                  ...titleTypo,
-                  fontSize: 14,
-                  textTransform: "uppercase",
-                },
-                isSep: true,
-                isBio: false,
-                socialSize: "22px",
-                     columns: {
-				"desktop": 3,
-				"tablet": 2,
-				"mobile": 1
-			},
-      rowGap:"30px",
-      columnGap:"30px"
+                    });
+                  "theme1" === val &&
+                    setAttributes({
+                      padding: { ...padding, vertical: "50px", horizontal: "20px" },
+                      photoWidth: "190px",
+                      nameTypo: { ...nameTypo, fontSize: 20, textTransform: "none" },
+                      titleTypo: {
+                        ...titleTypo,
+                        fontSize: 14,
+                        textTransform: "uppercase",
+                      },
+                      isSep: true,
+                      isBio: true,
+                      socialSize: "22px",
+                      columns: {
+                        "desktop": 3,
+                        "tablet": 2,
+                        "mobile": 1
+                      },
+                      rowGap: "30px",
+                      columnGap: "30px"
 
-              });
-            "theme3" === val &&
-              setAttributes({
-                padding: { ...padding, vertical: "50px", horizontal: "20px" },
-                photoWidth: "170px",
-                nameTypo: { ...nameTypo, fontSize: 24, textTransform: "none" },
-                titleTypo: {
-                  ...titleTypo,
-                  fontSize: 18,
-                  textTransform: "none",
-                },
-                isSep: false,
-                isBio: false,
-                socialSize: "28px",
-                     columns: {
-				"desktop": 3,
-				"tablet": 2,
-				"mobile": 1
-			},
-      rowGap:"30px",
-      columnGap:"30px"
+                    });
+                  "theme2" === val &&
+                    setAttributes({
+                      padding: { ...padding, vertical: "50px", horizontal: "20px" },
+                      photoWidth: "190px",
+                      nameTypo: { ...nameTypo, fontSize: 20, textTransform: "none" },
+                      titleTypo: {
+                        ...titleTypo,
+                        fontSize: 14,
+                        textTransform: "uppercase",
+                      },
+                      isSep: true,
+                      isBio: false,
+                      socialSize: "22px",
+                      columns: {
+                        "desktop": 3,
+                        "tablet": 2,
+                        "mobile": 1
+                      },
+                      rowGap: "30px",
+                      columnGap: "30px"
 
-              });
-            "theme4" === val &&
-              setAttributes({
-                padding: { ...padding, vertical: "15px", horizontal: "15px" },
-                photoWidth: "100%",
-                nameTypo: {
-                  ...nameTypo,
-                  fontSize: 20,
-                  textTransform: "uppercase",
-                },
-                titleTypo: {
-                  ...titleTypo,
-                  fontSize: 15,
-                  textTransform: "none",
-                },
-                isSep: false,
-                isBio: false,
-                socialSize: "22px",
-                     columns: {
-				"desktop": 3,
-				"tablet": 2,
-				"mobile": 1
-			},
-      rowGap:"30px",
-      columnGap:"30px"
+                    });
+                  "theme3" === val &&
+                    setAttributes({
+                      padding: { ...padding, vertical: "50px", horizontal: "20px" },
+                      photoWidth: "170px",
+                      nameTypo: { ...nameTypo, fontSize: 24, textTransform: "none" },
+                      titleTypo: {
+                        ...titleTypo,
+                        fontSize: 18,
+                        textTransform: "none",
+                      },
+                      isSep: false,
+                      isBio: false,
+                      socialSize: "28px",
+                      columns: {
+                        "desktop": 3,
+                        "tablet": 2,
+                        "mobile": 1
+                      },
+                      rowGap: "30px",
+                      columnGap: "30px"
 
-              });
-           [ "theme5","theme6","theme7","theme8","theme9","theme10","theme11","theme12"].includes(val) && handleClick(val) 
+                    });
+                  "theme4" === val &&
+                    setAttributes({
+                      padding: { ...padding, vertical: "15px", horizontal: "15px" },
+                      photoWidth: "100%",
+                      nameTypo: {
+                        ...nameTypo,
+                        fontSize: 20,
+                        textTransform: "uppercase",
+                      },
+                      titleTypo: {
+                        ...titleTypo,
+                        fontSize: 15,
+                        textTransform: "none",
+                      },
+                      isSep: false,
+                      isBio: false,
+                      socialSize: "22px",
+                      columns: {
+                        "desktop": 3,
+                        "tablet": 2,
+                        "mobile": 1
+                      },
+                      rowGap: "30px",
+                      columnGap: "30px"
 
-            members.map((member) => {
-              const {
-                background,
-                border,
-                photoBorder,
-                separator,
-                socialIconColors,
-              } = member;
+                    });
+                  ["theme5", "theme6", "theme7", "theme8", "theme9", "theme10", "theme11", "theme12"].includes(val) && handleClick(val)
 
-              const defaultParams = [
-                ["background", { ...background, color: "#0000" }],
-                ["border", { ...border, radius: "3px" }],
-                [
-                  "shadow",
-                  [{ hOffset: "", vOffset: "", blur: "0px", color: "#7090b0" }],
-                ],
-                [
-                  "photoBorder",
-                  {
-                    ...photoBorder,
-                    width: "0px",
-                    color: "#0000",
-                    radius: "50%",
-                  },
-                ],
-                ["nameColor", "#333"],
-                ["titleColor", "#333"],
-                ["separator", { ...separator, color: "#777" }],
-                ["bioColor", "#333"],
-                [
-                  "socialIconColors",
-                  { ...socialIconColors, color: "#fff", bg: primaryColor },
-                ],
-              ];
-              const theme1Params = [
-                ["background", { ...background, color: "#0000" }],
-                ["border", { ...border, radius: "3px" }],
-                [
-                  "shadow",
-                  [
-                    {
-                      hOffset: "",
-                      vOffset: "",
-                      blur: "20px",
-                      color: "#e8edfb",
-                    },
-                  ],
-                ],
-                [
-                  "photoBorder",
-                  {
-                    ...photoBorder,
-                    width: "10px",
-                    color: "#e8edfb",
-                    radius: "50%",
-                  },
-                ],
-                ["nameColor", "#333"],
-                ["titleColor", "#7a7a7a"],
-                ["separator", { ...separator, color: primaryColor }],
-                ["bioColor", "#7a7a7a"],
-                [
-                  "socialIconColors",
-                  { ...socialIconColors, color: "#fff", bg: primaryColor },
-                ],
-              ];
-              const theme2Params = [
-                ["background", { ...background, color: "#0000" }],
-                ["border", { ...border, radius: "3px" }],
-                [
-                  "shadow",
-                  [{ hOffset: "", vOffset: "", blur: "0px", color: "#7090b0" }],
-                ],
-                [
-                  "photoBorder",
-                  {
-                    ...photoBorder,
-                    width: "0px",
-                    color: "#0000",
-                    radius: "50%",
-                  },
-                ],
-                ["nameColor", "#333"],
-                ["titleColor", "#7a7a7a"],
-                ["separator", { ...separator, color: "#999" }],
-                ["bioColor", "#7a7a7a"],
-                [
-                  "socialIconColors",
-                  { ...socialIconColors, color: primaryColor, bg: "#0000" },
-                ],
-              ];
-              const theme3Params = [
-                ["background", { ...background, color: "#f2f3f7" }],
-                ["border", { ...border, radius: "10px" }],
-                [
-                  "shadow",
-                  [
-                    {
-                      hOffset: "-10px",
-                      vOffset: "-10px",
-                      blur: "20px",
-                      color: "#f7f7f7",
-                    },
-                    {
-                      hOffset: "10px",
-                      vOffset: "10px",
-                      blur: "20px",
-                      color: "#d7e0e8",
-                    },
-                  ],
-                ],
-                [
-                  "photoBorder",
-                  {
-                    ...photoBorder,
-                    width: "0px",
-                    color: "#0000",
-                    radius: "50%",
-                  },
-                ],
-                ["nameColor", "#32285C"],
-                ["titleColor", "#677592"],
-                ["separator", { ...separator, color: "#777" }],
-                ["bioColor", "#333"],
-                [
-                  "socialIconColors",
-                  { ...socialIconColors, color: "#677592", bg: "#0000" },
-                ],
-              ];
-              const theme4Params = [
-                ["background", { ...background, color: primaryColor }],
-                ["border", { ...border, radius: "0px" }],
-                [
-                  "shadow",
-                  [{ hOffset: "", vOffset: "", blur: "0px", color: "#7090b0" }],
-                ],
-                [
-                  "photoBorder",
-                  {
-                    ...photoBorder,
-                    width: "0px",
-                    color: "#0000",
-                    radius: "0px",
-                  },
-                ],
-                ["nameColor", "#fff"],
-                ["titleColor", "#fff"],
-                ["separator", { ...separator, color: "#777" }],
-                ["bioColor", "#fff"],
-                [
-                  "socialIconColors",
-                  { ...socialIconColors, color: primaryColor, bg: "#fff" },
-                ],
-              ];
+                  members.map((member) => {
+                    const {
+                      background,
+                      border,
+                      photoBorder,
+                      separator,
+                      socialIconColors,
+                    } = member;
 
-              "default" === val && updateAllMembers(defaultParams);
-              "theme1" === val && updateAllMembers(theme1Params);
-              "theme2" === val && updateAllMembers(theme2Params);
-              "theme3" === val && updateAllMembers(theme3Params);
-              "theme4" === val && updateAllMembers(theme4Params);
-            });
-          }}
+                    const defaultParams = [
+                      ["background", { ...background, color: "#0000" }],
+                      ["border", { ...border, radius: "3px" }],
+                      [
+                        "shadow",
+                        [{ hOffset: "", vOffset: "", blur: "0px", color: "#7090b0" }],
+                      ],
+                      [
+                        "photoBorder",
+                        {
+                          ...photoBorder,
+                          width: "0px",
+                          color: "#0000",
+                          radius: "50%",
+                        },
+                      ],
+                      ["nameColor", "#333"],
+                      ["titleColor", "#333"],
+                      ["separator", { ...separator, color: "#777" }],
+                      ["bioColor", "#333"],
+                      [
+                        "socialIconColors",
+                        { ...socialIconColors, color: "#fff", bg: primaryColor },
+                      ],
+                    ];
+                    const theme1Params = [
+                      ["background", { ...background, color: "#0000" }],
+                      ["border", { ...border, radius: "3px" }],
+                      [
+                        "shadow",
+                        [
+                          {
+                            hOffset: "",
+                            vOffset: "",
+                            blur: "20px",
+                            color: "#e8edfb",
+                          },
+                        ],
+                      ],
+                      [
+                        "photoBorder",
+                        {
+                          ...photoBorder,
+                          width: "10px",
+                          color: "#e8edfb",
+                          radius: "50%",
+                        },
+                      ],
+                      ["nameColor", "#333"],
+                      ["titleColor", "#7a7a7a"],
+                      ["separator", { ...separator, color: primaryColor }],
+                      ["bioColor", "#7a7a7a"],
+                      [
+                        "socialIconColors",
+                        { ...socialIconColors, color: "#fff", bg: primaryColor },
+                      ],
+                    ];
+                    const theme2Params = [
+                      ["background", { ...background, color: "#0000" }],
+                      ["border", { ...border, radius: "3px" }],
+                      [
+                        "shadow",
+                        [{ hOffset: "", vOffset: "", blur: "0px", color: "#7090b0" }],
+                      ],
+                      [
+                        "photoBorder",
+                        {
+                          ...photoBorder,
+                          width: "0px",
+                          color: "#0000",
+                          radius: "50%",
+                        },
+                      ],
+                      ["nameColor", "#333"],
+                      ["titleColor", "#7a7a7a"],
+                      ["separator", { ...separator, color: "#999" }],
+                      ["bioColor", "#7a7a7a"],
+                      [
+                        "socialIconColors",
+                        { ...socialIconColors, color: primaryColor, bg: "#0000" },
+                      ],
+                    ];
+                    const theme3Params = [
+                      ["background", { ...background, color: "#f2f3f7" }],
+                      ["border", { ...border, radius: "10px" }],
+                      [
+                        "shadow",
+                        [
+                          {
+                            hOffset: "-10px",
+                            vOffset: "-10px",
+                            blur: "20px",
+                            color: "#f7f7f7",
+                          },
+                          {
+                            hOffset: "10px",
+                            vOffset: "10px",
+                            blur: "20px",
+                            color: "#d7e0e8",
+                          },
+                        ],
+                      ],
+                      [
+                        "photoBorder",
+                        {
+                          ...photoBorder,
+                          width: "0px",
+                          color: "#0000",
+                          radius: "50%",
+                        },
+                      ],
+                      ["nameColor", "#32285C"],
+                      ["titleColor", "#677592"],
+                      ["separator", { ...separator, color: "#777" }],
+                      ["bioColor", "#333"],
+                      [
+                        "socialIconColors",
+                        { ...socialIconColors, color: "#677592", bg: "#0000" },
+                      ],
+                    ];
+                    const theme4Params = [
+                      ["background", { ...background, color: primaryColor }],
+                      ["border", { ...border, radius: "0px" }],
+                      [
+                        "shadow",
+                        [{ hOffset: "", vOffset: "", blur: "0px", color: "#7090b0" }],
+                      ],
+                      [
+                        "photoBorder",
+                        {
+                          ...photoBorder,
+                          width: "0px",
+                          color: "#0000",
+                          radius: "0px",
+                        },
+                      ],
+                      ["nameColor", "#fff"],
+                      ["titleColor", "#fff"],
+                      ["separator", { ...separator, color: "#777" }],
+                      ["bioColor", "#fff"],
+                      [
+                        "socialIconColors",
+                        { ...socialIconColors, color: primaryColor, bg: "#fff" },
+                      ],
+                    ];
+
+                    "default" === val && updateAllMembers(defaultParams);
+                    "theme1" === val && updateAllMembers(theme1Params);
+                    "theme2" === val && updateAllMembers(theme2Params);
+                    "theme3" === val && updateAllMembers(theme3Params);
+                    "theme4" === val && updateAllMembers(theme4Params);
+                  });
+                }}
                 options={themes}
               />
             </PanelRow>
@@ -1202,7 +1202,7 @@ const General = ({
               arrKey="members"
               itemLabel="Member"
               ItemSettings={theme6ProfileSetting}
-              // premiumProps={premiumProps}
+            // premiumProps={premiumProps}
             />
           </PanelBody>
 
@@ -1250,287 +1250,287 @@ const General = ({
               <Label className="">{__("Theme:", "team-section")}</Label>
               <SelectControl
                 value={theme}
-                   onChange={(val) => {
-            setAttributes({ theme: val });
-            "default" === val &&
-              setAttributes({
-                padding: { ...padding, vertical: "50px", horizontal: "20px" },
-                photoWidth: "170px",
-                nameTypo: { ...nameTypo, fontSize: 20, textTransform: "none" },
-                titleTypo: {
-                  ...titleTypo,
-                  fontSize: 16,
-                  textTransform: "none",
-                },
-                isSep: true,
-                isBio: true,
-                socialSize: "22px",
-              columns: {
-				"desktop": 3,
-				"tablet": 2,
-				"mobile": 1
-			},
-      rowGap:"30px",
-      columnGap:"30px"
+                onChange={(val) => {
+                  setAttributes({ theme: val });
+                  "default" === val &&
+                    setAttributes({
+                      padding: { ...padding, vertical: "50px", horizontal: "20px" },
+                      photoWidth: "170px",
+                      nameTypo: { ...nameTypo, fontSize: 20, textTransform: "none" },
+                      titleTypo: {
+                        ...titleTypo,
+                        fontSize: 16,
+                        textTransform: "none",
+                      },
+                      isSep: true,
+                      isBio: true,
+                      socialSize: "22px",
+                      columns: {
+                        "desktop": 3,
+                        "tablet": 2,
+                        "mobile": 1
+                      },
+                      rowGap: "30px",
+                      columnGap: "30px"
 
-		
-              });
-            "theme1" === val &&
-              setAttributes({
-                padding: { ...padding, vertical: "50px", horizontal: "20px" },
-                photoWidth: "190px",
-                nameTypo: { ...nameTypo, fontSize: 20, textTransform: "none" },
-                titleTypo: {
-                  ...titleTypo,
-                  fontSize: 14,
-                  textTransform: "uppercase",
-                },
-                isSep: true,
-                isBio: true,
-                socialSize: "22px",
-                     columns: {
-				"desktop": 3,
-				"tablet": 2,
-				"mobile": 1
-			},
-      rowGap:"30px",
-      columnGap:"30px"
 
-              });
-            "theme2" === val &&
-              setAttributes({
-                padding: { ...padding, vertical: "50px", horizontal: "20px" },
-                photoWidth: "190px",
-                nameTypo: { ...nameTypo, fontSize: 20, textTransform: "none" },
-                titleTypo: {
-                  ...titleTypo,
-                  fontSize: 14,
-                  textTransform: "uppercase",
-                },
-                isSep: true,
-                isBio: false,
-                socialSize: "22px",
-                     columns: {
-				"desktop": 3,
-				"tablet": 2,
-				"mobile": 1
-			},
-      rowGap:"30px",
-      columnGap:"30px"
+                    });
+                  "theme1" === val &&
+                    setAttributes({
+                      padding: { ...padding, vertical: "50px", horizontal: "20px" },
+                      photoWidth: "190px",
+                      nameTypo: { ...nameTypo, fontSize: 20, textTransform: "none" },
+                      titleTypo: {
+                        ...titleTypo,
+                        fontSize: 14,
+                        textTransform: "uppercase",
+                      },
+                      isSep: true,
+                      isBio: true,
+                      socialSize: "22px",
+                      columns: {
+                        "desktop": 3,
+                        "tablet": 2,
+                        "mobile": 1
+                      },
+                      rowGap: "30px",
+                      columnGap: "30px"
 
-              });
-            "theme3" === val &&
-              setAttributes({
-                padding: { ...padding, vertical: "50px", horizontal: "20px" },
-                photoWidth: "170px",
-                nameTypo: { ...nameTypo, fontSize: 24, textTransform: "none" },
-                titleTypo: {
-                  ...titleTypo,
-                  fontSize: 18,
-                  textTransform: "none",
-                },
-                isSep: false,
-                isBio: false,
-                socialSize: "28px",
-                     columns: {
-				"desktop": 3,
-				"tablet": 2,
-				"mobile": 1
-			},
-      rowGap:"30px",
-      columnGap:"30px"
+                    });
+                  "theme2" === val &&
+                    setAttributes({
+                      padding: { ...padding, vertical: "50px", horizontal: "20px" },
+                      photoWidth: "190px",
+                      nameTypo: { ...nameTypo, fontSize: 20, textTransform: "none" },
+                      titleTypo: {
+                        ...titleTypo,
+                        fontSize: 14,
+                        textTransform: "uppercase",
+                      },
+                      isSep: true,
+                      isBio: false,
+                      socialSize: "22px",
+                      columns: {
+                        "desktop": 3,
+                        "tablet": 2,
+                        "mobile": 1
+                      },
+                      rowGap: "30px",
+                      columnGap: "30px"
 
-              });
-            "theme4" === val &&
-              setAttributes({
-                padding: { ...padding, vertical: "15px", horizontal: "15px" },
-                photoWidth: "100%",
-                nameTypo: {
-                  ...nameTypo,
-                  fontSize: 20,
-                  textTransform: "uppercase",
-                },
-                titleTypo: {
-                  ...titleTypo,
-                  fontSize: 15,
-                  textTransform: "none",
-                },
-                isSep: false,
-                isBio: false,
-                socialSize: "22px",
-                     columns: {
-				"desktop": 3,
-				"tablet": 2,
-				"mobile": 1
-			},
-      rowGap:"30px",
-      columnGap:"30px"
+                    });
+                  "theme3" === val &&
+                    setAttributes({
+                      padding: { ...padding, vertical: "50px", horizontal: "20px" },
+                      photoWidth: "170px",
+                      nameTypo: { ...nameTypo, fontSize: 24, textTransform: "none" },
+                      titleTypo: {
+                        ...titleTypo,
+                        fontSize: 18,
+                        textTransform: "none",
+                      },
+                      isSep: false,
+                      isBio: false,
+                      socialSize: "28px",
+                      columns: {
+                        "desktop": 3,
+                        "tablet": 2,
+                        "mobile": 1
+                      },
+                      rowGap: "30px",
+                      columnGap: "30px"
 
-              });
-           [ "theme5","theme6","theme7","theme8","theme9","theme10","theme11","theme12"].includes(val) && handleClick(val) 
+                    });
+                  "theme4" === val &&
+                    setAttributes({
+                      padding: { ...padding, vertical: "15px", horizontal: "15px" },
+                      photoWidth: "100%",
+                      nameTypo: {
+                        ...nameTypo,
+                        fontSize: 20,
+                        textTransform: "uppercase",
+                      },
+                      titleTypo: {
+                        ...titleTypo,
+                        fontSize: 15,
+                        textTransform: "none",
+                      },
+                      isSep: false,
+                      isBio: false,
+                      socialSize: "22px",
+                      columns: {
+                        "desktop": 3,
+                        "tablet": 2,
+                        "mobile": 1
+                      },
+                      rowGap: "30px",
+                      columnGap: "30px"
 
-            members.map((member) => {
-              const {
-                background,
-                border,
-                photoBorder,
-                separator,
-                socialIconColors,
-              } = member;
+                    });
+                  ["theme5", "theme6", "theme7", "theme8", "theme9", "theme10", "theme11", "theme12"].includes(val) && handleClick(val)
 
-              const defaultParams = [
-                ["background", { ...background, color: "#0000" }],
-                ["border", { ...border, radius: "3px" }],
-                [
-                  "shadow",
-                  [{ hOffset: "", vOffset: "", blur: "0px", color: "#7090b0" }],
-                ],
-                [
-                  "photoBorder",
-                  {
-                    ...photoBorder,
-                    width: "0px",
-                    color: "#0000",
-                    radius: "50%",
-                  },
-                ],
-                ["nameColor", "#333"],
-                ["titleColor", "#333"],
-                ["separator", { ...separator, color: "#777" }],
-                ["bioColor", "#333"],
-                [
-                  "socialIconColors",
-                  { ...socialIconColors, color: "#fff", bg: primaryColor },
-                ],
-              ];
-              const theme1Params = [
-                ["background", { ...background, color: "#0000" }],
-                ["border", { ...border, radius: "3px" }],
-                [
-                  "shadow",
-                  [
-                    {
-                      hOffset: "",
-                      vOffset: "",
-                      blur: "20px",
-                      color: "#e8edfb",
-                    },
-                  ],
-                ],
-                [
-                  "photoBorder",
-                  {
-                    ...photoBorder,
-                    width: "10px",
-                    color: "#e8edfb",
-                    radius: "50%",
-                  },
-                ],
-                ["nameColor", "#333"],
-                ["titleColor", "#7a7a7a"],
-                ["separator", { ...separator, color: primaryColor }],
-                ["bioColor", "#7a7a7a"],
-                [
-                  "socialIconColors",
-                  { ...socialIconColors, color: "#fff", bg: primaryColor },
-                ],
-              ];
-              const theme2Params = [
-                ["background", { ...background, color: "#0000" }],
-                ["border", { ...border, radius: "3px" }],
-                [
-                  "shadow",
-                  [{ hOffset: "", vOffset: "", blur: "0px", color: "#7090b0" }],
-                ],
-                [
-                  "photoBorder",
-                  {
-                    ...photoBorder,
-                    width: "0px",
-                    color: "#0000",
-                    radius: "50%",
-                  },
-                ],
-                ["nameColor", "#333"],
-                ["titleColor", "#7a7a7a"],
-                ["separator", { ...separator, color: "#999" }],
-                ["bioColor", "#7a7a7a"],
-                [
-                  "socialIconColors",
-                  { ...socialIconColors, color: primaryColor, bg: "#0000" },
-                ],
-              ];
-              const theme3Params = [
-                ["background", { ...background, color: "#f2f3f7" }],
-                ["border", { ...border, radius: "10px" }],
-                [
-                  "shadow",
-                  [
-                    {
-                      hOffset: "-10px",
-                      vOffset: "-10px",
-                      blur: "20px",
-                      color: "#f7f7f7",
-                    },
-                    {
-                      hOffset: "10px",
-                      vOffset: "10px",
-                      blur: "20px",
-                      color: "#d7e0e8",
-                    },
-                  ],
-                ],
-                [
-                  "photoBorder",
-                  {
-                    ...photoBorder,
-                    width: "0px",
-                    color: "#0000",
-                    radius: "50%",
-                  },
-                ],
-                ["nameColor", "#32285C"],
-                ["titleColor", "#677592"],
-                ["separator", { ...separator, color: "#777" }],
-                ["bioColor", "#333"],
-                [
-                  "socialIconColors",
-                  { ...socialIconColors, color: "#677592", bg: "#0000" },
-                ],
-              ];
-              const theme4Params = [
-                ["background", { ...background, color: primaryColor }],
-                ["border", { ...border, radius: "0px" }],
-                [
-                  "shadow",
-                  [{ hOffset: "", vOffset: "", blur: "0px", color: "#7090b0" }],
-                ],
-                [
-                  "photoBorder",
-                  {
-                    ...photoBorder,
-                    width: "0px",
-                    color: "#0000",
-                    radius: "0px",
-                  },
-                ],
-                ["nameColor", "#fff"],
-                ["titleColor", "#fff"],
-                ["separator", { ...separator, color: "#777" }],
-                ["bioColor", "#fff"],
-                [
-                  "socialIconColors",
-                  { ...socialIconColors, color: primaryColor, bg: "#fff" },
-                ],
-              ];
+                  members.map((member) => {
+                    const {
+                      background,
+                      border,
+                      photoBorder,
+                      separator,
+                      socialIconColors,
+                    } = member;
 
-              "default" === val && updateAllMembers(defaultParams);
-              "theme1" === val && updateAllMembers(theme1Params);
-              "theme2" === val && updateAllMembers(theme2Params);
-              "theme3" === val && updateAllMembers(theme3Params);
-              "theme4" === val && updateAllMembers(theme4Params);
-            });
-          }}
+                    const defaultParams = [
+                      ["background", { ...background, color: "#0000" }],
+                      ["border", { ...border, radius: "3px" }],
+                      [
+                        "shadow",
+                        [{ hOffset: "", vOffset: "", blur: "0px", color: "#7090b0" }],
+                      ],
+                      [
+                        "photoBorder",
+                        {
+                          ...photoBorder,
+                          width: "0px",
+                          color: "#0000",
+                          radius: "50%",
+                        },
+                      ],
+                      ["nameColor", "#333"],
+                      ["titleColor", "#333"],
+                      ["separator", { ...separator, color: "#777" }],
+                      ["bioColor", "#333"],
+                      [
+                        "socialIconColors",
+                        { ...socialIconColors, color: "#fff", bg: primaryColor },
+                      ],
+                    ];
+                    const theme1Params = [
+                      ["background", { ...background, color: "#0000" }],
+                      ["border", { ...border, radius: "3px" }],
+                      [
+                        "shadow",
+                        [
+                          {
+                            hOffset: "",
+                            vOffset: "",
+                            blur: "20px",
+                            color: "#e8edfb",
+                          },
+                        ],
+                      ],
+                      [
+                        "photoBorder",
+                        {
+                          ...photoBorder,
+                          width: "10px",
+                          color: "#e8edfb",
+                          radius: "50%",
+                        },
+                      ],
+                      ["nameColor", "#333"],
+                      ["titleColor", "#7a7a7a"],
+                      ["separator", { ...separator, color: primaryColor }],
+                      ["bioColor", "#7a7a7a"],
+                      [
+                        "socialIconColors",
+                        { ...socialIconColors, color: "#fff", bg: primaryColor },
+                      ],
+                    ];
+                    const theme2Params = [
+                      ["background", { ...background, color: "#0000" }],
+                      ["border", { ...border, radius: "3px" }],
+                      [
+                        "shadow",
+                        [{ hOffset: "", vOffset: "", blur: "0px", color: "#7090b0" }],
+                      ],
+                      [
+                        "photoBorder",
+                        {
+                          ...photoBorder,
+                          width: "0px",
+                          color: "#0000",
+                          radius: "50%",
+                        },
+                      ],
+                      ["nameColor", "#333"],
+                      ["titleColor", "#7a7a7a"],
+                      ["separator", { ...separator, color: "#999" }],
+                      ["bioColor", "#7a7a7a"],
+                      [
+                        "socialIconColors",
+                        { ...socialIconColors, color: primaryColor, bg: "#0000" },
+                      ],
+                    ];
+                    const theme3Params = [
+                      ["background", { ...background, color: "#f2f3f7" }],
+                      ["border", { ...border, radius: "10px" }],
+                      [
+                        "shadow",
+                        [
+                          {
+                            hOffset: "-10px",
+                            vOffset: "-10px",
+                            blur: "20px",
+                            color: "#f7f7f7",
+                          },
+                          {
+                            hOffset: "10px",
+                            vOffset: "10px",
+                            blur: "20px",
+                            color: "#d7e0e8",
+                          },
+                        ],
+                      ],
+                      [
+                        "photoBorder",
+                        {
+                          ...photoBorder,
+                          width: "0px",
+                          color: "#0000",
+                          radius: "50%",
+                        },
+                      ],
+                      ["nameColor", "#32285C"],
+                      ["titleColor", "#677592"],
+                      ["separator", { ...separator, color: "#777" }],
+                      ["bioColor", "#333"],
+                      [
+                        "socialIconColors",
+                        { ...socialIconColors, color: "#677592", bg: "#0000" },
+                      ],
+                    ];
+                    const theme4Params = [
+                      ["background", { ...background, color: primaryColor }],
+                      ["border", { ...border, radius: "0px" }],
+                      [
+                        "shadow",
+                        [{ hOffset: "", vOffset: "", blur: "0px", color: "#7090b0" }],
+                      ],
+                      [
+                        "photoBorder",
+                        {
+                          ...photoBorder,
+                          width: "0px",
+                          color: "#0000",
+                          radius: "0px",
+                        },
+                      ],
+                      ["nameColor", "#fff"],
+                      ["titleColor", "#fff"],
+                      ["separator", { ...separator, color: "#777" }],
+                      ["bioColor", "#fff"],
+                      [
+                        "socialIconColors",
+                        { ...socialIconColors, color: primaryColor, bg: "#fff" },
+                      ],
+                    ];
+
+                    "default" === val && updateAllMembers(defaultParams);
+                    "theme1" === val && updateAllMembers(theme1Params);
+                    "theme2" === val && updateAllMembers(theme2Params);
+                    "theme3" === val && updateAllMembers(theme3Params);
+                    "theme4" === val && updateAllMembers(theme4Params);
+                  });
+                }}
                 options={themes}
               />
             </PanelRow>
@@ -1596,15 +1596,15 @@ const General = ({
         </>
       )}
 
-      { "theme7" === theme && (
+      {"theme7" === theme && (
         <>
-          
+
           <HelpPanel
             slug="team-section"
             docsLink="https://bblockswp.com/docs/team-block"
           />
 
-           <PanelBody
+          <PanelBody
             className="bPlPanelBody addRemoveItems editItem"
             title={__("Add or Remove Members", "team-section")}
           >
@@ -1616,10 +1616,10 @@ const General = ({
               arrKey="members"
               itemLabel="Member"
               ItemSettings={theme7ProfileSetting}
-              // premiumProps={premiumProps}
+            // premiumProps={premiumProps}
             />
           </PanelBody>
-            <PanelBody
+          <PanelBody
             className="bPlPanelBody"
             title={__("Layout", "team-section")}
             initialOpen={false}
@@ -1629,293 +1629,293 @@ const General = ({
               <Label className="">{__("Theme:", "team-section")}</Label>
               <SelectControl
                 value={theme}
-             onChange={(val) => {
-            setAttributes({ theme: val });
-            "default" === val &&
-              setAttributes({
-                padding: { ...padding, vertical: "50px", horizontal: "20px" },
-                photoWidth: "170px",
-                nameTypo: { ...nameTypo, fontSize: 20, textTransform: "none" },
-                titleTypo: {
-                  ...titleTypo,
-                  fontSize: 16,
-                  textTransform: "none",
-                },
-                isSep: true,
-                isBio: true,
-                socialSize: "22px",
-              columns: {
-				"desktop": 3,
-				"tablet": 2,
-				"mobile": 1
-			},
-      rowGap:"30px",
-      columnGap:"30px"
+                onChange={(val) => {
+                  setAttributes({ theme: val });
+                  "default" === val &&
+                    setAttributes({
+                      padding: { ...padding, vertical: "50px", horizontal: "20px" },
+                      photoWidth: "170px",
+                      nameTypo: { ...nameTypo, fontSize: 20, textTransform: "none" },
+                      titleTypo: {
+                        ...titleTypo,
+                        fontSize: 16,
+                        textTransform: "none",
+                      },
+                      isSep: true,
+                      isBio: true,
+                      socialSize: "22px",
+                      columns: {
+                        "desktop": 3,
+                        "tablet": 2,
+                        "mobile": 1
+                      },
+                      rowGap: "30px",
+                      columnGap: "30px"
 
-		
-              });
-            "theme1" === val &&
-              setAttributes({
-                padding: { ...padding, vertical: "50px", horizontal: "20px" },
-                photoWidth: "190px",
-                nameTypo: { ...nameTypo, fontSize: 20, textTransform: "none" },
-                titleTypo: {
-                  ...titleTypo,
-                  fontSize: 14,
-                  textTransform: "uppercase",
-                },
-                isSep: true,
-                isBio: true,
-                socialSize: "22px",
-                     columns: {
-				"desktop": 3,
-				"tablet": 2,
-				"mobile": 1
-			},
-      rowGap:"30px",
-      columnGap:"30px"
 
-              });
-            "theme2" === val &&
-              setAttributes({
-                padding: { ...padding, vertical: "50px", horizontal: "20px" },
-                photoWidth: "190px",
-                nameTypo: { ...nameTypo, fontSize: 20, textTransform: "none" },
-                titleTypo: {
-                  ...titleTypo,
-                  fontSize: 14,
-                  textTransform: "uppercase",
-                },
-                isSep: true,
-                isBio: false,
-                socialSize: "22px",
-                     columns: {
-				"desktop": 3,
-				"tablet": 2,
-				"mobile": 1
-			},
-      rowGap:"30px",
-      columnGap:"30px"
+                    });
+                  "theme1" === val &&
+                    setAttributes({
+                      padding: { ...padding, vertical: "50px", horizontal: "20px" },
+                      photoWidth: "190px",
+                      nameTypo: { ...nameTypo, fontSize: 20, textTransform: "none" },
+                      titleTypo: {
+                        ...titleTypo,
+                        fontSize: 14,
+                        textTransform: "uppercase",
+                      },
+                      isSep: true,
+                      isBio: true,
+                      socialSize: "22px",
+                      columns: {
+                        "desktop": 3,
+                        "tablet": 2,
+                        "mobile": 1
+                      },
+                      rowGap: "30px",
+                      columnGap: "30px"
 
-              });
-            "theme3" === val &&
-              setAttributes({
-                padding: { ...padding, vertical: "50px", horizontal: "20px" },
-                photoWidth: "170px",
-                nameTypo: { ...nameTypo, fontSize: 24, textTransform: "none" },
-                titleTypo: {
-                  ...titleTypo,
-                  fontSize: 18,
-                  textTransform: "none",
-                },
-                isSep: false,
-                isBio: false,
-                socialSize: "28px",
-                     columns: {
-				"desktop": 3,
-				"tablet": 2,
-				"mobile": 1
-			},
-      rowGap:"30px",
-      columnGap:"30px"
+                    });
+                  "theme2" === val &&
+                    setAttributes({
+                      padding: { ...padding, vertical: "50px", horizontal: "20px" },
+                      photoWidth: "190px",
+                      nameTypo: { ...nameTypo, fontSize: 20, textTransform: "none" },
+                      titleTypo: {
+                        ...titleTypo,
+                        fontSize: 14,
+                        textTransform: "uppercase",
+                      },
+                      isSep: true,
+                      isBio: false,
+                      socialSize: "22px",
+                      columns: {
+                        "desktop": 3,
+                        "tablet": 2,
+                        "mobile": 1
+                      },
+                      rowGap: "30px",
+                      columnGap: "30px"
 
-              });
-            "theme4" === val &&
-              setAttributes({
-                padding: { ...padding, vertical: "15px", horizontal: "15px" },
-                photoWidth: "100%",
-                nameTypo: {
-                  ...nameTypo,
-                  fontSize: 20,
-                  textTransform: "uppercase",
-                },
-                titleTypo: {
-                  ...titleTypo,
-                  fontSize: 15,
-                  textTransform: "none",
-                },
-                isSep: false,
-                isBio: false,
-                socialSize: "22px",
-                     columns: {
-				"desktop": 3,
-				"tablet": 2,
-				"mobile": 1
-			},
-      rowGap:"30px",
-      columnGap:"30px"
+                    });
+                  "theme3" === val &&
+                    setAttributes({
+                      padding: { ...padding, vertical: "50px", horizontal: "20px" },
+                      photoWidth: "170px",
+                      nameTypo: { ...nameTypo, fontSize: 24, textTransform: "none" },
+                      titleTypo: {
+                        ...titleTypo,
+                        fontSize: 18,
+                        textTransform: "none",
+                      },
+                      isSep: false,
+                      isBio: false,
+                      socialSize: "28px",
+                      columns: {
+                        "desktop": 3,
+                        "tablet": 2,
+                        "mobile": 1
+                      },
+                      rowGap: "30px",
+                      columnGap: "30px"
 
-              });
-           [ "theme5","theme6","theme7","theme8","theme9","theme10","theme11","theme12"].includes(val) && handleClick(val) 
+                    });
+                  "theme4" === val &&
+                    setAttributes({
+                      padding: { ...padding, vertical: "15px", horizontal: "15px" },
+                      photoWidth: "100%",
+                      nameTypo: {
+                        ...nameTypo,
+                        fontSize: 20,
+                        textTransform: "uppercase",
+                      },
+                      titleTypo: {
+                        ...titleTypo,
+                        fontSize: 15,
+                        textTransform: "none",
+                      },
+                      isSep: false,
+                      isBio: false,
+                      socialSize: "22px",
+                      columns: {
+                        "desktop": 3,
+                        "tablet": 2,
+                        "mobile": 1
+                      },
+                      rowGap: "30px",
+                      columnGap: "30px"
 
-            members.map((member) => {
-              const {
-                background,
-                border,
-                photoBorder,
-                separator,
-                socialIconColors,
-              } = member;
+                    });
+                  ["theme5", "theme6", "theme7", "theme8", "theme9", "theme10", "theme11", "theme12"].includes(val) && handleClick(val)
 
-              const defaultParams = [
-                ["background", { ...background, color: "#0000" }],
-                ["border", { ...border, radius: "3px" }],
-                [
-                  "shadow",
-                  [{ hOffset: "", vOffset: "", blur: "0px", color: "#7090b0" }],
-                ],
-                [
-                  "photoBorder",
-                  {
-                    ...photoBorder,
-                    width: "0px",
-                    color: "#0000",
-                    radius: "50%",
-                  },
-                ],
-                ["nameColor", "#333"],
-                ["titleColor", "#333"],
-                ["separator", { ...separator, color: "#777" }],
-                ["bioColor", "#333"],
-                [
-                  "socialIconColors",
-                  { ...socialIconColors, color: "#fff", bg: primaryColor },
-                ],
-              ];
-              const theme1Params = [
-                ["background", { ...background, color: "#0000" }],
-                ["border", { ...border, radius: "3px" }],
-                [
-                  "shadow",
-                  [
-                    {
-                      hOffset: "",
-                      vOffset: "",
-                      blur: "20px",
-                      color: "#e8edfb",
-                    },
-                  ],
-                ],
-                [
-                  "photoBorder",
-                  {
-                    ...photoBorder,
-                    width: "10px",
-                    color: "#e8edfb",
-                    radius: "50%",
-                  },
-                ],
-                ["nameColor", "#333"],
-                ["titleColor", "#7a7a7a"],
-                ["separator", { ...separator, color: primaryColor }],
-                ["bioColor", "#7a7a7a"],
-                [
-                  "socialIconColors",
-                  { ...socialIconColors, color: "#fff", bg: primaryColor },
-                ],
-              ];
-              const theme2Params = [
-                ["background", { ...background, color: "#0000" }],
-                ["border", { ...border, radius: "3px" }],
-                [
-                  "shadow",
-                  [{ hOffset: "", vOffset: "", blur: "0px", color: "#7090b0" }],
-                ],
-                [
-                  "photoBorder",
-                  {
-                    ...photoBorder,
-                    width: "0px",
-                    color: "#0000",
-                    radius: "50%",
-                  },
-                ],
-                ["nameColor", "#333"],
-                ["titleColor", "#7a7a7a"],
-                ["separator", { ...separator, color: "#999" }],
-                ["bioColor", "#7a7a7a"],
-                [
-                  "socialIconColors",
-                  { ...socialIconColors, color: primaryColor, bg: "#0000" },
-                ],
-              ];
-              const theme3Params = [
-                ["background", { ...background, color: "#f2f3f7" }],
-                ["border", { ...border, radius: "10px" }],
-                [
-                  "shadow",
-                  [
-                    {
-                      hOffset: "-10px",
-                      vOffset: "-10px",
-                      blur: "20px",
-                      color: "#f7f7f7",
-                    },
-                    {
-                      hOffset: "10px",
-                      vOffset: "10px",
-                      blur: "20px",
-                      color: "#d7e0e8",
-                    },
-                  ],
-                ],
-                [
-                  "photoBorder",
-                  {
-                    ...photoBorder,
-                    width: "0px",
-                    color: "#0000",
-                    radius: "50%",
-                  },
-                ],
-                ["nameColor", "#32285C"],
-                ["titleColor", "#677592"],
-                ["separator", { ...separator, color: "#777" }],
-                ["bioColor", "#333"],
-                [
-                  "socialIconColors",
-                  { ...socialIconColors, color: "#677592", bg: "#0000" },
-                ],
-              ];
-              const theme4Params = [
-                ["background", { ...background, color: primaryColor }],
-                ["border", { ...border, radius: "0px" }],
-                [
-                  "shadow",
-                  [{ hOffset: "", vOffset: "", blur: "0px", color: "#7090b0" }],
-                ],
-                [
-                  "photoBorder",
-                  {
-                    ...photoBorder,
-                    width: "0px",
-                    color: "#0000",
-                    radius: "0px",
-                  },
-                ],
-                ["nameColor", "#fff"],
-                ["titleColor", "#fff"],
-                ["separator", { ...separator, color: "#777" }],
-                ["bioColor", "#fff"],
-                [
-                  "socialIconColors",
-                  { ...socialIconColors, color: primaryColor, bg: "#fff" },
-                ],
-              ];
+                  members.map((member) => {
+                    const {
+                      background,
+                      border,
+                      photoBorder,
+                      separator,
+                      socialIconColors,
+                    } = member;
 
-              "default" === val && updateAllMembers(defaultParams);
-              "theme1" === val && updateAllMembers(theme1Params);
-              "theme2" === val && updateAllMembers(theme2Params);
-              "theme3" === val && updateAllMembers(theme3Params);
-              "theme4" === val && updateAllMembers(theme4Params);
-            });
-          }}
+                    const defaultParams = [
+                      ["background", { ...background, color: "#0000" }],
+                      ["border", { ...border, radius: "3px" }],
+                      [
+                        "shadow",
+                        [{ hOffset: "", vOffset: "", blur: "0px", color: "#7090b0" }],
+                      ],
+                      [
+                        "photoBorder",
+                        {
+                          ...photoBorder,
+                          width: "0px",
+                          color: "#0000",
+                          radius: "50%",
+                        },
+                      ],
+                      ["nameColor", "#333"],
+                      ["titleColor", "#333"],
+                      ["separator", { ...separator, color: "#777" }],
+                      ["bioColor", "#333"],
+                      [
+                        "socialIconColors",
+                        { ...socialIconColors, color: "#fff", bg: primaryColor },
+                      ],
+                    ];
+                    const theme1Params = [
+                      ["background", { ...background, color: "#0000" }],
+                      ["border", { ...border, radius: "3px" }],
+                      [
+                        "shadow",
+                        [
+                          {
+                            hOffset: "",
+                            vOffset: "",
+                            blur: "20px",
+                            color: "#e8edfb",
+                          },
+                        ],
+                      ],
+                      [
+                        "photoBorder",
+                        {
+                          ...photoBorder,
+                          width: "10px",
+                          color: "#e8edfb",
+                          radius: "50%",
+                        },
+                      ],
+                      ["nameColor", "#333"],
+                      ["titleColor", "#7a7a7a"],
+                      ["separator", { ...separator, color: primaryColor }],
+                      ["bioColor", "#7a7a7a"],
+                      [
+                        "socialIconColors",
+                        { ...socialIconColors, color: "#fff", bg: primaryColor },
+                      ],
+                    ];
+                    const theme2Params = [
+                      ["background", { ...background, color: "#0000" }],
+                      ["border", { ...border, radius: "3px" }],
+                      [
+                        "shadow",
+                        [{ hOffset: "", vOffset: "", blur: "0px", color: "#7090b0" }],
+                      ],
+                      [
+                        "photoBorder",
+                        {
+                          ...photoBorder,
+                          width: "0px",
+                          color: "#0000",
+                          radius: "50%",
+                        },
+                      ],
+                      ["nameColor", "#333"],
+                      ["titleColor", "#7a7a7a"],
+                      ["separator", { ...separator, color: "#999" }],
+                      ["bioColor", "#7a7a7a"],
+                      [
+                        "socialIconColors",
+                        { ...socialIconColors, color: primaryColor, bg: "#0000" },
+                      ],
+                    ];
+                    const theme3Params = [
+                      ["background", { ...background, color: "#f2f3f7" }],
+                      ["border", { ...border, radius: "10px" }],
+                      [
+                        "shadow",
+                        [
+                          {
+                            hOffset: "-10px",
+                            vOffset: "-10px",
+                            blur: "20px",
+                            color: "#f7f7f7",
+                          },
+                          {
+                            hOffset: "10px",
+                            vOffset: "10px",
+                            blur: "20px",
+                            color: "#d7e0e8",
+                          },
+                        ],
+                      ],
+                      [
+                        "photoBorder",
+                        {
+                          ...photoBorder,
+                          width: "0px",
+                          color: "#0000",
+                          radius: "50%",
+                        },
+                      ],
+                      ["nameColor", "#32285C"],
+                      ["titleColor", "#677592"],
+                      ["separator", { ...separator, color: "#777" }],
+                      ["bioColor", "#333"],
+                      [
+                        "socialIconColors",
+                        { ...socialIconColors, color: "#677592", bg: "#0000" },
+                      ],
+                    ];
+                    const theme4Params = [
+                      ["background", { ...background, color: primaryColor }],
+                      ["border", { ...border, radius: "0px" }],
+                      [
+                        "shadow",
+                        [{ hOffset: "", vOffset: "", blur: "0px", color: "#7090b0" }],
+                      ],
+                      [
+                        "photoBorder",
+                        {
+                          ...photoBorder,
+                          width: "0px",
+                          color: "#0000",
+                          radius: "0px",
+                        },
+                      ],
+                      ["nameColor", "#fff"],
+                      ["titleColor", "#fff"],
+                      ["separator", { ...separator, color: "#777" }],
+                      ["bioColor", "#fff"],
+                      [
+                        "socialIconColors",
+                        { ...socialIconColors, color: primaryColor, bg: "#fff" },
+                      ],
+                    ];
+
+                    "default" === val && updateAllMembers(defaultParams);
+                    "theme1" === val && updateAllMembers(theme1Params);
+                    "theme2" === val && updateAllMembers(theme2Params);
+                    "theme3" === val && updateAllMembers(theme3Params);
+                    "theme4" === val && updateAllMembers(theme4Params);
+                  });
+                }}
                 options={themes}
               />
             </PanelRow>
           </PanelBody>
 
-           <PanelBody
+          <PanelBody
             className="bPlPanelBody"
             title={__("Elements", "team-section")}
             initialOpen={false}
@@ -1941,7 +1941,7 @@ const General = ({
                 }
               />
             )}
-           
+
           </PanelBody>
         </>
       )
@@ -1949,1533 +1949,1533 @@ const General = ({
       }
 
       {"theme8" === theme && (<>
-       <HelpPanel
-            slug="team-section"
-            docsLink="https://bblockswp.com/docs/team-block"
+        <HelpPanel
+          slug="team-section"
+          docsLink="https://bblockswp.com/docs/team-block"
+        />
+
+        <PanelBody
+          className="bPlPanelBody addRemoveItems editItem"
+          title={__("Add or Remove Members", "team-section")}
+        >
+          <ItemsPanel
+            newItem={newMember}
+            design="sortable"
+            attributes={attributes}
+            setAttributes={setAttributes}
+            arrKey="members"
+            itemLabel="Member"
+            ItemSettings={theme8ProfileSetting}
+          // premiumProps={premiumProps}
+          />
+        </PanelBody>
+
+        <PanelBody
+          className="bPlPanelBody"
+          title={__("Layout", "team-section")}
+          initialOpen={false}
+        >
+          <PanelRow>
+            <Label className="mb5">{__("Columns:", "team-section")}</Label>
+            <Device />
+          </PanelRow>
+          <BControlPro Component={RangeControl} {...premiumProps}
+            value={columns[device]}
+            onChange={(val) => {
+              setAttributes({
+                columns: { ...columns, [device]: val },
+              });
+            }}
+            min={1}
+            max={6}
+            step={1}
+            beforeIcon="grid-view"
           />
 
-                     <PanelBody
-            className="bPlPanelBody addRemoveItems editItem"
-            title={__("Add or Remove Members", "team-section")}
-          >
-            <ItemsPanel
-              newItem={newMember}
-              design="sortable"
-              attributes={attributes}
-              setAttributes={setAttributes}
-              arrKey="members"
-              itemLabel="Member"
-              ItemSettings={theme8ProfileSetting}
-              // premiumProps={premiumProps}
-            />
-          </PanelBody>
+          <BControlPro Component={UnitControl} {...premiumProps}
+            className="mt20"
+            label={__("Column Gap:", "team-section")}
+            labelPosition="left"
+            value={columnGap}
+            onChange={(val) => setAttributes({ columnGap: val })}
+            units={[pxUnit(), perUnit(), emUnit()]}
+          />
 
-          <PanelBody
-            className="bPlPanelBody"
-            title={__("Layout", "team-section")}
-            initialOpen={false}
-          >
-            <PanelRow>
-              <Label className="mb5">{__("Columns:", "team-section")}</Label>
-              <Device />
-            </PanelRow>
-            <BControlPro Component={RangeControl} {...premiumProps}
-              value={columns[device]}
+          <BControlPro Component={UnitControl} {...premiumProps}
+            className="mt20"
+            label={__("Row Gap:", "team-section")}
+            labelPosition="left"
+            value={rowGap}
+            onChange={(val) => setAttributes({ rowGap: val })}
+            units={[pxUnit(), perUnit(), emUnit()]}
+          />
+
+          <PanelRow>
+            <Label className="">{__("Theme:", "team-section")}</Label>
+            <SelectControl
+              value={theme}
               onChange={(val) => {
-                setAttributes({
-                  columns: { ...columns, [device]: val },
+                setAttributes({ theme: val });
+                "default" === val &&
+                  setAttributes({
+                    padding: { ...padding, vertical: "50px", horizontal: "20px" },
+                    photoWidth: "170px",
+                    nameTypo: { ...nameTypo, fontSize: 20, textTransform: "none" },
+                    titleTypo: {
+                      ...titleTypo,
+                      fontSize: 16,
+                      textTransform: "none",
+                    },
+                    isSep: true,
+                    isBio: true,
+                    socialSize: "22px",
+                    columns: {
+                      "desktop": 3,
+                      "tablet": 2,
+                      "mobile": 1
+                    },
+                    rowGap: "30px",
+                    columnGap: "30px"
+
+
+                  });
+                "theme1" === val &&
+                  setAttributes({
+                    padding: { ...padding, vertical: "50px", horizontal: "20px" },
+                    photoWidth: "190px",
+                    nameTypo: { ...nameTypo, fontSize: 20, textTransform: "none" },
+                    titleTypo: {
+                      ...titleTypo,
+                      fontSize: 14,
+                      textTransform: "uppercase",
+                    },
+                    isSep: true,
+                    isBio: true,
+                    socialSize: "22px",
+                    columns: {
+                      "desktop": 3,
+                      "tablet": 2,
+                      "mobile": 1
+                    },
+                    rowGap: "30px",
+                    columnGap: "30px"
+
+                  });
+                "theme2" === val &&
+                  setAttributes({
+                    padding: { ...padding, vertical: "50px", horizontal: "20px" },
+                    photoWidth: "190px",
+                    nameTypo: { ...nameTypo, fontSize: 20, textTransform: "none" },
+                    titleTypo: {
+                      ...titleTypo,
+                      fontSize: 14,
+                      textTransform: "uppercase",
+                    },
+                    isSep: true,
+                    isBio: false,
+                    socialSize: "22px",
+                    columns: {
+                      "desktop": 3,
+                      "tablet": 2,
+                      "mobile": 1
+                    },
+                    rowGap: "30px",
+                    columnGap: "30px"
+
+                  });
+                "theme3" === val &&
+                  setAttributes({
+                    padding: { ...padding, vertical: "50px", horizontal: "20px" },
+                    photoWidth: "170px",
+                    nameTypo: { ...nameTypo, fontSize: 24, textTransform: "none" },
+                    titleTypo: {
+                      ...titleTypo,
+                      fontSize: 18,
+                      textTransform: "none",
+                    },
+                    isSep: false,
+                    isBio: false,
+                    socialSize: "28px",
+                    columns: {
+                      "desktop": 3,
+                      "tablet": 2,
+                      "mobile": 1
+                    },
+                    rowGap: "30px",
+                    columnGap: "30px"
+
+                  });
+                "theme4" === val &&
+                  setAttributes({
+                    padding: { ...padding, vertical: "15px", horizontal: "15px" },
+                    photoWidth: "100%",
+                    nameTypo: {
+                      ...nameTypo,
+                      fontSize: 20,
+                      textTransform: "uppercase",
+                    },
+                    titleTypo: {
+                      ...titleTypo,
+                      fontSize: 15,
+                      textTransform: "none",
+                    },
+                    isSep: false,
+                    isBio: false,
+                    socialSize: "22px",
+                    columns: {
+                      "desktop": 3,
+                      "tablet": 2,
+                      "mobile": 1
+                    },
+                    rowGap: "30px",
+                    columnGap: "30px"
+
+                  });
+                ["theme5", "theme6", "theme7", "theme8", "theme9", "theme10", "theme11", "theme12"].includes(val) && handleClick(val)
+
+                members.map((member) => {
+                  const {
+                    background,
+                    border,
+                    photoBorder,
+                    separator,
+                    socialIconColors,
+                  } = member;
+
+                  const defaultParams = [
+                    ["background", { ...background, color: "#0000" }],
+                    ["border", { ...border, radius: "3px" }],
+                    [
+                      "shadow",
+                      [{ hOffset: "", vOffset: "", blur: "0px", color: "#7090b0" }],
+                    ],
+                    [
+                      "photoBorder",
+                      {
+                        ...photoBorder,
+                        width: "0px",
+                        color: "#0000",
+                        radius: "50%",
+                      },
+                    ],
+                    ["nameColor", "#333"],
+                    ["titleColor", "#333"],
+                    ["separator", { ...separator, color: "#777" }],
+                    ["bioColor", "#333"],
+                    [
+                      "socialIconColors",
+                      { ...socialIconColors, color: "#fff", bg: primaryColor },
+                    ],
+                  ];
+                  const theme1Params = [
+                    ["background", { ...background, color: "#0000" }],
+                    ["border", { ...border, radius: "3px" }],
+                    [
+                      "shadow",
+                      [
+                        {
+                          hOffset: "",
+                          vOffset: "",
+                          blur: "20px",
+                          color: "#e8edfb",
+                        },
+                      ],
+                    ],
+                    [
+                      "photoBorder",
+                      {
+                        ...photoBorder,
+                        width: "10px",
+                        color: "#e8edfb",
+                        radius: "50%",
+                      },
+                    ],
+                    ["nameColor", "#333"],
+                    ["titleColor", "#7a7a7a"],
+                    ["separator", { ...separator, color: primaryColor }],
+                    ["bioColor", "#7a7a7a"],
+                    [
+                      "socialIconColors",
+                      { ...socialIconColors, color: "#fff", bg: primaryColor },
+                    ],
+                  ];
+                  const theme2Params = [
+                    ["background", { ...background, color: "#0000" }],
+                    ["border", { ...border, radius: "3px" }],
+                    [
+                      "shadow",
+                      [{ hOffset: "", vOffset: "", blur: "0px", color: "#7090b0" }],
+                    ],
+                    [
+                      "photoBorder",
+                      {
+                        ...photoBorder,
+                        width: "0px",
+                        color: "#0000",
+                        radius: "50%",
+                      },
+                    ],
+                    ["nameColor", "#333"],
+                    ["titleColor", "#7a7a7a"],
+                    ["separator", { ...separator, color: "#999" }],
+                    ["bioColor", "#7a7a7a"],
+                    [
+                      "socialIconColors",
+                      { ...socialIconColors, color: primaryColor, bg: "#0000" },
+                    ],
+                  ];
+                  const theme3Params = [
+                    ["background", { ...background, color: "#f2f3f7" }],
+                    ["border", { ...border, radius: "10px" }],
+                    [
+                      "shadow",
+                      [
+                        {
+                          hOffset: "-10px",
+                          vOffset: "-10px",
+                          blur: "20px",
+                          color: "#f7f7f7",
+                        },
+                        {
+                          hOffset: "10px",
+                          vOffset: "10px",
+                          blur: "20px",
+                          color: "#d7e0e8",
+                        },
+                      ],
+                    ],
+                    [
+                      "photoBorder",
+                      {
+                        ...photoBorder,
+                        width: "0px",
+                        color: "#0000",
+                        radius: "50%",
+                      },
+                    ],
+                    ["nameColor", "#32285C"],
+                    ["titleColor", "#677592"],
+                    ["separator", { ...separator, color: "#777" }],
+                    ["bioColor", "#333"],
+                    [
+                      "socialIconColors",
+                      { ...socialIconColors, color: "#677592", bg: "#0000" },
+                    ],
+                  ];
+                  const theme4Params = [
+                    ["background", { ...background, color: primaryColor }],
+                    ["border", { ...border, radius: "0px" }],
+                    [
+                      "shadow",
+                      [{ hOffset: "", vOffset: "", blur: "0px", color: "#7090b0" }],
+                    ],
+                    [
+                      "photoBorder",
+                      {
+                        ...photoBorder,
+                        width: "0px",
+                        color: "#0000",
+                        radius: "0px",
+                      },
+                    ],
+                    ["nameColor", "#fff"],
+                    ["titleColor", "#fff"],
+                    ["separator", { ...separator, color: "#777" }],
+                    ["bioColor", "#fff"],
+                    [
+                      "socialIconColors",
+                      { ...socialIconColors, color: primaryColor, bg: "#fff" },
+                    ],
+                  ];
+
+                  "default" === val && updateAllMembers(defaultParams);
+                  "theme1" === val && updateAllMembers(theme1Params);
+                  "theme2" === val && updateAllMembers(theme2Params);
+                  "theme3" === val && updateAllMembers(theme3Params);
+                  "theme4" === val && updateAllMembers(theme4Params);
                 });
               }}
-              min={1}
-              max={6}
-              step={1}
-              beforeIcon="grid-view"
+              options={themes}
             />
+          </PanelRow>
+        </PanelBody>
 
-            <BControlPro Component={UnitControl} {...premiumProps}
-              className="mt20"
-              label={__("Column Gap:", "team-section")}
-              labelPosition="left"
-              value={columnGap}
-              onChange={(val) => setAttributes({ columnGap: val })}
-              units={[pxUnit(), perUnit(), emUnit()]}
-            />
 
-            <BControlPro Component={UnitControl} {...premiumProps}
-              className="mt20"
-              label={__("Row Gap:", "team-section")}
-              labelPosition="left"
-              value={rowGap}
-              onChange={(val) => setAttributes({ rowGap: val })}
-              units={[pxUnit(), perUnit(), emUnit()]}
-            />
+        <PanelBody
+          className="bPlPanelBody"
+          title={__("Elements", "team-section")}
+          initialOpen={false}
+        >
+          <BControlPro Component={ToggleControl} {...premiumProps}
+            className="mt10"
+            label={__("Show Title", "team-section")}
+            checked={isTitle}
+            onChange={(val) => setAttributes({ isTitle: val })}
+          />
 
-            <PanelRow>
-              <Label className="">{__("Theme:", "team-section")}</Label>
-              <SelectControl
-                value={theme}
-                    onChange={(val) => {
-            setAttributes({ theme: val });
-            "default" === val &&
+          <BControlPro Component={ToggleControl} {...premiumProps}
+            className="mt10"
+            label={__("Show Social", "team-section")}
+            checked={isSocial}
+            onChange={(val) => setAttributes({ isSocial: val })}
+          />
+          <BControlPro Component={ToggleControl} {...premiumProps} className="mt10"
+            label={__("Open Link in New Tab", "team-section")}
+            checked={isLinkNewTab}
+            onChange={(val) =>
               setAttributes({
-                padding: { ...padding, vertical: "50px", horizontal: "20px" },
-                photoWidth: "170px",
-                nameTypo: { ...nameTypo, fontSize: 20, textTransform: "none" },
-                titleTypo: {
-                  ...titleTypo,
-                  fontSize: 16,
-                  textTransform: "none",
-                },
-                isSep: true,
-                isBio: true,
-                socialSize: "22px",
-              columns: {
-				"desktop": 3,
-				"tablet": 2,
-				"mobile": 1
-			},
-      rowGap:"30px",
-      columnGap:"30px"
-
-		
-              });
-            "theme1" === val &&
+                isLinkNewTab: val
+              })
+            }
+          />
+          <BControlPro Component={ToggleControl} {...premiumProps} className="mt10"
+            label={__("Show Icon", "team-section")}
+            checked={isShowIcon}
+            onChange={(val) =>
               setAttributes({
-                padding: { ...padding, vertical: "50px", horizontal: "20px" },
-                photoWidth: "190px",
-                nameTypo: { ...nameTypo, fontSize: 20, textTransform: "none" },
-                titleTypo: {
-                  ...titleTypo,
-                  fontSize: 14,
-                  textTransform: "uppercase",
-                },
-                isSep: true,
-                isBio: true,
-                socialSize: "22px",
-                     columns: {
-				"desktop": 3,
-				"tablet": 2,
-				"mobile": 1
-			},
-      rowGap:"30px",
-      columnGap:"30px"
+                options: updateData(options, val, "isShowIcon")
+              })
+            }
+          />
+          {isShowIcon && <>
+            <BControlPro Component={IconLibrary} {...premiumProps} className="mt10" value={options?.icon} label={__("Icon", "team-section")} onChange={v => setAttributes({ options: updateData(options, v, "icon") })} />
 
-              });
-            "theme2" === val &&
-              setAttributes({
-                padding: { ...padding, vertical: "50px", horizontal: "20px" },
-                photoWidth: "190px",
-                nameTypo: { ...nameTypo, fontSize: 20, textTransform: "none" },
-                titleTypo: {
-                  ...titleTypo,
-                  fontSize: 14,
-                  textTransform: "uppercase",
-                },
-                isSep: true,
-                isBio: false,
-                socialSize: "22px",
-                     columns: {
-				"desktop": 3,
-				"tablet": 2,
-				"mobile": 1
-			},
-      rowGap:"30px",
-      columnGap:"30px"
-
-              });
-            "theme3" === val &&
-              setAttributes({
-                padding: { ...padding, vertical: "50px", horizontal: "20px" },
-                photoWidth: "170px",
-                nameTypo: { ...nameTypo, fontSize: 24, textTransform: "none" },
-                titleTypo: {
-                  ...titleTypo,
-                  fontSize: 18,
-                  textTransform: "none",
-                },
-                isSep: false,
-                isBio: false,
-                socialSize: "28px",
-                     columns: {
-				"desktop": 3,
-				"tablet": 2,
-				"mobile": 1
-			},
-      rowGap:"30px",
-      columnGap:"30px"
-
-              });
-            "theme4" === val &&
-              setAttributes({
-                padding: { ...padding, vertical: "15px", horizontal: "15px" },
-                photoWidth: "100%",
-                nameTypo: {
-                  ...nameTypo,
-                  fontSize: 20,
-                  textTransform: "uppercase",
-                },
-                titleTypo: {
-                  ...titleTypo,
-                  fontSize: 15,
-                  textTransform: "none",
-                },
-                isSep: false,
-                isBio: false,
-                socialSize: "22px",
-                     columns: {
-				"desktop": 3,
-				"tablet": 2,
-				"mobile": 1
-			},
-      rowGap:"30px",
-      columnGap:"30px"
-
-              });
-           [ "theme5","theme6","theme7","theme8","theme9","theme10","theme11","theme12"].includes(val) && handleClick(val) 
-
-            members.map((member) => {
-              const {
-                background,
-                border,
-                photoBorder,
-                separator,
-                socialIconColors,
-              } = member;
-
-              const defaultParams = [
-                ["background", { ...background, color: "#0000" }],
-                ["border", { ...border, radius: "3px" }],
-                [
-                  "shadow",
-                  [{ hOffset: "", vOffset: "", blur: "0px", color: "#7090b0" }],
-                ],
-                [
-                  "photoBorder",
-                  {
-                    ...photoBorder,
-                    width: "0px",
-                    color: "#0000",
-                    radius: "50%",
-                  },
-                ],
-                ["nameColor", "#333"],
-                ["titleColor", "#333"],
-                ["separator", { ...separator, color: "#777" }],
-                ["bioColor", "#333"],
-                [
-                  "socialIconColors",
-                  { ...socialIconColors, color: "#fff", bg: primaryColor },
-                ],
-              ];
-              const theme1Params = [
-                ["background", { ...background, color: "#0000" }],
-                ["border", { ...border, radius: "3px" }],
-                [
-                  "shadow",
-                  [
-                    {
-                      hOffset: "",
-                      vOffset: "",
-                      blur: "20px",
-                      color: "#e8edfb",
-                    },
-                  ],
-                ],
-                [
-                  "photoBorder",
-                  {
-                    ...photoBorder,
-                    width: "10px",
-                    color: "#e8edfb",
-                    radius: "50%",
-                  },
-                ],
-                ["nameColor", "#333"],
-                ["titleColor", "#7a7a7a"],
-                ["separator", { ...separator, color: primaryColor }],
-                ["bioColor", "#7a7a7a"],
-                [
-                  "socialIconColors",
-                  { ...socialIconColors, color: "#fff", bg: primaryColor },
-                ],
-              ];
-              const theme2Params = [
-                ["background", { ...background, color: "#0000" }],
-                ["border", { ...border, radius: "3px" }],
-                [
-                  "shadow",
-                  [{ hOffset: "", vOffset: "", blur: "0px", color: "#7090b0" }],
-                ],
-                [
-                  "photoBorder",
-                  {
-                    ...photoBorder,
-                    width: "0px",
-                    color: "#0000",
-                    radius: "50%",
-                  },
-                ],
-                ["nameColor", "#333"],
-                ["titleColor", "#7a7a7a"],
-                ["separator", { ...separator, color: "#999" }],
-                ["bioColor", "#7a7a7a"],
-                [
-                  "socialIconColors",
-                  { ...socialIconColors, color: primaryColor, bg: "#0000" },
-                ],
-              ];
-              const theme3Params = [
-                ["background", { ...background, color: "#f2f3f7" }],
-                ["border", { ...border, radius: "10px" }],
-                [
-                  "shadow",
-                  [
-                    {
-                      hOffset: "-10px",
-                      vOffset: "-10px",
-                      blur: "20px",
-                      color: "#f7f7f7",
-                    },
-                    {
-                      hOffset: "10px",
-                      vOffset: "10px",
-                      blur: "20px",
-                      color: "#d7e0e8",
-                    },
-                  ],
-                ],
-                [
-                  "photoBorder",
-                  {
-                    ...photoBorder,
-                    width: "0px",
-                    color: "#0000",
-                    radius: "50%",
-                  },
-                ],
-                ["nameColor", "#32285C"],
-                ["titleColor", "#677592"],
-                ["separator", { ...separator, color: "#777" }],
-                ["bioColor", "#333"],
-                [
-                  "socialIconColors",
-                  { ...socialIconColors, color: "#677592", bg: "#0000" },
-                ],
-              ];
-              const theme4Params = [
-                ["background", { ...background, color: primaryColor }],
-                ["border", { ...border, radius: "0px" }],
-                [
-                  "shadow",
-                  [{ hOffset: "", vOffset: "", blur: "0px", color: "#7090b0" }],
-                ],
-                [
-                  "photoBorder",
-                  {
-                    ...photoBorder,
-                    width: "0px",
-                    color: "#0000",
-                    radius: "0px",
-                  },
-                ],
-                ["nameColor", "#fff"],
-                ["titleColor", "#fff"],
-                ["separator", { ...separator, color: "#777" }],
-                ["bioColor", "#fff"],
-                [
-                  "socialIconColors",
-                  { ...socialIconColors, color: primaryColor, bg: "#fff" },
-                ],
-              ];
-
-              "default" === val && updateAllMembers(defaultParams);
-              "theme1" === val && updateAllMembers(theme1Params);
-              "theme2" === val && updateAllMembers(theme2Params);
-              "theme3" === val && updateAllMembers(theme3Params);
-              "theme4" === val && updateAllMembers(theme4Params);
-            });
-          }}
-                options={themes}
-              />
-            </PanelRow>
-          </PanelBody>
+          </>}
 
 
-           <PanelBody
-            className="bPlPanelBody"
-            title={__("Elements", "team-section")}
-            initialOpen={false}
-          >
-               <BControlPro Component={ToggleControl} {...premiumProps}
-              className="mt10"
-              label={__("Show Title", "team-section")}
-              checked={isTitle}
-              onChange={(val) => setAttributes({ isTitle: val })}
-            />
-
-            <BControlPro Component={ToggleControl} {...premiumProps}
-              className="mt10"
-              label={__("Show Social", "team-section")}
-              checked={isSocial}
-              onChange={(val) => setAttributes({ isSocial: val })}
-            />
-            <BControlPro Component={ToggleControl} {...premiumProps} className="mt10"
-              label={__("Open Link in New Tab", "team-section")}
-              checked={isLinkNewTab}
-              onChange={(val) =>
-                setAttributes({
-                  isLinkNewTab: val
-                })
-              }
-            />
-            <BControlPro Component={ToggleControl} {...premiumProps} className="mt10"
-              label={__("Show Icon", "team-section")}
-              checked={isShowIcon}
-              onChange={(val) =>
-                setAttributes({
-                  options: updateData(options,val,"isShowIcon")
-                })
-              }
-            />
-            {isShowIcon && <>
-            <BControlPro Component={IconLibrary} {...premiumProps} className="mt10" value={options?.icon} label={__("Icon", "team-section")} onChange={v=>setAttributes({options:updateData(options,v,"icon")})} />
-               
-            </>}
-            
-           
-          </PanelBody>
+        </PanelBody>
 
 
       </>)}
 
       {"theme9" === theme && (<>
-      <HelpPanel
-            slug="team-section"
-            docsLink="https://bblockswp.com/docs/team-block"
-          />
-          
-            <PanelBody
-            className="bPlPanelBody addRemoveItems editItem"
-            title={__("Add or Remove Members", "team-section")}
-          >
-            <ItemsPanel
-              newItem={newMember}
-              design="sortable"
-              attributes={attributes}
-              setAttributes={setAttributes}
-              arrKey="members"
-              itemLabel="Member"
-              ItemSettings={theme9ProfileSetting}
-              // premiumProps={premiumProps}
-            />
-          </PanelBody>
+        <HelpPanel
+          slug="team-section"
+          docsLink="https://bblockswp.com/docs/team-block"
+        />
 
-          <PanelBody
-            className="bPlPanelBody"
-            title={__("Layout", "team-section")}
-            initialOpen={false}
-          >
-            <PanelRow>
-              <Label className="mb5">{__("Columns:", "team-section")}</Label>
-              <Device />
-            </PanelRow>
-            <BControlPro Component={RangeControl} {...premiumProps}
-              value={columns[device]}
+        <PanelBody
+          className="bPlPanelBody addRemoveItems editItem"
+          title={__("Add or Remove Members", "team-section")}
+        >
+          <ItemsPanel
+            newItem={newMember}
+            design="sortable"
+            attributes={attributes}
+            setAttributes={setAttributes}
+            arrKey="members"
+            itemLabel="Member"
+            ItemSettings={theme9ProfileSetting}
+          // premiumProps={premiumProps}
+          />
+        </PanelBody>
+
+        <PanelBody
+          className="bPlPanelBody"
+          title={__("Layout", "team-section")}
+          initialOpen={false}
+        >
+          <PanelRow>
+            <Label className="mb5">{__("Columns:", "team-section")}</Label>
+            <Device />
+          </PanelRow>
+          <BControlPro Component={RangeControl} {...premiumProps}
+            value={columns[device]}
+            onChange={(val) => {
+              setAttributes({
+                columns: { ...columns, [device]: val },
+              });
+            }}
+            min={1}
+            max={6}
+            step={1}
+            beforeIcon="grid-view"
+          />
+
+          <BControlPro Component={UnitControl} {...premiumProps}
+            className="mt20"
+            label={__("Column Gap:", "team-section")}
+            labelPosition="left"
+            value={columnGap}
+            onChange={(val) => setAttributes({ columnGap: val })}
+            units={[pxUnit(), perUnit(), emUnit()]}
+          />
+
+          <BControlPro Component={UnitControl} {...premiumProps}
+            className="mt20"
+            label={__("Row Gap:", "team-section")}
+            labelPosition="left"
+            value={rowGap}
+            onChange={(val) => setAttributes({ rowGap: val })}
+            units={[pxUnit(), perUnit(), emUnit()]}
+          />
+
+          <PanelRow>
+            <Label className="">{__("Theme:", "team-section")}</Label>
+            <SelectControl
+              value={theme}
               onChange={(val) => {
-                setAttributes({
-                  columns: { ...columns, [device]: val },
+                setAttributes({ theme: val });
+                "default" === val &&
+                  setAttributes({
+                    padding: { ...padding, vertical: "50px", horizontal: "20px" },
+                    photoWidth: "170px",
+                    nameTypo: { ...nameTypo, fontSize: 20, textTransform: "none" },
+                    titleTypo: {
+                      ...titleTypo,
+                      fontSize: 16,
+                      textTransform: "none",
+                    },
+                    isSep: true,
+                    isBio: true,
+                    socialSize: "22px",
+                    columns: {
+                      "desktop": 3,
+                      "tablet": 2,
+                      "mobile": 1
+                    },
+                    rowGap: "30px",
+                    columnGap: "30px"
+
+
+                  });
+                "theme1" === val &&
+                  setAttributes({
+                    padding: { ...padding, vertical: "50px", horizontal: "20px" },
+                    photoWidth: "190px",
+                    nameTypo: { ...nameTypo, fontSize: 20, textTransform: "none" },
+                    titleTypo: {
+                      ...titleTypo,
+                      fontSize: 14,
+                      textTransform: "uppercase",
+                    },
+                    isSep: true,
+                    isBio: true,
+                    socialSize: "22px",
+                    columns: {
+                      "desktop": 3,
+                      "tablet": 2,
+                      "mobile": 1
+                    },
+                    rowGap: "30px",
+                    columnGap: "30px"
+
+                  });
+                "theme2" === val &&
+                  setAttributes({
+                    padding: { ...padding, vertical: "50px", horizontal: "20px" },
+                    photoWidth: "190px",
+                    nameTypo: { ...nameTypo, fontSize: 20, textTransform: "none" },
+                    titleTypo: {
+                      ...titleTypo,
+                      fontSize: 14,
+                      textTransform: "uppercase",
+                    },
+                    isSep: true,
+                    isBio: false,
+                    socialSize: "22px",
+                    columns: {
+                      "desktop": 3,
+                      "tablet": 2,
+                      "mobile": 1
+                    },
+                    rowGap: "30px",
+                    columnGap: "30px"
+
+                  });
+                "theme3" === val &&
+                  setAttributes({
+                    padding: { ...padding, vertical: "50px", horizontal: "20px" },
+                    photoWidth: "170px",
+                    nameTypo: { ...nameTypo, fontSize: 24, textTransform: "none" },
+                    titleTypo: {
+                      ...titleTypo,
+                      fontSize: 18,
+                      textTransform: "none",
+                    },
+                    isSep: false,
+                    isBio: false,
+                    socialSize: "28px",
+                    columns: {
+                      "desktop": 3,
+                      "tablet": 2,
+                      "mobile": 1
+                    },
+                    rowGap: "30px",
+                    columnGap: "30px"
+
+                  });
+                "theme4" === val &&
+                  setAttributes({
+                    padding: { ...padding, vertical: "15px", horizontal: "15px" },
+                    photoWidth: "100%",
+                    nameTypo: {
+                      ...nameTypo,
+                      fontSize: 20,
+                      textTransform: "uppercase",
+                    },
+                    titleTypo: {
+                      ...titleTypo,
+                      fontSize: 15,
+                      textTransform: "none",
+                    },
+                    isSep: false,
+                    isBio: false,
+                    socialSize: "22px",
+                    columns: {
+                      "desktop": 3,
+                      "tablet": 2,
+                      "mobile": 1
+                    },
+                    rowGap: "30px",
+                    columnGap: "30px"
+
+                  });
+                ["theme5", "theme6", "theme7", "theme8", "theme9", "theme10", "theme11", "theme12"].includes(val) && handleClick(val)
+
+                members.map((member) => {
+                  const {
+                    background,
+                    border,
+                    photoBorder,
+                    separator,
+                    socialIconColors,
+                  } = member;
+
+                  const defaultParams = [
+                    ["background", { ...background, color: "#0000" }],
+                    ["border", { ...border, radius: "3px" }],
+                    [
+                      "shadow",
+                      [{ hOffset: "", vOffset: "", blur: "0px", color: "#7090b0" }],
+                    ],
+                    [
+                      "photoBorder",
+                      {
+                        ...photoBorder,
+                        width: "0px",
+                        color: "#0000",
+                        radius: "50%",
+                      },
+                    ],
+                    ["nameColor", "#333"],
+                    ["titleColor", "#333"],
+                    ["separator", { ...separator, color: "#777" }],
+                    ["bioColor", "#333"],
+                    [
+                      "socialIconColors",
+                      { ...socialIconColors, color: "#fff", bg: primaryColor },
+                    ],
+                  ];
+                  const theme1Params = [
+                    ["background", { ...background, color: "#0000" }],
+                    ["border", { ...border, radius: "3px" }],
+                    [
+                      "shadow",
+                      [
+                        {
+                          hOffset: "",
+                          vOffset: "",
+                          blur: "20px",
+                          color: "#e8edfb",
+                        },
+                      ],
+                    ],
+                    [
+                      "photoBorder",
+                      {
+                        ...photoBorder,
+                        width: "10px",
+                        color: "#e8edfb",
+                        radius: "50%",
+                      },
+                    ],
+                    ["nameColor", "#333"],
+                    ["titleColor", "#7a7a7a"],
+                    ["separator", { ...separator, color: primaryColor }],
+                    ["bioColor", "#7a7a7a"],
+                    [
+                      "socialIconColors",
+                      { ...socialIconColors, color: "#fff", bg: primaryColor },
+                    ],
+                  ];
+                  const theme2Params = [
+                    ["background", { ...background, color: "#0000" }],
+                    ["border", { ...border, radius: "3px" }],
+                    [
+                      "shadow",
+                      [{ hOffset: "", vOffset: "", blur: "0px", color: "#7090b0" }],
+                    ],
+                    [
+                      "photoBorder",
+                      {
+                        ...photoBorder,
+                        width: "0px",
+                        color: "#0000",
+                        radius: "50%",
+                      },
+                    ],
+                    ["nameColor", "#333"],
+                    ["titleColor", "#7a7a7a"],
+                    ["separator", { ...separator, color: "#999" }],
+                    ["bioColor", "#7a7a7a"],
+                    [
+                      "socialIconColors",
+                      { ...socialIconColors, color: primaryColor, bg: "#0000" },
+                    ],
+                  ];
+                  const theme3Params = [
+                    ["background", { ...background, color: "#f2f3f7" }],
+                    ["border", { ...border, radius: "10px" }],
+                    [
+                      "shadow",
+                      [
+                        {
+                          hOffset: "-10px",
+                          vOffset: "-10px",
+                          blur: "20px",
+                          color: "#f7f7f7",
+                        },
+                        {
+                          hOffset: "10px",
+                          vOffset: "10px",
+                          blur: "20px",
+                          color: "#d7e0e8",
+                        },
+                      ],
+                    ],
+                    [
+                      "photoBorder",
+                      {
+                        ...photoBorder,
+                        width: "0px",
+                        color: "#0000",
+                        radius: "50%",
+                      },
+                    ],
+                    ["nameColor", "#32285C"],
+                    ["titleColor", "#677592"],
+                    ["separator", { ...separator, color: "#777" }],
+                    ["bioColor", "#333"],
+                    [
+                      "socialIconColors",
+                      { ...socialIconColors, color: "#677592", bg: "#0000" },
+                    ],
+                  ];
+                  const theme4Params = [
+                    ["background", { ...background, color: primaryColor }],
+                    ["border", { ...border, radius: "0px" }],
+                    [
+                      "shadow",
+                      [{ hOffset: "", vOffset: "", blur: "0px", color: "#7090b0" }],
+                    ],
+                    [
+                      "photoBorder",
+                      {
+                        ...photoBorder,
+                        width: "0px",
+                        color: "#0000",
+                        radius: "0px",
+                      },
+                    ],
+                    ["nameColor", "#fff"],
+                    ["titleColor", "#fff"],
+                    ["separator", { ...separator, color: "#777" }],
+                    ["bioColor", "#fff"],
+                    [
+                      "socialIconColors",
+                      { ...socialIconColors, color: primaryColor, bg: "#fff" },
+                    ],
+                  ];
+
+                  "default" === val && updateAllMembers(defaultParams);
+                  "theme1" === val && updateAllMembers(theme1Params);
+                  "theme2" === val && updateAllMembers(theme2Params);
+                  "theme3" === val && updateAllMembers(theme3Params);
+                  "theme4" === val && updateAllMembers(theme4Params);
                 });
               }}
-              min={1}
-              max={6}
-              step={1}
-              beforeIcon="grid-view"
+              options={themes}
             />
+          </PanelRow>
+        </PanelBody>
 
-            <BControlPro Component={UnitControl} {...premiumProps}
-              className="mt20"
-              label={__("Column Gap:", "team-section")}
-              labelPosition="left"
-              value={columnGap}
-              onChange={(val) => setAttributes({ columnGap: val })}
-              units={[pxUnit(), perUnit(), emUnit()]}
-            />
+        <PanelBody
+          className="bPlPanelBody"
+          title={__("Elements", "team-section")}
+          initialOpen={false}
+        >
+          <BControlPro Component={ToggleControl} {...premiumProps}
+            className="mt10"
+            label={__("Show Title", "team-section")}
+            checked={isTitle}
+            onChange={(val) => setAttributes({ isTitle: val })}
+          />
 
-            <BControlPro Component={UnitControl} {...premiumProps}
-              className="mt20"
-              label={__("Row Gap:", "team-section")}
-              labelPosition="left"
-              value={rowGap}
-              onChange={(val) => setAttributes({ rowGap: val })}
-              units={[pxUnit(), perUnit(), emUnit()]}
-            />
-
-            <PanelRow>
-              <Label className="">{__("Theme:", "team-section")}</Label>
-              <SelectControl
-                value={theme}
-                    onChange={(val) => {
-            setAttributes({ theme: val });
-            "default" === val &&
+          <BControlPro Component={ToggleControl} {...premiumProps}
+            className="mt10"
+            label={__("Show Social", "team-section")}
+            checked={isSocial}
+            onChange={(val) => setAttributes({ isSocial: val })}
+          />
+          <BControlPro Component={ToggleControl} {...premiumProps} className="mt10"
+            label={__("Open Link in New Tab", "team-section")}
+            checked={isLinkNewTab}
+            onChange={(val) =>
               setAttributes({
-                padding: { ...padding, vertical: "50px", horizontal: "20px" },
-                photoWidth: "170px",
-                nameTypo: { ...nameTypo, fontSize: 20, textTransform: "none" },
-                titleTypo: {
-                  ...titleTypo,
-                  fontSize: 16,
-                  textTransform: "none",
-                },
-                isSep: true,
-                isBio: true,
-                socialSize: "22px",
-              columns: {
-				"desktop": 3,
-				"tablet": 2,
-				"mobile": 1
-			},
-      rowGap:"30px",
-      columnGap:"30px"
+                isLinkNewTab: val
+              })
+            }
+          />
 
-		
-              });
-            "theme1" === val &&
-              setAttributes({
-                padding: { ...padding, vertical: "50px", horizontal: "20px" },
-                photoWidth: "190px",
-                nameTypo: { ...nameTypo, fontSize: 20, textTransform: "none" },
-                titleTypo: {
-                  ...titleTypo,
-                  fontSize: 14,
-                  textTransform: "uppercase",
-                },
-                isSep: true,
-                isBio: true,
-                socialSize: "22px",
-                     columns: {
-				"desktop": 3,
-				"tablet": 2,
-				"mobile": 1
-			},
-      rowGap:"30px",
-      columnGap:"30px"
 
-              });
-            "theme2" === val &&
-              setAttributes({
-                padding: { ...padding, vertical: "50px", horizontal: "20px" },
-                photoWidth: "190px",
-                nameTypo: { ...nameTypo, fontSize: 20, textTransform: "none" },
-                titleTypo: {
-                  ...titleTypo,
-                  fontSize: 14,
-                  textTransform: "uppercase",
-                },
-                isSep: true,
-                isBio: false,
-                socialSize: "22px",
-                     columns: {
-				"desktop": 3,
-				"tablet": 2,
-				"mobile": 1
-			},
-      rowGap:"30px",
-      columnGap:"30px"
 
-              });
-            "theme3" === val &&
-              setAttributes({
-                padding: { ...padding, vertical: "50px", horizontal: "20px" },
-                photoWidth: "170px",
-                nameTypo: { ...nameTypo, fontSize: 24, textTransform: "none" },
-                titleTypo: {
-                  ...titleTypo,
-                  fontSize: 18,
-                  textTransform: "none",
-                },
-                isSep: false,
-                isBio: false,
-                socialSize: "28px",
-                     columns: {
-				"desktop": 3,
-				"tablet": 2,
-				"mobile": 1
-			},
-      rowGap:"30px",
-      columnGap:"30px"
 
-              });
-            "theme4" === val &&
-              setAttributes({
-                padding: { ...padding, vertical: "15px", horizontal: "15px" },
-                photoWidth: "100%",
-                nameTypo: {
-                  ...nameTypo,
-                  fontSize: 20,
-                  textTransform: "uppercase",
-                },
-                titleTypo: {
-                  ...titleTypo,
-                  fontSize: 15,
-                  textTransform: "none",
-                },
-                isSep: false,
-                isBio: false,
-                socialSize: "22px",
-                     columns: {
-				"desktop": 3,
-				"tablet": 2,
-				"mobile": 1
-			},
-      rowGap:"30px",
-      columnGap:"30px"
-
-              });
-           [ "theme5","theme6","theme7","theme8","theme9","theme10","theme11","theme12"].includes(val) && handleClick(val) 
-
-            members.map((member) => {
-              const {
-                background,
-                border,
-                photoBorder,
-                separator,
-                socialIconColors,
-              } = member;
-
-              const defaultParams = [
-                ["background", { ...background, color: "#0000" }],
-                ["border", { ...border, radius: "3px" }],
-                [
-                  "shadow",
-                  [{ hOffset: "", vOffset: "", blur: "0px", color: "#7090b0" }],
-                ],
-                [
-                  "photoBorder",
-                  {
-                    ...photoBorder,
-                    width: "0px",
-                    color: "#0000",
-                    radius: "50%",
-                  },
-                ],
-                ["nameColor", "#333"],
-                ["titleColor", "#333"],
-                ["separator", { ...separator, color: "#777" }],
-                ["bioColor", "#333"],
-                [
-                  "socialIconColors",
-                  { ...socialIconColors, color: "#fff", bg: primaryColor },
-                ],
-              ];
-              const theme1Params = [
-                ["background", { ...background, color: "#0000" }],
-                ["border", { ...border, radius: "3px" }],
-                [
-                  "shadow",
-                  [
-                    {
-                      hOffset: "",
-                      vOffset: "",
-                      blur: "20px",
-                      color: "#e8edfb",
-                    },
-                  ],
-                ],
-                [
-                  "photoBorder",
-                  {
-                    ...photoBorder,
-                    width: "10px",
-                    color: "#e8edfb",
-                    radius: "50%",
-                  },
-                ],
-                ["nameColor", "#333"],
-                ["titleColor", "#7a7a7a"],
-                ["separator", { ...separator, color: primaryColor }],
-                ["bioColor", "#7a7a7a"],
-                [
-                  "socialIconColors",
-                  { ...socialIconColors, color: "#fff", bg: primaryColor },
-                ],
-              ];
-              const theme2Params = [
-                ["background", { ...background, color: "#0000" }],
-                ["border", { ...border, radius: "3px" }],
-                [
-                  "shadow",
-                  [{ hOffset: "", vOffset: "", blur: "0px", color: "#7090b0" }],
-                ],
-                [
-                  "photoBorder",
-                  {
-                    ...photoBorder,
-                    width: "0px",
-                    color: "#0000",
-                    radius: "50%",
-                  },
-                ],
-                ["nameColor", "#333"],
-                ["titleColor", "#7a7a7a"],
-                ["separator", { ...separator, color: "#999" }],
-                ["bioColor", "#7a7a7a"],
-                [
-                  "socialIconColors",
-                  { ...socialIconColors, color: primaryColor, bg: "#0000" },
-                ],
-              ];
-              const theme3Params = [
-                ["background", { ...background, color: "#f2f3f7" }],
-                ["border", { ...border, radius: "10px" }],
-                [
-                  "shadow",
-                  [
-                    {
-                      hOffset: "-10px",
-                      vOffset: "-10px",
-                      blur: "20px",
-                      color: "#f7f7f7",
-                    },
-                    {
-                      hOffset: "10px",
-                      vOffset: "10px",
-                      blur: "20px",
-                      color: "#d7e0e8",
-                    },
-                  ],
-                ],
-                [
-                  "photoBorder",
-                  {
-                    ...photoBorder,
-                    width: "0px",
-                    color: "#0000",
-                    radius: "50%",
-                  },
-                ],
-                ["nameColor", "#32285C"],
-                ["titleColor", "#677592"],
-                ["separator", { ...separator, color: "#777" }],
-                ["bioColor", "#333"],
-                [
-                  "socialIconColors",
-                  { ...socialIconColors, color: "#677592", bg: "#0000" },
-                ],
-              ];
-              const theme4Params = [
-                ["background", { ...background, color: primaryColor }],
-                ["border", { ...border, radius: "0px" }],
-                [
-                  "shadow",
-                  [{ hOffset: "", vOffset: "", blur: "0px", color: "#7090b0" }],
-                ],
-                [
-                  "photoBorder",
-                  {
-                    ...photoBorder,
-                    width: "0px",
-                    color: "#0000",
-                    radius: "0px",
-                  },
-                ],
-                ["nameColor", "#fff"],
-                ["titleColor", "#fff"],
-                ["separator", { ...separator, color: "#777" }],
-                ["bioColor", "#fff"],
-                [
-                  "socialIconColors",
-                  { ...socialIconColors, color: primaryColor, bg: "#fff" },
-                ],
-              ];
-
-              "default" === val && updateAllMembers(defaultParams);
-              "theme1" === val && updateAllMembers(theme1Params);
-              "theme2" === val && updateAllMembers(theme2Params);
-              "theme3" === val && updateAllMembers(theme3Params);
-              "theme4" === val && updateAllMembers(theme4Params);
-            });
-          }}
-                options={themes}
-              />
-            </PanelRow>
-          </PanelBody>
-
-          <PanelBody
-            className="bPlPanelBody"
-            title={__("Elements", "team-section")}
-            initialOpen={false}
-          >
-               <BControlPro Component={ToggleControl} {...premiumProps}
-              className="mt10"
-              label={__("Show Title", "team-section")}
-              checked={isTitle}
-              onChange={(val) => setAttributes({ isTitle: val })}
-            />
-
-            <BControlPro Component={ToggleControl} {...premiumProps}
-              className="mt10"
-              label={__("Show Social", "team-section")}
-              checked={isSocial}
-              onChange={(val) => setAttributes({ isSocial: val })}
-            />
-            <BControlPro Component={ToggleControl} {...premiumProps} className="mt10"
-              label={__("Open Link in New Tab", "team-section")}
-              checked={isLinkNewTab}
-              onChange={(val) =>
-                setAttributes({
-                  isLinkNewTab: val
-                })
-              }
-            />
-           
-            
-            
-           
-          </PanelBody>
+        </PanelBody>
       </>)}
 
 
       {"theme10" === theme && (<>
-      <HelpPanel
-            slug="team-section"
-            docsLink="https://bblockswp.com/docs/team-block"
+        <HelpPanel
+          slug="team-section"
+          docsLink="https://bblockswp.com/docs/team-block"
+        />
+
+        <PanelBody
+          className="bPlPanelBody addRemoveItems editItem"
+          title={__("Add or Remove Members", "team-section")}
+        >
+          <ItemsPanel
+            newItem={newMember}
+            design="sortable"
+            attributes={attributes}
+            setAttributes={setAttributes}
+            arrKey="members"
+            itemLabel="Member"
+            ItemSettings={theme10ProfileSetting}
+          // premiumProps={premiumProps}
           />
-          
-            <PanelBody
-            className="bPlPanelBody addRemoveItems editItem"
-            title={__("Add or Remove Members", "team-section")}
-          >
-            <ItemsPanel
-              newItem={newMember}
-              design="sortable"
-              attributes={attributes}
-              setAttributes={setAttributes}
-              arrKey="members"
-              itemLabel="Member"
-              ItemSettings={theme10ProfileSetting}
-              // premiumProps={premiumProps}
-            />
-          </PanelBody>
-      <PanelBody
-            className="bPlPanelBody"
-            title={__("Layout", "team-section")}
-            initialOpen={false}
-          >
-         <PanelRow>
-              <Label className="">{__("Theme:", "team-section")}</Label>
-              <SelectControl
-                value={theme}
-                   onChange={(val) => {
-            setAttributes({ theme: val });
-            "default" === val &&
-              setAttributes({
-                padding: { ...padding, vertical: "50px", horizontal: "20px" },
-                photoWidth: "170px",
-                nameTypo: { ...nameTypo, fontSize: 20, textTransform: "none" },
-                titleTypo: {
-                  ...titleTypo,
-                  fontSize: 16,
-                  textTransform: "none",
-                },
-                isSep: true,
-                isBio: true,
-                socialSize: "22px",
-              columns: {
-				"desktop": 3,
-				"tablet": 2,
-				"mobile": 1
-			},
-      rowGap:"30px",
-      columnGap:"30px"
-
-		
-              });
-            "theme1" === val &&
-              setAttributes({
-                padding: { ...padding, vertical: "50px", horizontal: "20px" },
-                photoWidth: "190px",
-                nameTypo: { ...nameTypo, fontSize: 20, textTransform: "none" },
-                titleTypo: {
-                  ...titleTypo,
-                  fontSize: 14,
-                  textTransform: "uppercase",
-                },
-                isSep: true,
-                isBio: true,
-                socialSize: "22px",
-                     columns: {
-				"desktop": 3,
-				"tablet": 2,
-				"mobile": 1
-			},
-      rowGap:"30px",
-      columnGap:"30px"
-
-              });
-            "theme2" === val &&
-              setAttributes({
-                padding: { ...padding, vertical: "50px", horizontal: "20px" },
-                photoWidth: "190px",
-                nameTypo: { ...nameTypo, fontSize: 20, textTransform: "none" },
-                titleTypo: {
-                  ...titleTypo,
-                  fontSize: 14,
-                  textTransform: "uppercase",
-                },
-                isSep: true,
-                isBio: false,
-                socialSize: "22px",
-                     columns: {
-				"desktop": 3,
-				"tablet": 2,
-				"mobile": 1
-			},
-      rowGap:"30px",
-      columnGap:"30px"
-
-              });
-            "theme3" === val &&
-              setAttributes({
-                padding: { ...padding, vertical: "50px", horizontal: "20px" },
-                photoWidth: "170px",
-                nameTypo: { ...nameTypo, fontSize: 24, textTransform: "none" },
-                titleTypo: {
-                  ...titleTypo,
-                  fontSize: 18,
-                  textTransform: "none",
-                },
-                isSep: false,
-                isBio: false,
-                socialSize: "28px",
-                     columns: {
-				"desktop": 3,
-				"tablet": 2,
-				"mobile": 1
-			},
-      rowGap:"30px",
-      columnGap:"30px"
-
-              });
-            "theme4" === val &&
-              setAttributes({
-                padding: { ...padding, vertical: "15px", horizontal: "15px" },
-                photoWidth: "100%",
-                nameTypo: {
-                  ...nameTypo,
-                  fontSize: 20,
-                  textTransform: "uppercase",
-                },
-                titleTypo: {
-                  ...titleTypo,
-                  fontSize: 15,
-                  textTransform: "none",
-                },
-                isSep: false,
-                isBio: false,
-                socialSize: "22px",
-                     columns: {
-				"desktop": 3,
-				"tablet": 2,
-				"mobile": 1
-			},
-      rowGap:"30px",
-      columnGap:"30px"
-
-              });
-           [ "theme5","theme6","theme7","theme8","theme9","theme10","theme11","theme12"].includes(val) && handleClick(val) 
-
-            members.map((member) => {
-              const {
-                background,
-                border,
-                photoBorder,
-                separator,
-                socialIconColors,
-              } = member;
-
-              const defaultParams = [
-                ["background", { ...background, color: "#0000" }],
-                ["border", { ...border, radius: "3px" }],
-                [
-                  "shadow",
-                  [{ hOffset: "", vOffset: "", blur: "0px", color: "#7090b0" }],
-                ],
-                [
-                  "photoBorder",
-                  {
-                    ...photoBorder,
-                    width: "0px",
-                    color: "#0000",
-                    radius: "50%",
-                  },
-                ],
-                ["nameColor", "#333"],
-                ["titleColor", "#333"],
-                ["separator", { ...separator, color: "#777" }],
-                ["bioColor", "#333"],
-                [
-                  "socialIconColors",
-                  { ...socialIconColors, color: "#fff", bg: primaryColor },
-                ],
-              ];
-              const theme1Params = [
-                ["background", { ...background, color: "#0000" }],
-                ["border", { ...border, radius: "3px" }],
-                [
-                  "shadow",
-                  [
-                    {
-                      hOffset: "",
-                      vOffset: "",
-                      blur: "20px",
-                      color: "#e8edfb",
+        </PanelBody>
+        <PanelBody
+          className="bPlPanelBody"
+          title={__("Layout", "team-section")}
+          initialOpen={false}
+        >
+          <PanelRow>
+            <Label className="">{__("Theme:", "team-section")}</Label>
+            <SelectControl
+              value={theme}
+              onChange={(val) => {
+                setAttributes({ theme: val });
+                "default" === val &&
+                  setAttributes({
+                    padding: { ...padding, vertical: "50px", horizontal: "20px" },
+                    photoWidth: "170px",
+                    nameTypo: { ...nameTypo, fontSize: 20, textTransform: "none" },
+                    titleTypo: {
+                      ...titleTypo,
+                      fontSize: 16,
+                      textTransform: "none",
                     },
-                  ],
-                ],
-                [
-                  "photoBorder",
-                  {
-                    ...photoBorder,
-                    width: "10px",
-                    color: "#e8edfb",
-                    radius: "50%",
-                  },
-                ],
-                ["nameColor", "#333"],
-                ["titleColor", "#7a7a7a"],
-                ["separator", { ...separator, color: primaryColor }],
-                ["bioColor", "#7a7a7a"],
-                [
-                  "socialIconColors",
-                  { ...socialIconColors, color: "#fff", bg: primaryColor },
-                ],
-              ];
-              const theme2Params = [
-                ["background", { ...background, color: "#0000" }],
-                ["border", { ...border, radius: "3px" }],
-                [
-                  "shadow",
-                  [{ hOffset: "", vOffset: "", blur: "0px", color: "#7090b0" }],
-                ],
-                [
-                  "photoBorder",
-                  {
-                    ...photoBorder,
-                    width: "0px",
-                    color: "#0000",
-                    radius: "50%",
-                  },
-                ],
-                ["nameColor", "#333"],
-                ["titleColor", "#7a7a7a"],
-                ["separator", { ...separator, color: "#999" }],
-                ["bioColor", "#7a7a7a"],
-                [
-                  "socialIconColors",
-                  { ...socialIconColors, color: primaryColor, bg: "#0000" },
-                ],
-              ];
-              const theme3Params = [
-                ["background", { ...background, color: "#f2f3f7" }],
-                ["border", { ...border, radius: "10px" }],
-                [
-                  "shadow",
-                  [
-                    {
-                      hOffset: "-10px",
-                      vOffset: "-10px",
-                      blur: "20px",
-                      color: "#f7f7f7",
+                    isSep: true,
+                    isBio: true,
+                    socialSize: "22px",
+                    columns: {
+                      "desktop": 3,
+                      "tablet": 2,
+                      "mobile": 1
                     },
-                    {
-                      hOffset: "10px",
-                      vOffset: "10px",
-                      blur: "20px",
-                      color: "#d7e0e8",
+                    rowGap: "30px",
+                    columnGap: "30px"
+
+
+                  });
+                "theme1" === val &&
+                  setAttributes({
+                    padding: { ...padding, vertical: "50px", horizontal: "20px" },
+                    photoWidth: "190px",
+                    nameTypo: { ...nameTypo, fontSize: 20, textTransform: "none" },
+                    titleTypo: {
+                      ...titleTypo,
+                      fontSize: 14,
+                      textTransform: "uppercase",
                     },
-                  ],
-                ],
-                [
-                  "photoBorder",
-                  {
-                    ...photoBorder,
-                    width: "0px",
-                    color: "#0000",
-                    radius: "50%",
-                  },
-                ],
-                ["nameColor", "#32285C"],
-                ["titleColor", "#677592"],
-                ["separator", { ...separator, color: "#777" }],
-                ["bioColor", "#333"],
-                [
-                  "socialIconColors",
-                  { ...socialIconColors, color: "#677592", bg: "#0000" },
-                ],
-              ];
-              const theme4Params = [
-                ["background", { ...background, color: primaryColor }],
-                ["border", { ...border, radius: "0px" }],
-                [
-                  "shadow",
-                  [{ hOffset: "", vOffset: "", blur: "0px", color: "#7090b0" }],
-                ],
-                [
-                  "photoBorder",
-                  {
-                    ...photoBorder,
-                    width: "0px",
-                    color: "#0000",
-                    radius: "0px",
-                  },
-                ],
-                ["nameColor", "#fff"],
-                ["titleColor", "#fff"],
-                ["separator", { ...separator, color: "#777" }],
-                ["bioColor", "#fff"],
-                [
-                  "socialIconColors",
-                  { ...socialIconColors, color: primaryColor, bg: "#fff" },
-                ],
-              ];
+                    isSep: true,
+                    isBio: true,
+                    socialSize: "22px",
+                    columns: {
+                      "desktop": 3,
+                      "tablet": 2,
+                      "mobile": 1
+                    },
+                    rowGap: "30px",
+                    columnGap: "30px"
 
-              "default" === val && updateAllMembers(defaultParams);
-              "theme1" === val && updateAllMembers(theme1Params);
-              "theme2" === val && updateAllMembers(theme2Params);
-              "theme3" === val && updateAllMembers(theme3Params);
-              "theme4" === val && updateAllMembers(theme4Params);
-            });
-          }}
-                options={themes}
-              />
-            </PanelRow>
-          </PanelBody>
+                  });
+                "theme2" === val &&
+                  setAttributes({
+                    padding: { ...padding, vertical: "50px", horizontal: "20px" },
+                    photoWidth: "190px",
+                    nameTypo: { ...nameTypo, fontSize: 20, textTransform: "none" },
+                    titleTypo: {
+                      ...titleTypo,
+                      fontSize: 14,
+                      textTransform: "uppercase",
+                    },
+                    isSep: true,
+                    isBio: false,
+                    socialSize: "22px",
+                    columns: {
+                      "desktop": 3,
+                      "tablet": 2,
+                      "mobile": 1
+                    },
+                    rowGap: "30px",
+                    columnGap: "30px"
+
+                  });
+                "theme3" === val &&
+                  setAttributes({
+                    padding: { ...padding, vertical: "50px", horizontal: "20px" },
+                    photoWidth: "170px",
+                    nameTypo: { ...nameTypo, fontSize: 24, textTransform: "none" },
+                    titleTypo: {
+                      ...titleTypo,
+                      fontSize: 18,
+                      textTransform: "none",
+                    },
+                    isSep: false,
+                    isBio: false,
+                    socialSize: "28px",
+                    columns: {
+                      "desktop": 3,
+                      "tablet": 2,
+                      "mobile": 1
+                    },
+                    rowGap: "30px",
+                    columnGap: "30px"
+
+                  });
+                "theme4" === val &&
+                  setAttributes({
+                    padding: { ...padding, vertical: "15px", horizontal: "15px" },
+                    photoWidth: "100%",
+                    nameTypo: {
+                      ...nameTypo,
+                      fontSize: 20,
+                      textTransform: "uppercase",
+                    },
+                    titleTypo: {
+                      ...titleTypo,
+                      fontSize: 15,
+                      textTransform: "none",
+                    },
+                    isSep: false,
+                    isBio: false,
+                    socialSize: "22px",
+                    columns: {
+                      "desktop": 3,
+                      "tablet": 2,
+                      "mobile": 1
+                    },
+                    rowGap: "30px",
+                    columnGap: "30px"
+
+                  });
+                ["theme5", "theme6", "theme7", "theme8", "theme9", "theme10", "theme11", "theme12"].includes(val) && handleClick(val)
+
+                members.map((member) => {
+                  const {
+                    background,
+                    border,
+                    photoBorder,
+                    separator,
+                    socialIconColors,
+                  } = member;
+
+                  const defaultParams = [
+                    ["background", { ...background, color: "#0000" }],
+                    ["border", { ...border, radius: "3px" }],
+                    [
+                      "shadow",
+                      [{ hOffset: "", vOffset: "", blur: "0px", color: "#7090b0" }],
+                    ],
+                    [
+                      "photoBorder",
+                      {
+                        ...photoBorder,
+                        width: "0px",
+                        color: "#0000",
+                        radius: "50%",
+                      },
+                    ],
+                    ["nameColor", "#333"],
+                    ["titleColor", "#333"],
+                    ["separator", { ...separator, color: "#777" }],
+                    ["bioColor", "#333"],
+                    [
+                      "socialIconColors",
+                      { ...socialIconColors, color: "#fff", bg: primaryColor },
+                    ],
+                  ];
+                  const theme1Params = [
+                    ["background", { ...background, color: "#0000" }],
+                    ["border", { ...border, radius: "3px" }],
+                    [
+                      "shadow",
+                      [
+                        {
+                          hOffset: "",
+                          vOffset: "",
+                          blur: "20px",
+                          color: "#e8edfb",
+                        },
+                      ],
+                    ],
+                    [
+                      "photoBorder",
+                      {
+                        ...photoBorder,
+                        width: "10px",
+                        color: "#e8edfb",
+                        radius: "50%",
+                      },
+                    ],
+                    ["nameColor", "#333"],
+                    ["titleColor", "#7a7a7a"],
+                    ["separator", { ...separator, color: primaryColor }],
+                    ["bioColor", "#7a7a7a"],
+                    [
+                      "socialIconColors",
+                      { ...socialIconColors, color: "#fff", bg: primaryColor },
+                    ],
+                  ];
+                  const theme2Params = [
+                    ["background", { ...background, color: "#0000" }],
+                    ["border", { ...border, radius: "3px" }],
+                    [
+                      "shadow",
+                      [{ hOffset: "", vOffset: "", blur: "0px", color: "#7090b0" }],
+                    ],
+                    [
+                      "photoBorder",
+                      {
+                        ...photoBorder,
+                        width: "0px",
+                        color: "#0000",
+                        radius: "50%",
+                      },
+                    ],
+                    ["nameColor", "#333"],
+                    ["titleColor", "#7a7a7a"],
+                    ["separator", { ...separator, color: "#999" }],
+                    ["bioColor", "#7a7a7a"],
+                    [
+                      "socialIconColors",
+                      { ...socialIconColors, color: primaryColor, bg: "#0000" },
+                    ],
+                  ];
+                  const theme3Params = [
+                    ["background", { ...background, color: "#f2f3f7" }],
+                    ["border", { ...border, radius: "10px" }],
+                    [
+                      "shadow",
+                      [
+                        {
+                          hOffset: "-10px",
+                          vOffset: "-10px",
+                          blur: "20px",
+                          color: "#f7f7f7",
+                        },
+                        {
+                          hOffset: "10px",
+                          vOffset: "10px",
+                          blur: "20px",
+                          color: "#d7e0e8",
+                        },
+                      ],
+                    ],
+                    [
+                      "photoBorder",
+                      {
+                        ...photoBorder,
+                        width: "0px",
+                        color: "#0000",
+                        radius: "50%",
+                      },
+                    ],
+                    ["nameColor", "#32285C"],
+                    ["titleColor", "#677592"],
+                    ["separator", { ...separator, color: "#777" }],
+                    ["bioColor", "#333"],
+                    [
+                      "socialIconColors",
+                      { ...socialIconColors, color: "#677592", bg: "#0000" },
+                    ],
+                  ];
+                  const theme4Params = [
+                    ["background", { ...background, color: primaryColor }],
+                    ["border", { ...border, radius: "0px" }],
+                    [
+                      "shadow",
+                      [{ hOffset: "", vOffset: "", blur: "0px", color: "#7090b0" }],
+                    ],
+                    [
+                      "photoBorder",
+                      {
+                        ...photoBorder,
+                        width: "0px",
+                        color: "#0000",
+                        radius: "0px",
+                      },
+                    ],
+                    ["nameColor", "#fff"],
+                    ["titleColor", "#fff"],
+                    ["separator", { ...separator, color: "#777" }],
+                    ["bioColor", "#fff"],
+                    [
+                      "socialIconColors",
+                      { ...socialIconColors, color: primaryColor, bg: "#fff" },
+                    ],
+                  ];
+
+                  "default" === val && updateAllMembers(defaultParams);
+                  "theme1" === val && updateAllMembers(theme1Params);
+                  "theme2" === val && updateAllMembers(theme2Params);
+                  "theme3" === val && updateAllMembers(theme3Params);
+                  "theme4" === val && updateAllMembers(theme4Params);
+                });
+              }}
+              options={themes}
+            />
+          </PanelRow>
+        </PanelBody>
 
 
-           <PanelBody
-            className="bPlPanelBody"
-            title={__("Elements", "team-section")}
-            initialOpen={false}
-          >
-               <BControlPro Component={ToggleControl} {...premiumProps}
-              className="mt10"
-              label={__("Show Title", "team-section")}
-              checked={isTitle}
-              onChange={(val) => setAttributes({ isTitle: val })}
-            />
+        <PanelBody
+          className="bPlPanelBody"
+          title={__("Elements", "team-section")}
+          initialOpen={false}
+        >
+          <BControlPro Component={ToggleControl} {...premiumProps}
+            className="mt10"
+            label={__("Show Title", "team-section")}
+            checked={isTitle}
+            onChange={(val) => setAttributes({ isTitle: val })}
+          />
 
-            <BControlPro Component={ToggleControl} {...premiumProps}
-              className="mt10"
-              label={__("Show States", "team-section")}
-              checked={isSocial}
-              onChange={(val) => setAttributes({ isSocial: val })}
-            />
-            <BControlPro Component={ToggleControl} {...premiumProps}
-              className="mt10"
-              label={__("Show Serial", "team-section")}
-              checked={options?.isShowSereal }
-              onChange={(val) => setAttributes({ options: updateData(options,val,"isShowSereal") })}
-            />
-            <BControlPro Component={ToggleControl} {...premiumProps}
-              className="mt10"
-              label={__("Show Background Shape", "team-section")}
-              checked={options?.isShowBgShape }
-              onChange={(val) => setAttributes({ options: updateData(options,val,"isShowBgShape") })}
-            />
-            <BControlPro Component={ToggleControl} {...premiumProps} className="mt10"
-              label={__("Open Link in New Tab", "team-section")}
-              checked={isLinkNewTab}
-              onChange={(val) =>
-                setAttributes({
-                  isLinkNewTab: val
-                })
-              }
-            />
-           
-            
-            
-           
-          </PanelBody>
+          <BControlPro Component={ToggleControl} {...premiumProps}
+            className="mt10"
+            label={__("Show States", "team-section")}
+            checked={isSocial}
+            onChange={(val) => setAttributes({ isSocial: val })}
+          />
+          <BControlPro Component={ToggleControl} {...premiumProps}
+            className="mt10"
+            label={__("Show Serial", "team-section")}
+            checked={options?.isShowSereal}
+            onChange={(val) => setAttributes({ options: updateData(options, val, "isShowSereal") })}
+          />
+          <BControlPro Component={ToggleControl} {...premiumProps}
+            className="mt10"
+            label={__("Show Background Shape", "team-section")}
+            checked={options?.isShowBgShape}
+            onChange={(val) => setAttributes({ options: updateData(options, val, "isShowBgShape") })}
+          />
+          <BControlPro Component={ToggleControl} {...premiumProps} className="mt10"
+            label={__("Open Link in New Tab", "team-section")}
+            checked={isLinkNewTab}
+            onChange={(val) =>
+              setAttributes({
+                isLinkNewTab: val
+              })
+            }
+          />
+
+
+
+
+        </PanelBody>
 
       </>)}
 
-      {"theme11" === theme &&(<>
-         <HelpPanel
-            slug="team-section"
-            docsLink="https://bblockswp.com/docs/team-block"
-          />
-          
-            <PanelBody
-            className="bPlPanelBody addRemoveItems editItem"
-            title={__("Add or Remove Members", "team-section")}
-          >
-            <ItemsPanel
-              newItem={newMember}
-              design="sortable"
-              attributes={attributes}
-              setAttributes={setAttributes}
-              arrKey="members"
-              itemLabel="Member"
-              ItemSettings={theme11ProfileSetting}
-              // premiumProps={premiumProps}
-            />
-          </PanelBody>
+      {"theme11" === theme && (<>
+        <HelpPanel
+          slug="team-section"
+          docsLink="https://bblockswp.com/docs/team-block"
+        />
 
-          <PanelBody
-            className="bPlPanelBody"
-            title={__("Layout", "team-section")}
-            initialOpen={false}
-          >
-            <PanelRow>
-              <Label className="mb5">{__("Columns:", "team-section")}</Label>
-              <Device />
-            </PanelRow>
-            <BControlPro Component={RangeControl} {...premiumProps}
-              value={columns[device]}
+        <PanelBody
+          className="bPlPanelBody addRemoveItems editItem"
+          title={__("Add or Remove Members", "team-section")}
+        >
+          <ItemsPanel
+            newItem={newMember}
+            design="sortable"
+            attributes={attributes}
+            setAttributes={setAttributes}
+            arrKey="members"
+            itemLabel="Member"
+            ItemSettings={theme11ProfileSetting}
+          // premiumProps={premiumProps}
+          />
+        </PanelBody>
+
+        <PanelBody
+          className="bPlPanelBody"
+          title={__("Layout", "team-section")}
+          initialOpen={false}
+        >
+          <PanelRow>
+            <Label className="mb5">{__("Columns:", "team-section")}</Label>
+            <Device />
+          </PanelRow>
+          <BControlPro Component={RangeControl} {...premiumProps}
+            value={columns[device]}
+            onChange={(val) => {
+              setAttributes({
+                columns: { ...columns, [device]: val },
+              });
+            }}
+            min={1}
+            max={6}
+            step={1}
+            beforeIcon="grid-view"
+          />
+
+          <BControlPro Component={UnitControl} {...premiumProps}
+            className="mt20"
+            label={__("Column Gap:", "team-section")}
+            labelPosition="left"
+            value={columnGap}
+            onChange={(val) => setAttributes({ columnGap: val })}
+            units={[pxUnit(), perUnit(), emUnit()]}
+          />
+
+          <BControlPro Component={UnitControl} {...premiumProps}
+            className="mt20"
+            label={__("Row Gap:", "team-section")}
+            labelPosition="left"
+            value={rowGap}
+            onChange={(val) => setAttributes({ rowGap: val })}
+            units={[pxUnit(), perUnit(), emUnit()]}
+          />
+
+          <PanelRow>
+            <Label className="">{__("Theme:", "team-section")}</Label>
+            <SelectControl
+              value={theme}
               onChange={(val) => {
-                setAttributes({
-                  columns: { ...columns, [device]: val },
+                setAttributes({ theme: val });
+                "default" === val &&
+                  setAttributes({
+                    padding: { ...padding, vertical: "50px", horizontal: "20px" },
+                    photoWidth: "170px",
+                    nameTypo: { ...nameTypo, fontSize: 20, textTransform: "none" },
+                    titleTypo: {
+                      ...titleTypo,
+                      fontSize: 16,
+                      textTransform: "none",
+                    },
+                    isSep: true,
+                    isBio: true,
+                    socialSize: "22px",
+                    columns: {
+                      "desktop": 3,
+                      "tablet": 2,
+                      "mobile": 1
+                    },
+                    rowGap: "30px",
+                    columnGap: "30px"
+
+
+                  });
+                "theme1" === val &&
+                  setAttributes({
+                    padding: { ...padding, vertical: "50px", horizontal: "20px" },
+                    photoWidth: "190px",
+                    nameTypo: { ...nameTypo, fontSize: 20, textTransform: "none" },
+                    titleTypo: {
+                      ...titleTypo,
+                      fontSize: 14,
+                      textTransform: "uppercase",
+                    },
+                    isSep: true,
+                    isBio: true,
+                    socialSize: "22px",
+                    columns: {
+                      "desktop": 3,
+                      "tablet": 2,
+                      "mobile": 1
+                    },
+                    rowGap: "30px",
+                    columnGap: "30px"
+
+                  });
+                "theme2" === val &&
+                  setAttributes({
+                    padding: { ...padding, vertical: "50px", horizontal: "20px" },
+                    photoWidth: "190px",
+                    nameTypo: { ...nameTypo, fontSize: 20, textTransform: "none" },
+                    titleTypo: {
+                      ...titleTypo,
+                      fontSize: 14,
+                      textTransform: "uppercase",
+                    },
+                    isSep: true,
+                    isBio: false,
+                    socialSize: "22px",
+                    columns: {
+                      "desktop": 3,
+                      "tablet": 2,
+                      "mobile": 1
+                    },
+                    rowGap: "30px",
+                    columnGap: "30px"
+
+                  });
+                "theme3" === val &&
+                  setAttributes({
+                    padding: { ...padding, vertical: "50px", horizontal: "20px" },
+                    photoWidth: "170px",
+                    nameTypo: { ...nameTypo, fontSize: 24, textTransform: "none" },
+                    titleTypo: {
+                      ...titleTypo,
+                      fontSize: 18,
+                      textTransform: "none",
+                    },
+                    isSep: false,
+                    isBio: false,
+                    socialSize: "28px",
+                    columns: {
+                      "desktop": 3,
+                      "tablet": 2,
+                      "mobile": 1
+                    },
+                    rowGap: "30px",
+                    columnGap: "30px"
+
+                  });
+                "theme4" === val &&
+                  setAttributes({
+                    padding: { ...padding, vertical: "15px", horizontal: "15px" },
+                    photoWidth: "100%",
+                    nameTypo: {
+                      ...nameTypo,
+                      fontSize: 20,
+                      textTransform: "uppercase",
+                    },
+                    titleTypo: {
+                      ...titleTypo,
+                      fontSize: 15,
+                      textTransform: "none",
+                    },
+                    isSep: false,
+                    isBio: false,
+                    socialSize: "22px",
+                    columns: {
+                      "desktop": 3,
+                      "tablet": 2,
+                      "mobile": 1
+                    },
+                    rowGap: "30px",
+                    columnGap: "30px"
+
+                  });
+                ["theme5", "theme6", "theme7", "theme8", "theme9", "theme10", "theme11", "theme12"].includes(val) && handleClick(val)
+
+                members.map((member) => {
+                  const {
+                    background,
+                    border,
+                    photoBorder,
+                    separator,
+                    socialIconColors,
+                  } = member;
+
+                  const defaultParams = [
+                    ["background", { ...background, color: "#0000" }],
+                    ["border", { ...border, radius: "3px" }],
+                    [
+                      "shadow",
+                      [{ hOffset: "", vOffset: "", blur: "0px", color: "#7090b0" }],
+                    ],
+                    [
+                      "photoBorder",
+                      {
+                        ...photoBorder,
+                        width: "0px",
+                        color: "#0000",
+                        radius: "50%",
+                      },
+                    ],
+                    ["nameColor", "#333"],
+                    ["titleColor", "#333"],
+                    ["separator", { ...separator, color: "#777" }],
+                    ["bioColor", "#333"],
+                    [
+                      "socialIconColors",
+                      { ...socialIconColors, color: "#fff", bg: primaryColor },
+                    ],
+                  ];
+                  const theme1Params = [
+                    ["background", { ...background, color: "#0000" }],
+                    ["border", { ...border, radius: "3px" }],
+                    [
+                      "shadow",
+                      [
+                        {
+                          hOffset: "",
+                          vOffset: "",
+                          blur: "20px",
+                          color: "#e8edfb",
+                        },
+                      ],
+                    ],
+                    [
+                      "photoBorder",
+                      {
+                        ...photoBorder,
+                        width: "10px",
+                        color: "#e8edfb",
+                        radius: "50%",
+                      },
+                    ],
+                    ["nameColor", "#333"],
+                    ["titleColor", "#7a7a7a"],
+                    ["separator", { ...separator, color: primaryColor }],
+                    ["bioColor", "#7a7a7a"],
+                    [
+                      "socialIconColors",
+                      { ...socialIconColors, color: "#fff", bg: primaryColor },
+                    ],
+                  ];
+                  const theme2Params = [
+                    ["background", { ...background, color: "#0000" }],
+                    ["border", { ...border, radius: "3px" }],
+                    [
+                      "shadow",
+                      [{ hOffset: "", vOffset: "", blur: "0px", color: "#7090b0" }],
+                    ],
+                    [
+                      "photoBorder",
+                      {
+                        ...photoBorder,
+                        width: "0px",
+                        color: "#0000",
+                        radius: "50%",
+                      },
+                    ],
+                    ["nameColor", "#333"],
+                    ["titleColor", "#7a7a7a"],
+                    ["separator", { ...separator, color: "#999" }],
+                    ["bioColor", "#7a7a7a"],
+                    [
+                      "socialIconColors",
+                      { ...socialIconColors, color: primaryColor, bg: "#0000" },
+                    ],
+                  ];
+                  const theme3Params = [
+                    ["background", { ...background, color: "#f2f3f7" }],
+                    ["border", { ...border, radius: "10px" }],
+                    [
+                      "shadow",
+                      [
+                        {
+                          hOffset: "-10px",
+                          vOffset: "-10px",
+                          blur: "20px",
+                          color: "#f7f7f7",
+                        },
+                        {
+                          hOffset: "10px",
+                          vOffset: "10px",
+                          blur: "20px",
+                          color: "#d7e0e8",
+                        },
+                      ],
+                    ],
+                    [
+                      "photoBorder",
+                      {
+                        ...photoBorder,
+                        width: "0px",
+                        color: "#0000",
+                        radius: "50%",
+                      },
+                    ],
+                    ["nameColor", "#32285C"],
+                    ["titleColor", "#677592"],
+                    ["separator", { ...separator, color: "#777" }],
+                    ["bioColor", "#333"],
+                    [
+                      "socialIconColors",
+                      { ...socialIconColors, color: "#677592", bg: "#0000" },
+                    ],
+                  ];
+                  const theme4Params = [
+                    ["background", { ...background, color: primaryColor }],
+                    ["border", { ...border, radius: "0px" }],
+                    [
+                      "shadow",
+                      [{ hOffset: "", vOffset: "", blur: "0px", color: "#7090b0" }],
+                    ],
+                    [
+                      "photoBorder",
+                      {
+                        ...photoBorder,
+                        width: "0px",
+                        color: "#0000",
+                        radius: "0px",
+                      },
+                    ],
+                    ["nameColor", "#fff"],
+                    ["titleColor", "#fff"],
+                    ["separator", { ...separator, color: "#777" }],
+                    ["bioColor", "#fff"],
+                    [
+                      "socialIconColors",
+                      { ...socialIconColors, color: primaryColor, bg: "#fff" },
+                    ],
+                  ];
+
+                  "default" === val && updateAllMembers(defaultParams);
+                  "theme1" === val && updateAllMembers(theme1Params);
+                  "theme2" === val && updateAllMembers(theme2Params);
+                  "theme3" === val && updateAllMembers(theme3Params);
+                  "theme4" === val && updateAllMembers(theme4Params);
                 });
               }}
-              min={1}
-              max={6}
-              step={1}
-              beforeIcon="grid-view"
+              options={themes}
             />
-
-            <BControlPro Component={UnitControl} {...premiumProps}
-              className="mt20"
-              label={__("Column Gap:", "team-section")}
-              labelPosition="left"
-              value={columnGap}
-              onChange={(val) => setAttributes({ columnGap: val })}
-              units={[pxUnit(), perUnit(), emUnit()]}
-            />
-
-            <BControlPro Component={UnitControl} {...premiumProps}
-              className="mt20"
-              label={__("Row Gap:", "team-section")}
-              labelPosition="left"
-              value={rowGap}
-              onChange={(val) => setAttributes({ rowGap: val })}
-              units={[pxUnit(), perUnit(), emUnit()]}
-            />
-
-            <PanelRow>
-              <Label className="">{__("Theme:", "team-section")}</Label>
-              <SelectControl
-                value={theme}
-                    onChange={(val) => {
-            setAttributes({ theme: val });
-            "default" === val &&
-              setAttributes({
-                padding: { ...padding, vertical: "50px", horizontal: "20px" },
-                photoWidth: "170px",
-                nameTypo: { ...nameTypo, fontSize: 20, textTransform: "none" },
-                titleTypo: {
-                  ...titleTypo,
-                  fontSize: 16,
-                  textTransform: "none",
-                },
-                isSep: true,
-                isBio: true,
-                socialSize: "22px",
-              columns: {
-				"desktop": 3,
-				"tablet": 2,
-				"mobile": 1
-			},
-      rowGap:"30px",
-      columnGap:"30px"
-
-		
-              });
-            "theme1" === val &&
-              setAttributes({
-                padding: { ...padding, vertical: "50px", horizontal: "20px" },
-                photoWidth: "190px",
-                nameTypo: { ...nameTypo, fontSize: 20, textTransform: "none" },
-                titleTypo: {
-                  ...titleTypo,
-                  fontSize: 14,
-                  textTransform: "uppercase",
-                },
-                isSep: true,
-                isBio: true,
-                socialSize: "22px",
-                     columns: {
-				"desktop": 3,
-				"tablet": 2,
-				"mobile": 1
-			},
-      rowGap:"30px",
-      columnGap:"30px"
-
-              });
-            "theme2" === val &&
-              setAttributes({
-                padding: { ...padding, vertical: "50px", horizontal: "20px" },
-                photoWidth: "190px",
-                nameTypo: { ...nameTypo, fontSize: 20, textTransform: "none" },
-                titleTypo: {
-                  ...titleTypo,
-                  fontSize: 14,
-                  textTransform: "uppercase",
-                },
-                isSep: true,
-                isBio: false,
-                socialSize: "22px",
-                     columns: {
-				"desktop": 3,
-				"tablet": 2,
-				"mobile": 1
-			},
-      rowGap:"30px",
-      columnGap:"30px"
-
-              });
-            "theme3" === val &&
-              setAttributes({
-                padding: { ...padding, vertical: "50px", horizontal: "20px" },
-                photoWidth: "170px",
-                nameTypo: { ...nameTypo, fontSize: 24, textTransform: "none" },
-                titleTypo: {
-                  ...titleTypo,
-                  fontSize: 18,
-                  textTransform: "none",
-                },
-                isSep: false,
-                isBio: false,
-                socialSize: "28px",
-                     columns: {
-				"desktop": 3,
-				"tablet": 2,
-				"mobile": 1
-			},
-      rowGap:"30px",
-      columnGap:"30px"
-
-              });
-            "theme4" === val &&
-              setAttributes({
-                padding: { ...padding, vertical: "15px", horizontal: "15px" },
-                photoWidth: "100%",
-                nameTypo: {
-                  ...nameTypo,
-                  fontSize: 20,
-                  textTransform: "uppercase",
-                },
-                titleTypo: {
-                  ...titleTypo,
-                  fontSize: 15,
-                  textTransform: "none",
-                },
-                isSep: false,
-                isBio: false,
-                socialSize: "22px",
-                     columns: {
-				"desktop": 3,
-				"tablet": 2,
-				"mobile": 1
-			},
-      rowGap:"30px",
-      columnGap:"30px"
-
-              });
-           [ "theme5","theme6","theme7","theme8","theme9","theme10","theme11","theme12"].includes(val) && handleClick(val) 
-
-            members.map((member) => {
-              const {
-                background,
-                border,
-                photoBorder,
-                separator,
-                socialIconColors,
-              } = member;
-
-              const defaultParams = [
-                ["background", { ...background, color: "#0000" }],
-                ["border", { ...border, radius: "3px" }],
-                [
-                  "shadow",
-                  [{ hOffset: "", vOffset: "", blur: "0px", color: "#7090b0" }],
-                ],
-                [
-                  "photoBorder",
-                  {
-                    ...photoBorder,
-                    width: "0px",
-                    color: "#0000",
-                    radius: "50%",
-                  },
-                ],
-                ["nameColor", "#333"],
-                ["titleColor", "#333"],
-                ["separator", { ...separator, color: "#777" }],
-                ["bioColor", "#333"],
-                [
-                  "socialIconColors",
-                  { ...socialIconColors, color: "#fff", bg: primaryColor },
-                ],
-              ];
-              const theme1Params = [
-                ["background", { ...background, color: "#0000" }],
-                ["border", { ...border, radius: "3px" }],
-                [
-                  "shadow",
-                  [
-                    {
-                      hOffset: "",
-                      vOffset: "",
-                      blur: "20px",
-                      color: "#e8edfb",
-                    },
-                  ],
-                ],
-                [
-                  "photoBorder",
-                  {
-                    ...photoBorder,
-                    width: "10px",
-                    color: "#e8edfb",
-                    radius: "50%",
-                  },
-                ],
-                ["nameColor", "#333"],
-                ["titleColor", "#7a7a7a"],
-                ["separator", { ...separator, color: primaryColor }],
-                ["bioColor", "#7a7a7a"],
-                [
-                  "socialIconColors",
-                  { ...socialIconColors, color: "#fff", bg: primaryColor },
-                ],
-              ];
-              const theme2Params = [
-                ["background", { ...background, color: "#0000" }],
-                ["border", { ...border, radius: "3px" }],
-                [
-                  "shadow",
-                  [{ hOffset: "", vOffset: "", blur: "0px", color: "#7090b0" }],
-                ],
-                [
-                  "photoBorder",
-                  {
-                    ...photoBorder,
-                    width: "0px",
-                    color: "#0000",
-                    radius: "50%",
-                  },
-                ],
-                ["nameColor", "#333"],
-                ["titleColor", "#7a7a7a"],
-                ["separator", { ...separator, color: "#999" }],
-                ["bioColor", "#7a7a7a"],
-                [
-                  "socialIconColors",
-                  { ...socialIconColors, color: primaryColor, bg: "#0000" },
-                ],
-              ];
-              const theme3Params = [
-                ["background", { ...background, color: "#f2f3f7" }],
-                ["border", { ...border, radius: "10px" }],
-                [
-                  "shadow",
-                  [
-                    {
-                      hOffset: "-10px",
-                      vOffset: "-10px",
-                      blur: "20px",
-                      color: "#f7f7f7",
-                    },
-                    {
-                      hOffset: "10px",
-                      vOffset: "10px",
-                      blur: "20px",
-                      color: "#d7e0e8",
-                    },
-                  ],
-                ],
-                [
-                  "photoBorder",
-                  {
-                    ...photoBorder,
-                    width: "0px",
-                    color: "#0000",
-                    radius: "50%",
-                  },
-                ],
-                ["nameColor", "#32285C"],
-                ["titleColor", "#677592"],
-                ["separator", { ...separator, color: "#777" }],
-                ["bioColor", "#333"],
-                [
-                  "socialIconColors",
-                  { ...socialIconColors, color: "#677592", bg: "#0000" },
-                ],
-              ];
-              const theme4Params = [
-                ["background", { ...background, color: primaryColor }],
-                ["border", { ...border, radius: "0px" }],
-                [
-                  "shadow",
-                  [{ hOffset: "", vOffset: "", blur: "0px", color: "#7090b0" }],
-                ],
-                [
-                  "photoBorder",
-                  {
-                    ...photoBorder,
-                    width: "0px",
-                    color: "#0000",
-                    radius: "0px",
-                  },
-                ],
-                ["nameColor", "#fff"],
-                ["titleColor", "#fff"],
-                ["separator", { ...separator, color: "#777" }],
-                ["bioColor", "#fff"],
-                [
-                  "socialIconColors",
-                  { ...socialIconColors, color: primaryColor, bg: "#fff" },
-                ],
-              ];
-
-              "default" === val && updateAllMembers(defaultParams);
-              "theme1" === val && updateAllMembers(theme1Params);
-              "theme2" === val && updateAllMembers(theme2Params);
-              "theme3" === val && updateAllMembers(theme3Params);
-              "theme4" === val && updateAllMembers(theme4Params);
-            });
-          }}
-                options={themes}
-              />
-            </PanelRow>
-          </PanelBody>
-           <PanelBody
-            className="bPlPanelBody"
-            title={__("Elements", "team-section")}
-            initialOpen={false}
-          >
-            
-           
-        
-            <BControlPro Component={ToggleControl} {...premiumProps}
-              className="mt10"
-              label={__("Show Title", "team-section")}
-              checked={isTitle}
-              onChange={(val) => setAttributes({ isTitle: val })}
-            />
+          </PanelRow>
+        </PanelBody>
+        <PanelBody
+          className="bPlPanelBody"
+          title={__("Elements", "team-section")}
+          initialOpen={false}
+        >
 
 
-            <BControlPro Component={ToggleControl} {...premiumProps}
-              className="mt10"
-              label={__("Open Link in New Tab", "team-section")}
-              checked={isLinkNewTab}
-              onChange={(val) => setAttributes({ isLinkNewTab: val })}
-            />
-          </PanelBody>
+
+          <BControlPro Component={ToggleControl} {...premiumProps}
+            className="mt10"
+            label={__("Show Title", "team-section")}
+            checked={isTitle}
+            onChange={(val) => setAttributes({ isTitle: val })}
+          />
 
 
-          
+          <BControlPro Component={ToggleControl} {...premiumProps}
+            className="mt10"
+            label={__("Open Link in New Tab", "team-section")}
+            checked={isLinkNewTab}
+            onChange={(val) => setAttributes({ isLinkNewTab: val })}
+          />
+        </PanelBody>
+
+
+
       </>)}
     </>
   );

@@ -1,5 +1,5 @@
-import { sanitizeHTML } from "../../../../../bpl-tools/utils/common";
-import { updateData } from "../../../../../bpl-tools/utils/functions";
+import { sanitizeHTML } from "../../../../../../../bpl-tools/utils/common";
+import { updateData } from "../../../../../../../bpl-tools/utils/functions";
 
 const Theme11 = ({ attributes, ReusableRichText, setAttributes }) => {
 
