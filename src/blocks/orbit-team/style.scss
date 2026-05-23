@@ -1,0 +1,306 @@
+* {
+  box-sizing: border-box;
+}
+
+.tsbo_galaxy-section {
+  // color: #e9ecf5;
+
+  // min-height: 100vh;
+  max-width: 100%;
+  margin: 0 auto;
+  // padding: 80px 24px 120px;
+  text-align: center;
+  overflow: hidden;
+
+  .tsbo_eyebrow {
+    display: inline-block;
+    // font-size: 12px;
+    // letter-spacing: 0.18em;
+    // text-transform: uppercase;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    font-size: clamp(28px, 4vw, 44px);
+    margin: 0 0 12px;
+    letter-spacing: -0.01em;
+  }
+
+  p.tsbo_lede {
+    // color: #a4adc6;
+    max-width: 640px;
+    margin: 0 auto 56px;
+    // line-height: 1.6;
+  }
+
+  .tsbo_galaxy {
+    position: relative;
+    width: 960px;
+    height: 960px;
+    margin: 0 auto;
+    max-width: 100%;
+
+    &:hover .tsbo_orbit {
+      animation-play-state: paused;
+    }
+
+    &:hover .tsbo_star__inner {
+      animation-play-state: paused;
+    }
+  }
+
+  .tsbo_galaxy__rings,
+  .tsbo_orbit {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+
+  .tsbo_galaxy__rings span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    display: block;
+  }
+
+  @for $i from 1 through 12 {
+    .tsbo_ring--#{$i} {
+      width: calc(160px + (#{$i} * var(--orbit-ring-width, 200px)));
+      height: calc(160px + (#{$i} * var(--orbit-ring-width, 200px)));
+      // border: 1px dashed #ffffff1a;
+    }
+  }
+
+  .tsbo_halo {
+    width: 220px;
+    height: 220px;
+    background: radial-gradient(
+      circle,
+      rgba(124, 92, 255, 0.35),
+      transparent 70%
+    );
+    filter: blur(6px);
+  }
+
+  .tsbo_core {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: grid;
+    place-items: center;
+    text-align: center;
+    z-index: 5;
+    overflow: hidden;
+    background-size: cover !important;
+    background-position: center !important;
+  }
+
+  .tsbo_orbit {
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border-radius: 50%;
+    z-index: 10;
+  }
+
+  @for $i from 1 through 12 {
+    .tsbo_orbit--#{$i} {
+      animation: spin
+        var(--orbit-animation-duration)
+        linear
+        infinite
+        #{if($i % 2 == 0, "reverse", "normal")};
+    }
+  }
+
+  .tsbo_star {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    // width: 64px;
+    // height: 64px;
+    margin: -32px 0 0 -32px;
+    list-style: none !important;
+
+    a {
+      display: block;
+      width: 100%;
+      height: 100%;
+      // border-radius: 50%;
+      position: relative;
+      text-decoration: none;
+      color: inherit;
+      // background: rgba(255, 255, 255, 0.06);
+      // border: 1px solid rgba(255, 255, 255, 0.12);
+      // box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+      transition: all 0.25s ease;
+      pointer-events: auto;
+
+      &:hover {
+        // transform: scale(1.12);
+        // border-color: #22d3ee;
+        // box-shadow: 0 10px 26px rgba(34, 211, 238, 0.35);
+
+        .tsbo_name {
+          opacity: 1;
+        }
+      }
+    }
+
+    img {
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover;
+      aspect-ratio: 1 / 1;
+      border-radius: 50%;
+      display: block;
+    }
+
+    .tsbo_name {
+      position: absolute;
+      left: 50%;
+      top: calc(100% + 8px);
+      transform: translateX(-50%);
+      white-space: nowrap;
+      z-index: 9999999999999999999999999;
+      // font-size: 12px;
+      // color: #e9ecf5;
+      // background: #0b1020d9;
+      // padding: 4px 8px;
+      // border-radius: 6px;
+      // border: 1px solid #ffffff1a;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+    }
+  }
+
+  .tsbo_star__upright {
+    transform: rotate(calc(var(--seat) * (-360deg / var(--total))));
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  @for $i from 1 through 12 {
+    .tsbo_orbit--#{$i} .tsbo_star {
+      transform: rotate(calc(var(--seat) * (360deg / var(--total))))
+        translateY(
+          calc(-80px - (#{$i} * (var(--orbit-ring-width, 200px) / 2)))
+        );
+    }
+
+    .tsbo_orbit--#{$i} .tsbo_star__inner {
+      animation: spin-rev
+        var(--orbit-animation-duration)
+        linear
+        infinite
+        #{if($i % 2 == 0, "reverse", "normal")};
+    }
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes spin-rev {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tsbo_orbit,
+  .tsbo_star__inner {
+    animation: none;
+  }
+}
+
+/* Responsive scaling */
+@media (max-width: 820px) {
+  .tsbo_galaxy-section {
+    .tsbo_galaxy {
+      width: 760px;
+      height: 760px;
+    }
+
+    .tsbo_halo {
+      width: calc(140px + 40px);
+      height: calc(140px + 40px);
+    }
+    .tsbo_core {
+      width: 140px;
+      height: 140px;
+    }
+
+    .tsbo_star {
+      width: 52px !important;
+      height: 52px !important;
+      margin: -26px 0 0 -26px;
+    }
+
+    @for $i from 1 through 12 {
+      .tsbo_ring--#{$i} {
+        width: 120px + ($i * 160px);
+        height: 120px + ($i * 160px);
+      }
+      .tsbo_orbit--#{$i} .tsbo_star {
+        transform: rotate(calc(var(--seat) * (360deg / var(--total))))
+          translateY(-(60px + ($i * 80px)));
+      }
+    }
+  }
+}
+
+@media (max-width: 560px) {
+  .tsbo_galaxy-section {
+    padding: 56px 16px 80px;
+
+    .tsbo_galaxy {
+      width: 550px;
+      height: 550px;
+    }
+
+    .tsbo_halo {
+      width: calc(110px + 40px);
+      height: calc(110px + 40px);
+    }
+    .tsbo_core {
+      width: 130px !important;
+      height: 130px !important;
+    }
+
+    .tsbo_star {
+      width: 42px !important;
+      height: 42px !important;
+      margin: -21px 0 0 -21px;
+    }
+
+    @for $i from 1 through 12 {
+      .tsbo_ring--#{$i} {
+        width: 110px + ($i * 110px);
+        height: 110px + ($i * 110px);
+      }
+      .tsbo_orbit--#{$i} .tsbo_star {
+        transform: rotate(calc(var(--seat) * (360deg / var(--total))))
+          translateY(-(55px + ($i * 55px)));
+      }
+    }
+  }
+}

@@ -1,0 +1,520 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "tsb/orbit-team",
+  "version": "1.0.0",
+  "title": "Orbit Team",
+  "category": "team-section",
+  "description": "Orbit team is a block that will display your team members in a beautiful grid layout.",
+  "keywords": [
+    "Orbit Team"
+  ],
+  "textdomain": "orbit-team",
+  "attributes": {
+    "alignment": {
+      "type": "string",
+      "default": "center"
+    },
+    "align": {
+      "type": "string",
+      "default": "full"
+    },
+    "orbitTeam": {
+      "type": "object",
+      "default": {
+        "tag": "OUR TEAM",
+        "title": "The people in our orbit",
+        "subTitle": "A growing constellation of designers, engineers, and makers — circling one shared mission.",
+        "brankMark": "Team",
+        "brankTitle": "Your Brand",
+        "brankEst": "est. 2026"
+      }
+    },
+    "teamMembers": {
+      "type": "array",
+      "default": [
+        {
+          "one": [
+            {
+              "name": "Ava Chen",
+              "img": "https://i.pravatar.cc/120?img=47",
+              "link": "#"
+            },
+            {
+              "name": "Marcus Reed",
+              "img": "https://i.pravatar.cc/120?img=12",
+              "link": "#"
+            },
+            {
+              "name": "Priya Shah",
+              "img": "https://i.pravatar.cc/120?img=32",
+              "link": "#"
+            },
+            {
+              "name": "Jonas Weber",
+              "img": "https://i.pravatar.cc/120?img=15",
+              "link": "#"
+            },
+            {
+              "name": "Lina Park",
+              "img": "https://i.pravatar.cc/120?img=49",
+              "link": "#"
+            },
+            {
+              "name": "Diego Alvarez",
+              "img": "https://i.pravatar.cc/120?img=14",
+              "link": "#"
+            },
+            {
+              "name": "Sophia Lee",
+              "img": "https://i.pravatar.cc/120?img=21",
+              "link": "#"
+            }
+          ]
+        },
+        {
+          "two": [
+            {
+              "name": "Hana Sato",
+              "img": "https://i.pravatar.cc/120?img=20",
+              "link": "#"
+            },
+            {
+              "name": "Noah Bennett",
+              "img": "https://i.pravatar.cc/120?img=8",
+              "link": "#"
+            },
+            {
+              "name": "Sara Nilsen",
+              "img": "https://i.pravatar.cc/120?img=44",
+              "link": "#"
+            },
+            {
+              "name": "Omar Idris",
+              "img": "https://i.pravatar.cc/120?img=33",
+              "link": "#"
+            },
+            {
+              "name": "Ella Brooks",
+              "img": "https://i.pravatar.cc/120?img=23",
+              "link": "#"
+            },
+            {
+              "name": "Ravi Mehta",
+              "img": "https://i.pravatar.cc/120?img=51",
+              "link": "#"
+            },
+            {
+              "name": "Mei Lin",
+              "img": "https://i.pravatar.cc/120?img=36",
+              "link": "#"
+            },
+            {
+              "name": "Tom Hayes",
+              "img": "https://i.pravatar.cc/120?img=11",
+              "link": "#"
+            },
+            {
+              "name": "Zara Khan",
+              "img": "https://i.pravatar.cc/120?img=45",
+              "link": "#"
+            }
+          ]
+        },
+        {
+          "three": [
+            {
+              "name": "Felix Moore",
+              "img": "https://i.pravatar.cc/120?img=3",
+              "link": "#"
+            },
+            {
+              "name": "Isla Ward",
+              "img": "https://i.pravatar.cc/120?img=25",
+              "link": "#"
+            },
+            {
+              "name": "Kenji Mori",
+              "img": "https://i.pravatar.cc/120?img=17",
+              "link": "#"
+            },
+            {
+              "name": "Anya Volkov",
+              "img": "https://i.pravatar.cc/120?img=41",
+              "link": "#"
+            },
+            {
+              "name": "Sam Cole",
+              "img": "https://i.pravatar.cc/120?img=13",
+              "link": "#"
+            },
+            {
+              "name": "Nora Singh",
+              "img": "https://i.pravatar.cc/120?img=38",
+              "link": "#"
+            },
+            {
+              "name": "Mateo Cruz",
+              "img": "https://i.pravatar.cc/120?img=18",
+              "link": "#"
+            },
+            {
+              "name": "Yui Tanaka",
+              "img": "https://i.pravatar.cc/120?img=29",
+              "link": "#"
+            },
+            {
+              "name": "Leo Hart",
+              "img": "https://i.pravatar.cc/120?img=4",
+              "link": "#"
+            },
+            {
+              "name": "Maya Owens",
+              "img": "https://i.pravatar.cc/120?img=48",
+              "link": "#"
+            },
+            {
+              "name": "Theo Vance",
+              "img": "https://i.pravatar.cc/120?img=7",
+              "link": "#"
+            },
+            {
+              "name": "Aiko Hara",
+              "img": "https://i.pravatar.cc/120?img=26",
+              "link": "#"
+            }
+          ]
+        }
+      ]
+    },
+    "styles": {
+      "type": "object",
+      "default": {
+        "gap": {
+          "desktop": 100,
+          "tablet": 50,
+          "mobile": 30
+        },
+        "padding": {
+          "desktop": {
+            "top": "80px",
+            "right": "24px",
+            "bottom": "120px",
+            "left": "24px"
+          },
+          "mobile": {
+            "top": "80px",
+            "right": "24px",
+            "bottom": "120px",
+            "left": "24px"
+          },
+          "tablet": {
+            "top": "80px",
+            "right": "24px",
+            "bottom": "120px",
+            "left": "24px"
+          }
+        },
+        "margin": {
+          "desktop": {
+            "top": "0px",
+            "right": "0px",
+            "bottom": "0px",
+            "left": "0px"
+          },
+          "mobile": {
+            "top": "0px",
+            "right": "0px",
+            "bottom": "0px",
+            "left": "0px"
+          },
+          "tablet": {
+            "top": "0px",
+            "right": "0px",
+            "bottom": "0px",
+            "left": "0px"
+          }
+        },
+        "bg": {
+          "type": "gradient",
+          "gradient": "linear-gradient(180deg, #0b1020, #131a36)"
+        },
+        "height": "100vh",
+        "radius": {
+          "top": "0px",
+          "right": "0px",
+          "bottom": "0px",
+          "left": "0px"
+        },
+        "header": {
+          "color": "#a4adc6",
+          "padding": {
+            "top": "6px",
+            "right": "12px",
+            "bottom": "6px",
+            "left": "12px"
+          },
+          "radius": {
+            "top": "999px",
+            "right": "999px",
+            "bottom": "999px",
+            "left": "999px"
+          },
+          "typo": {
+            "fontFamily": "",
+            "fontCategory": "",
+            "fontWeight": "",
+            "fontVariant": "",
+            "isUploadFont": false,
+            "fontSize": {
+              "desktop": 12,
+              "tablet": 12,
+              "mobile": 12
+            },
+            "fontStyle": "normal",
+            "textTransform": "none",
+            "textDecoration": "none",
+            "lineHeight": "",
+            "letterSpace": "0.18em"
+          },
+          "title": {
+            "color": "#e9ecf5",
+            "typo": {
+              "fontFamily": "",
+              "fontCategory": "400",
+              "fontWeight": "400",
+              "fontVariant": "",
+              "isUploadFont": false,
+              "fontSize": {
+                "desktop": 44,
+                "tablet": 44,
+                "mobile": 44
+              },
+              "fontStyle": "normal",
+              "textTransform": "none",
+              "textDecoration": "none",
+              "lineHeight": "",
+              "letterSpace": ""
+            }
+          },
+          "subTitle": {
+            "color": "#a4adc6",
+            "typo": {
+              "fontFamily": "",
+              "fontCategory": "400",
+              "fontWeight": "400",
+              "fontVariant": "",
+              "isUploadFont": false,
+              "fontSize": {
+                "desktop": 22,
+                "tablet": 22,
+                "mobile": 22
+              },
+              "fontStyle": "normal",
+              "textTransform": "none",
+              "textDecoration": "none",
+              "lineHeight": "1.6",
+              "letterSpace": ""
+            }
+          }
+        },
+        "brandMark": {
+          "width": "180px",
+          "height": "180px",
+          "radius": {
+            "top": "50%",
+            "right": "50%",
+            "bottom": "50%",
+            "left": "50%"
+          },
+          "bg": {
+            "type": "gradient",
+            "gradient": "radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.18), transparent 55%),linear-gradient(135deg, #7c5cff, #22d3ee)"
+          },
+          "mark": {
+            "color": "#ffffffd9",
+            "typo": {
+              "fontFamily": "",
+              "fontCategory": "400",
+              "fontWeight": "400",
+              "fontVariant": "",
+              "isUploadFont": false,
+              "fontSize": {
+                "desktop": 11,
+                "tablet": 11,
+                "mobile": 11
+              },
+              "fontStyle": "normal",
+              "textTransform": "none",
+              "textDecoration": "none",
+              "lineHeight": "1.6",
+              "letterSpace": "0.24em"
+            }
+          },
+          "title": {
+            "color": "#000000",
+            "typo": {
+              "fontFamily": "",
+              "fontCategory": "700",
+              "fontWeight": "700",
+              "fontVariant": "",
+              "isUploadFont": false,
+              "fontSize": {
+                "desktop": 22,
+                "tablet": 22,
+                "mobile": 22
+              },
+              "fontStyle": "normal",
+              "textTransform": "none",
+              "textDecoration": "none",
+              "lineHeight": "",
+              "letterSpace": ""
+            },
+            "margin": {
+              "top": "4px",
+              "bottom": "0px",
+              "left": "0px",
+              "right": "0px"
+            }
+          },
+          "shadow": [
+            {
+              "hOffset": "0px",
+              "vOffset": "20px",
+              "blur": "60px",
+              "spreed": "0px",
+              "color": "rgba(124, 92, 255, 0.35)",
+              "isInset": false
+            },
+            {
+              "hOffset": "0px",
+              "vOffset": "0px",
+              "blur": "0px",
+              "spreed": "1px",
+              "color": "rgba(255, 255, 255, 0.18)",
+              "isInset": true
+            }
+          ]
+        },
+        "teamMember": {
+          "width": "64px",
+          "height": "64px",
+          "radius": {
+            "top": "50%",
+            "right": "50%",
+            "bottom": "50%",
+            "left": "50%"
+          },
+          "shadow": [
+            {
+              "hOffset": "0px",
+              "vOffset": "6px",
+              "blur": "18px",
+              "spreed": "0px",
+              "color": "rgba(0, 0, 0, 0.25)",
+              "isInset": false
+            }
+          ],
+          "border": {
+            "color": "rgba(255, 255, 255, 0.12)",
+            "width": "1px",
+            "style": "solid"
+          },
+          "scal": 1.12,
+          "hoverShadow": [
+            {
+              "hOffset": "0px",
+              "vOffset": "10px",
+              "blur": "26px",
+              "spreed": "0px",
+              "color": "rgba(34, 211, 238, 0.35)",
+              "isInset": false
+            }
+          ],
+          "hoverBorder": {
+            "color": "rgba(34, 211, 238, 0.35)",
+            "width": "1px",
+            "style": "solid"
+          },
+          "orbit": {
+            "ring": {
+              "color": "#ffffff1a",
+              "width": "1px",
+              "style": "dashed"
+            },
+            "animation": 50,
+            "width": "200px"
+          },
+          "name": {
+            "color": "#e9ecf5",
+            "bg": {
+              "type": "solid",
+              "color": "#0b1020d9"
+            },
+            "padding": {
+              "top": "4px",
+              "right": "8px",
+              "bottom": "4px",
+              "left": "8px"
+            },
+            "radius": {
+              "top": "6px",
+              "right": "6px",
+              "bottom": "6px",
+              "left": "6px"
+            },
+            "border": {
+              "color": "#ffffff1a",
+              "width": "1px",
+              "style": "solid"
+            },
+            "typo": {
+              "fontFamily": "",
+              "fontCategory": "",
+              "fontWeight": "",
+              "fontVariant": "",
+              "isUploadFont": false,
+              "fontSize": {
+                "desktop": 9,
+                "tablet": 9,
+                "mobile": 9
+              },
+              "fontStyle": "normal",
+              "textTransform": "none",
+              "textDecoration": "none",
+              "lineHeight": "",
+              "letterSpace": ""
+            }
+          }
+        }
+      }
+    },
+    "options": {
+      "type": "object",
+      "default": {
+        "showTag": true,
+        "showTitle": true,
+        "showSubTitle": true,
+        "uploadImage": false,
+        "image": "",
+        "orbitValue": "one",
+        "linkOpen": true
+      }
+    }
+  },
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ],
+    "html": false
+  },
+  "example": {
+    "attributes": {}
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./view.css",
+  "render": "file:./render.php",
+  "viewScript": "file:./view.js"
+}

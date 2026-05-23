@@ -14,7 +14,7 @@
  *   required  {boolean} — if true, cannot be toggled off
  */
 
-import { teamMembersIcon } from '../../blocks/team-section/utils/icons';
+import { orbitTeamIcon, teamMembersIcon } from '../../blocks/team-section/utils/icons';
 
 export default [
 	{
@@ -24,5 +24,13 @@ export default [
 		isPremium: false,
 		required: true,
 	},
+	{
+		name: 'orbit-team',
+		title: 'Orbit Team',
+		icon: orbitTeamIcon,
+		isPremium: true,
+		required: false,
+	}
+
 	// Future blocks are added here
 ];
