@@ -1,6 +1,6 @@
 const iconColor = '#4527a4';
 
-export const blockIcon = <svg
+export const orbitTeamIcon = <svg
 	// stroke="currentColor"
 	// fill="currentColor"
 	className='bPlBlockIcon'

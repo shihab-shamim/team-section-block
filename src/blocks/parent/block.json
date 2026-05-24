@@ -2,10 +2,15 @@
   "apiVersion": 3,
   "name": "tsb/team-section-selector",
   "version": "1.0.0",
-  "title": "Team Section Selector",
+  "title": "Team Section ",
   "category": "team-section",
   "description": "Choose and display your favorite team section block",
-  "keywords": [ "team section", "team members", "team selector", "team block" ],
+  "keywords": [
+    "team section",
+    "team members",
+    "team selector",
+    "team block"
+  ],
   "textdomain": "team-section",
   "attributes": {
     "align": {
@@ -14,11 +19,15 @@
     }
   },
   "supports": {
-    "align": ["wide", "full"],
+    "align": [
+      "wide",
+      "full"
+    ],
     "html": false,
     "inserter": false
   },
-
-  "editorScript": ["file:./index.js"],
+  "editorScript": [
+    "file:./index.js"
+  ],
   "editorStyle": "file:./index.css"
 }

@@ -1,12 +1,10 @@
 const { useBlockProps } = wp.blockEditor;
 const { dispatch, withSelect } = wp.data;
 import { teamSectionTemplates } from '../../utils/options';
-import ClipBoard from '../team-section/Components/Backend/ClipBoard';
 
 const Edit = (props) => {
   const blockProps = useBlockProps();
-  const { clientId, currentPostId, CPTType } = props;
-  const shortcode = `[tsb id=${currentPostId}]`;
+  const { clientId, currentPostId } = props;
 
   const isBlockAvailable = (blockName) => {
     return !!wp.blocks.getBlockType(blockName);
@@ -40,7 +38,7 @@ const Edit = (props) => {
   return (
     <div {...blockProps}>
       <div className="tsb-block-selector">
-        <h2 className="title">Choose a Team Block</h2>
+        <h2 className="title">Choose a Team Section Block</h2>
 
         <div className="buttons">
           {teamSectionTemplates.map((item) => {
@@ -78,3 +76,4 @@ export default withSelect((select) => {
     CPTType,
   };
 })(Edit);
+

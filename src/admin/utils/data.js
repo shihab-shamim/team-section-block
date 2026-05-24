@@ -1,3 +1,6 @@
+import { orbitTeamIcon } from "../../blocks/orbit-team/utils/icons";
+import { teamMembersIcon } from "../../blocks/team-section/utils/icons";
+
 
 
 const slug = 'team-section';
@@ -90,114 +93,132 @@ export const dashboardInfo = (info) => {
 export const demoInfo = {
 	// allInOneLabel: 'See All Demos',
 	// allInOneLink: 'https://apb.bplugins.com/all-demos-in-one-place/',
-	demos: [{
-		icon: '',
-		title: 'Default',
-		description: '',
-		category: '',
-		type: 'iframe',
-		url: 'https://bblockswp.com/demo/team-section-default/'
-	},
-	{
-		icon: '',
-		title: 'Theme-1',
-		description: '',
-		category: '',
-		type: 'iframe',
-		url: 'https://bblockswp.com/demo/theme-1/'
-	},
-	{
-		icon: '',
-		title: 'Theme-2',
-		description: '',
-		category: '',
-		type: 'iframe',
-		url: 'https://bblockswp.com/demo/theme-2/'
-	},
+	demos: [
+		{
+			icon: teamMembersIcon,
+			title: "Team Section",
+			children: [
+				{
+					icon: '',
+					title: 'Default',
+					description: '',
+					category: '',
+					type: 'iframe',
+					url: 'https://bblockswp.com/demo/team-section-default/'
+				},
+				{
+					icon: '',
+					title: 'Theme-1',
+					description: '',
+					category: '',
+					type: 'iframe',
+					url: 'https://bblockswp.com/demo/theme-1/'
+				},
+				{
+					icon: '',
+					title: 'Theme-2',
+					description: '',
+					category: '',
+					type: 'iframe',
+					url: 'https://bblockswp.com/demo/theme-2/'
+				},
 
-	{
-		icon: '',
-		title: 'Theme-3',
-		description: '',
-		category: '',
-		type: 'iframe',
-		url: 'https://bblockswp.com/demo/theme-3/'
-	},
-	{
-		icon: '',
-		title: 'Theme-4',
-		description: '',
-		category: '',
-		type: 'iframe',
-		url: 'https://bblockswp.com/demo/theme-4-2/'
-	},
-	{
-		icon: '',
-		title: 'Theme-5 ',
-		description: '',
-		category: '',
-		type: 'iframe',
-		url: 'https://bblockswp.com/demo/theme-5-2/'
-	},
-	{
-		icon: '',
-		title: 'Theme-6',
-		description: '',
-		category: '',
-		type: 'iframe',
-		url: 'https://bblockswp.com/demo/theme-6-2/'
-	},
+				{
+					icon: '',
+					title: 'Theme-3',
+					description: '',
+					category: '',
+					type: 'iframe',
+					url: 'https://bblockswp.com/demo/theme-3/'
+				},
+				{
+					icon: '',
+					title: 'Theme-4',
+					description: '',
+					category: '',
+					type: 'iframe',
+					url: 'https://bblockswp.com/demo/theme-4-2/'
+				},
+				{
+					icon: '',
+					title: 'Theme-5 ',
+					description: '',
+					category: '',
+					type: 'iframe',
+					url: 'https://bblockswp.com/demo/theme-5-2/'
+				},
+				{
+					icon: '',
+					title: 'Theme-6',
+					description: '',
+					category: '',
+					type: 'iframe',
+					url: 'https://bblockswp.com/demo/theme-6-2/'
+				},
 
 
-	{
-		icon: '',
-		title: 'Theme-7',
-		description: '',
-		category: '',
-		type: 'iframe',
-		url: 'https://bblockswp.com/demo/theme-7-2/'
-	},
-	{
-		icon: '',
-		title: 'Theme-8',
-		description: '',
-		category: '',
-		type: 'iframe',
-		url: 'https://bblockswp.com/demo/theme-8-2/'
-	},
-	{
-		icon: '',
-		title: 'Theme-9',
-		description: '',
-		category: '',
-		type: 'iframe',
-		url: 'https://bblockswp.com/demo/theme-9/'
-	},
+				{
+					icon: '',
+					title: 'Theme-7',
+					description: '',
+					category: '',
+					type: 'iframe',
+					url: 'https://bblockswp.com/demo/theme-7-2/'
+				},
+				{
+					icon: '',
+					title: 'Theme-8',
+					description: '',
+					category: '',
+					type: 'iframe',
+					url: 'https://bblockswp.com/demo/theme-8-2/'
+				},
+				{
+					icon: '',
+					title: 'Theme-9',
+					description: '',
+					category: '',
+					type: 'iframe',
+					url: 'https://bblockswp.com/demo/theme-9/'
+				},
 
-	{
-		icon: '',
-		title: 'Theme-10',
-		description: '',
-		category: '',
-		type: 'iframe',
-		url: 'https://bblockswp.com/demo/theme-10/'
-	},
+				{
+					icon: '',
+					title: 'Theme-10',
+					description: '',
+					category: '',
+					type: 'iframe',
+					url: 'https://bblockswp.com/demo/theme-10/'
+				},
 
-	{
-		icon: '',
-		title: 'Theme-11',
-		description: '',
-		category: '',
-		type: 'iframe',
-		url: 'https://bblockswp.com/demo/theme-11/'
-	},
+				{
+					icon: '',
+					title: 'Theme-11',
+					description: '',
+					category: '',
+					type: 'iframe',
+					url: 'https://bblockswp.com/demo/theme-11/'
+				},
+			]
+		},
+
+		{
+			icon: orbitTeamIcon,
+			title: "Orbit Team",
+			type: "iframe",
+			category: "basic",
+			description: "Clean and minimal default layout design.",
+			url: "https://bblockswp.com/demo/team-section-orbit-team/",
+
+		}
 
 
 	]
 }
 
+
 export const pricingInfo = {
-	logo: `https://ps.w.org/${slug}/assets/icon-128x128.png`, // Optional
+	logo: `https://ps.w.org/${slug}/assets/icon-128x128.png`,
 	pluginId: 21587,
 	planId: 36015,
 	licenses: [1, 3, null],

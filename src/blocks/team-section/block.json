@@ -1,11 +1,16 @@
 {
-  "apiVersion": 2,
+  "apiVersion": 3,
   "name": "tsb/team",
   "title": "Team Section",
-  "version":"2.0.0",
+  "version": "2.0.0",
   "description": "Showcase team members in various layouts and designs.",
   "category": "team-section",
-  "keywords": ["team", "members", "team members"],
+  "keywords": [
+    "team",
+    "team section",
+    "members",
+    "team members"
+  ],
   "textdomain": "team-section",
   "attributes": {
     "align": {
@@ -15,7 +20,8 @@
     "members": {
       "type": "array",
       "default": [
-        {"paddingTop":"0px",
+        {
+          "paddingTop": "0px",
           "userName": "@chriscoyier",
           "userNameLink": "#",
           "background": {
@@ -72,29 +78,27 @@
               "bg": "#146EF5"
             }
           },
-          "icon":"#",
-             "state":{
-           "stateOne": {
-              "icon":"<svg width=\"32\" height=\"32\" stroke=\"currentColor\" fill=\"none\" stroke-width=\"2\" viewBox=\"0 0 24 24\"><path d=\"M6 3v5a6 6 0 0 0 12 0V3\" /><path d=\"M6 3h12\" /><path d=\"M6 8h12\" /><path d=\"M9 21l3-3 3 3\" /></svg>",
-              "value":"500+",
-              "label":"Designs"
+          "icon": "#",
+          "state": {
+            "stateOne": {
+              "icon": "<svg width=\"32\" height=\"32\" stroke=\"currentColor\" fill=\"none\" stroke-width=\"2\" viewBox=\"0 0 24 24\"><path d=\"M6 3v5a6 6 0 0 0 12 0V3\" /><path d=\"M6 3h12\" /><path d=\"M6 8h12\" /><path d=\"M9 21l3-3 3 3\" /></svg>",
+              "value": "500+",
+              "label": "Designs"
             },
-            "stateTwo":{
-              "icon":"<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"32\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-zap text-emerald-600\"><polygon points=\"13 2 3 14 12 14 11 22 21 10 12 10 13 2\"></polygon></svg>",
-              "value":"500+",
-              "label":"Brands"
+            "stateTwo": {
+              "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"32\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-zap text-emerald-600\"><polygon points=\"13 2 3 14 12 14 11 22 21 10 12 10 13 2\"></polygon></svg>",
+              "value": "500+",
+              "label": "Brands"
             }
-            
-            
           },
-          "btn":{
-            "label":"Connect on LinkedIn",
-            "icon":"<svg width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path d=\"M5 12h14\" /><path d=\"M12 5l7 7-7 7\" /></svg>",
-
-            "link":"#"
+          "btn": {
+            "label": "Connect on LinkedIn",
+            "icon": "<svg width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path d=\"M5 12h14\" /><path d=\"M12 5l7 7-7 7\" /></svg>",
+            "link": "#"
           }
         },
-        {"paddingTop":"100px",
+        {
+          "paddingTop": "100px",
           "userName": "@quezo",
           "userNameLink": "#",
           "background": {
@@ -151,28 +155,27 @@
               "bg": "#146EF5"
             }
           },
-           "icon":"#",
-         "state":{
-           "stateOne": {
-              "icon":"<svg width=\"32\" height=\"32\" stroke=\"currentColor\" fill=\"none\" stroke-width=\"2\" viewBox=\"0 0 24 24\"><path d=\"M6 3v5a6 6 0 0 0 12 0V3\" /><path d=\"M6 3h12\" /><path d=\"M6 8h12\" /><path d=\"M9 21l3-3 3 3\" /></svg>",
-              "value":"500+",
-              "label":"Designs"
+          "icon": "#",
+          "state": {
+            "stateOne": {
+              "icon": "<svg width=\"32\" height=\"32\" stroke=\"currentColor\" fill=\"none\" stroke-width=\"2\" viewBox=\"0 0 24 24\"><path d=\"M6 3v5a6 6 0 0 0 12 0V3\" /><path d=\"M6 3h12\" /><path d=\"M6 8h12\" /><path d=\"M9 21l3-3 3 3\" /></svg>",
+              "value": "500+",
+              "label": "Designs"
             },
-            "stateTwo":{
-              "icon":"<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"32\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-zap text-emerald-600\"><polygon points=\"13 2 3 14 12 14 11 22 21 10 12 10 13 2\"></polygon></svg>",
-              "value":"500+",
-              "label":"Brands"
+            "stateTwo": {
+              "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"32\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-zap text-emerald-600\"><polygon points=\"13 2 3 14 12 14 11 22 21 10 12 10 13 2\"></polygon></svg>",
+              "value": "500+",
+              "label": "Brands"
             }
-            
-            
           },
-          "btn":{
-            "label":"Connect on LinkedIn",
-            "icon":"<svg width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path d=\"M5 12h14\" /><path d=\"M12 5l7 7-7 7\" /></svg>",
-            "link":"#"
+          "btn": {
+            "label": "Connect on LinkedIn",
+            "icon": "<svg width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path d=\"M5 12h14\" /><path d=\"M12 5l7 7-7 7\" /></svg>",
+            "link": "#"
           }
         },
-        {"paddingTop":"0px",
+        {
+          "paddingTop": "0px",
           "userName": "@mariemosley",
           "userNameLink": "#",
           "background": {
@@ -229,26 +232,23 @@
               "bg": "#146EF5"
             }
           },
-           "icon":"#",
-           "state":{
-           "stateOne": {
-              "icon":"<svg width=\"32\" height=\"32\" stroke=\"currentColor\" fill=\"none\" stroke-width=\"2\" viewBox=\"0 0 24 24\"><path d=\"M6 3v5a6 6 0 0 0 12 0V3\" /><path d=\"M6 3h12\" /><path d=\"M6 8h12\" /><path d=\"M9 21l3-3 3 3\" /></svg>",
-              "value":"500+",
-              "label":"Designs"
+          "icon": "#",
+          "state": {
+            "stateOne": {
+              "icon": "<svg width=\"32\" height=\"32\" stroke=\"currentColor\" fill=\"none\" stroke-width=\"2\" viewBox=\"0 0 24 24\"><path d=\"M6 3v5a6 6 0 0 0 12 0V3\" /><path d=\"M6 3h12\" /><path d=\"M6 8h12\" /><path d=\"M9 21l3-3 3 3\" /></svg>",
+              "value": "500+",
+              "label": "Designs"
             },
-            "stateTwo":{
-              "icon":"<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"32\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-zap text-emerald-600\"><polygon points=\"13 2 3 14 12 14 11 22 21 10 12 10 13 2\"></polygon></svg>",
-              "value":"500+",
-              "label":"Brands"
+            "stateTwo": {
+              "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"32\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-zap text-emerald-600\"><polygon points=\"13 2 3 14 12 14 11 22 21 10 12 10 13 2\"></polygon></svg>",
+              "value": "500+",
+              "label": "Brands"
             }
-            
-            
           },
-          "btn":{
-            "label":"Connect on LinkedIn",
-            "icon":"<svg width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path d=\"M5 12h14\" /><path d=\"M12 5l7 7-7 7\" /></svg>",
-
-            "link":"#"
+          "btn": {
+            "label": "Connect on LinkedIn",
+            "icon": "<svg width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path d=\"M5 12h14\" /><path d=\"M12 5l7 7-7 7\" /></svg>",
+            "link": "#"
           }
         }
       ]
@@ -405,11 +405,10 @@
           "left": "0px"
         },
         "teamMember": {
-          "height":{
-            "desktop":"100%",
-            "tablet":"100%",
-            "mobile":"300px"
-
+          "height": {
+            "desktop": "100%",
+            "tablet": "100%",
+            "mobile": "300px"
           },
           "padding": {
             "top": "11px",
@@ -417,12 +416,12 @@
             "bottom": "11px",
             "right": "11px"
           },
-          "shape":{
-            "bg":{"type": "gradient",
-            "gradient": ""}
-
-          }
-          ,
+          "shape": {
+            "bg": {
+              "type": "gradient",
+              "gradient": ""
+            }
+          },
           "bg": {
             "type": "gradient",
             "gradient": "linear-gradient(83deg,rgb(255,221,64) 97%,rgba(0,0,0,0) 97%)"
@@ -449,15 +448,17 @@
               "bottom": "4px",
               "right": "4px"
             },
-			"grayScale":1,
-      "evenItemPhotoBg": {
-          "type": "gradient",
-          "gradient": "linear-gradient(86deg,rgb(47,49,58) 70%,rgb(255,221,64) 70%)"
-        }
-
+            "grayScale": 1,
+            "evenItemPhotoBg": {
+              "type": "gradient",
+              "gradient": "linear-gradient(86deg,rgb(47,49,58) 70%,rgb(255,221,64) 70%)"
+            }
           },
           "name": {
-            "colors": { "color": "#ffdd40", "bg": "#282a31" },
+            "colors": {
+              "color": "#ffdd40",
+              "bg": "#282a31"
+            },
             "padding": {
               "top": "15px",
               "right": "23px",
@@ -488,7 +489,10 @@
             }
           },
           "title": {
-            "colors": { "color": "#2f313a", "bg": "#ffdd40" },
+            "colors": {
+              "color": "#2f313a",
+              "bg": "#ffdd40"
+            },
             "padding": {
               "top": "6px",
               "right": "12px",
@@ -538,7 +542,10 @@
             }
           },
           "userName": {
-            "colors": {"color": "#ffdd40", "bg": "#2f313a" },
+            "colors": {
+              "color": "#ffdd40",
+              "bg": "#2f313a"
+            },
             "padding": {
               "top": "2px",
               "right": "8px",
@@ -574,18 +581,20 @@
     "options": {
       "type": "object",
       "default": {
-		"showUserName":true,
-		"hoverOnScale":true,
-    "isShowWaterMark":true,
-    "waterMark":"TEAM",
-    "isShowShape":true,
-     "icon":"<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><path d='M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128z'/></svg>"
-     
-	  }
+        "showUserName": true,
+        "hoverOnScale": true,
+        "isShowWaterMark": true,
+        "waterMark": "TEAM",
+        "isShowShape": true,
+        "icon": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><path d='M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128z'/></svg>"
+      }
     }
   },
   "supports": {
-    "align": ["wide", "full"],
+    "align": [
+      "wide",
+      "full"
+    ],
     "html": false
   },
   "example": {
@@ -598,9 +607,15 @@
       }
     }
   },
-  "editorScript": ["file:./index.js", "wp-api"],
+  "editorScript": [
+    "file:./index.js",
+    "wp-api"
+  ],
   "editorStyle": "file:./index.css",
-  "style": ["file:./view.css", "fontAwesome"],
+  "style": [
+    "file:./view.css",
+    "fontAwesome"
+  ],
   "render": "file:./render.php",
   "viewScript": "file:./view.js"
 }

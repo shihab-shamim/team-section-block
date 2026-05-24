@@ -117,8 +117,6 @@ You can use unlimited times as you want.
 = Where can I get support? =
 
 You can post your questions on the [support forum here](https://wordpress.org/support/plugin/team-section/)
-
-
 == Screenshots ==
 
 
@@ -134,7 +132,8 @@ You can post your questions on the [support forum here](https://wordpress.org/su
 10. Theme 8
 11. Theme 9
 12. Theme 10
-13. Theme 11
+13. Theme 11 
+
 
 
 == Changelog ==

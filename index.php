@@ -15,132 +15,60 @@
 // ABS PATH
 if ( !defined( 'ABSPATH' ) ) { exit; }
 
+if ( function_exists( 'ts_fs' ) ) {
+	ts_fs()->set_basename( true, __FILE__ );
+} else {
 
-    if ( function_exists( 'ts_fs' ) ) {
-        ts_fs()->set_basename( true, __FILE__ );
-    } else {
-        // Constant
-			define( 'TSB_VERSION', isset( $_SERVER['HTTP_HOST'] ) && 'localhost' === $_SERVER['HTTP_HOST'] ? time() : '2.0.2' );
-			define( 'TSB_DIR_URL', plugin_dir_url( __FILE__ ) );
-			define( 'TSB_DIR_PATH', plugin_dir_path( __FILE__ ) );
-			define( 'TEAM_SECTION_BLOCK_PRO', file_exists( dirname(__FILE__) . '/freemius/start.php' ) );
-         
-        if ( ! function_exists( 'ts_fs' ) ) {
+	// Constant
+	define( 'TSB_VERSION', isset( $_SERVER['HTTP_HOST'] ) && 'localhost' === $_SERVER['HTTP_HOST'] ? time() : '2.0.2' );
+	define( 'TSB_DIR_URL', plugin_dir_url( __FILE__ ) );
+	define( 'TSB_DIR_PATH', plugin_dir_path( __FILE__ ) );
+	define( 'TEAM_SECTION_BLOCK_PRO', file_exists( dirname(__FILE__) . '/freemius/start.php' ) );
 
-           function ts_fs() {
-        global $ts_fs;
+	if ( ! function_exists( 'ts_fs' ) ) {
 
-        
-            // Include Freemius SDK.
-          if ( ! isset( $ts_fs ) ) {
+		function ts_fs() {
+			global $ts_fs;
 
-						if (TEAM_SECTION_BLOCK_PRO) {
-							require_once dirname(__FILE__) . '/freemius/start.php';
-						}else {
-							require_once dirname(__FILE__) . '/freemius-lite/start.php';
-						}
-            $apbConfig = array(
-                'id'                  => '21587',
-                'slug'                => 'team-section',
-                'premium_slug'        => 'team-section-pro',
-                'type'                => 'plugin',
-                'public_key'          => 'pk_3ba5bf1bfe18f86fccd5a5995ae77',
-                'is_premium'          => true,
-                'premium_suffix'      => 'Pro',
-                // If your plugin is a serviceware, set this option to false.
-                'has_premium_version' => true,
-                'has_addons'          => false,
-                'has_paid_plans'      => true,
-                'menu'                => array(
-                    'slug'           => 'edit.php?post_type=tsb',
-                    'first-path'     => 'edit.php?post_type=tsb&page=team-section-dashboard#/welcome',
-                    'support'        => false,
-                ),
-            ) ;
-            $ts_fs = TEAM_SECTION_BLOCK_PRO ? fs_dynamic_init( $apbConfig ) : fs_lite_dynamic_init( $apbConfig );
-        }
-		 return $ts_fs;
-	    }
+			// Include Freemius SDK.
+			if ( ! isset( $ts_fs ) ) {
+
+				if (TEAM_SECTION_BLOCK_PRO) {
+					require_once dirname(__FILE__) . '/freemius/start.php';
+				}else {
+					require_once dirname(__FILE__) . '/freemius-lite/start.php';
+				}
+				$apbConfig = array(
+					'id'                  => '21587',
+					'slug'                => 'team-section',
+					'premium_slug'        => 'team-section-pro',
+					'type'                => 'plugin',
+					'public_key'          => 'pk_3ba5bf1bfe18f86fccd5a5995ae77',
+					'is_premium'          => true,
+					'premium_suffix'      => 'Pro',
+					// If your plugin is a serviceware, set this option to false.
+					'has_premium_version' => true,
+					'has_addons'          => false,
+					'has_paid_plans'      => true,
+					'menu'                => array(
+						'slug'           => 'edit.php?post_type=tsb',
+						'first-path'     => 'edit.php?post_type=tsb&page=team-section-dashboard#/welcome',
+						'support'        => false,
+					),
+				) ;
+				$ts_fs = TEAM_SECTION_BLOCK_PRO ? fs_dynamic_init( $apbConfig ) : fs_lite_dynamic_init( $apbConfig );
+			}
+			return $ts_fs;
+		}
 
 		ts_fs();
-    // Signal that SDK was initiated.
-    do_action( 'ts_fs_loaded' );
+		// Signal that SDK was initiated.
+		do_action( 'ts_fs_loaded' );
 
-        }
+	}
 
-		 function tsbIsPremium() {
-        return TEAM_SECTION_BLOCK_PRO ? ts_fs()->can_use_premium_code() : false;
-    }
-		require_once TSB_DIR_PATH . '/includes/ShortCode.php';
-        require_once TSB_DIR_PATH . '/includes/AdminMenu.php';
-		require_once TSB_DIR_PATH . 'includes/Init.php';
-		require_once TSB_DIR_PATH . 'includes/RestApi.php';
-		if (TEAM_SECTION_BLOCK_PRO) {
-	require_once TSB_DIR_PATH . 'includes/LicenseActivation.php';
+
+	require_once TSB_DIR_PATH . 'includes/utils/functions.php';
+	require_once TSB_DIR_PATH . 'includes/plugin.php';
+
 }
-
-		new TSB\Init();
-		new TSB\RestApi();
-
-		if( !class_exists( 'TSBPlugin' ) ){
-							class TSBPlugin{
-								function __construct(){
-									add_action( 'enqueue_block_assets', [$this, 'enqueueBockAssets'] );
-									add_action( 'init', [$this, 'onInit'] );
-									add_action( 'enqueue_block_editor_assets', [$this, 'tsmEnqueueBlockEditorAssets'] );
-									
-									add_action( 'wp_enqueue_scripts', [$this, 'tsmEnqueueBlockEditorAssets'] );
-												add_filter( 'default_title', [$this, 'defaultTitle'], 10, 2 );
-			                                  add_filter( 'default_content', [$this, 'defaultContent'], 10, 2 );
-									
-								}
-							
-								function enqueueBockAssets(){
-									wp_register_style( 'fontAwesome', TSB_DIR_URL . 'assets/css/font-awesome.min.css', [], '6.4.2' );
-								}
-								function tsmEnqueueBlockEditorAssets(){
-												
-												wp_add_inline_script(
-															'tsb-team-editor-script',
-															'const tsmbpipecheck = ' . wp_json_encode(tsbIsPremium()) . ';',
-															'before'
-														);
-														wp_add_inline_script(
-															'tsb-team-view-script',
-															'const tsmbpipecheck = ' . wp_json_encode(tsbIsPremium()) . ';',
-															'before'
-														);
-											
-											}
-
-								function onInit(){
-									// Block registration is now handled by TSB\Init
-								}
-									function defaultTitle( $title, $post ) {
-			if ( 'page' === $post->post_type && isset( $_GET['title'] ) ) {
-				return sanitize_text_field( wp_unslash( $_GET['title'] ) );
-			}
-			return $title;
-		}
-
-		function defaultContent( $content, $post ) {
-			if ( 'page' === $post->post_type && isset( $_GET['content'] ) ) {
-				return wp_unslash( $_GET['content'] );
-			}
-			return $content;
-		}
-									
-							}
-
-							new TSBPlugin();
-						}
-					 }
-
-
-
-
-
-
-
-
-// require_once TSB_DIR_PATH . 'inc/block.php';

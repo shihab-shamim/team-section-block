@@ -5,7 +5,6 @@ import {
 import {
 	getBackgroundCSS,
 	getBoxCSS,
-	getColorsCSS,
 	getMultiShadowCSS,
 	getTypoCSS,
 } from "../../../../../../bpl-tools/utils/getCSS";
