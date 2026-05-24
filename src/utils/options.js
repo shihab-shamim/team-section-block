@@ -9,7 +9,7 @@ export const teamSectionTemplates = [
 	},
 	{
 		name: "Orbit Team",
-		block: "tsb/orbit-team",
+		block: "tsb/orbit-team-pro",
 		icon: orbitTeamIcon,
 		className: "orbit-team",
 	},

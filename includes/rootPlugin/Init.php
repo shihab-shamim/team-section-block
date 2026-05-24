@@ -8,6 +8,20 @@ class Init {
         add_action( 'init', [ $this, 'onInit' ] );
         add_filter( 'default_title', [$this, 'defaultTitle'], 10, 2 );
         add_filter( 'default_content', [$this, 'defaultContent'], 10, 2 );
+        add_filter( 'block_type_metadata', [$this, 'modifyBlockMetadata'] );
+    }
+
+    function modifyBlockMetadata( $metadata ) {
+        // Since the user renamed the block to tsb/orbit-team-pro in block.json
+        if ( isset( $metadata['name'] ) && 'tsb/orbit-team-pro' === $metadata['name'] ) {
+            if ( tsbIsPremium() ) {
+                if ( ! isset( $metadata['supports'] ) ) {
+                    $metadata['supports'] = [];
+                }
+                $metadata['supports']['inserter'] = true;
+            }
+        }
+        return $metadata;
     }
 
     function onInit() {

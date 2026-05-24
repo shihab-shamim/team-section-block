@@ -31,6 +31,8 @@ This block plugin makes the displays fully customizable, so you can create uniqu
 = Pro Features =
 * All Free features.
 * Includes 11+ ready-to-use templates.
+*  Added 1+ new built-in blocks.
+*  Orbit Team – A Unique New Block
 * Fully Responsive – Looks great on all devices.
 * Member Styling – Customize photo, name, title, and bio.
 * Typography & Color Controls – Full text and color customization.
@@ -121,18 +123,19 @@ You can post your questions on the [support forum here](https://wordpress.org/su
 
 
 1. Default
-2. Theme 1
-3. Theme 2
-4. Theme 3
-5. Theme 4
-6. Horizontal Layout & Theme 4
-7. Theme 5
-8. Theme 6
-9. Theme 7
-10. Theme 8
-11. Theme 9
-12. Theme 10
-13. Theme 11 
+2. Team Section - Theme 1
+3. Team Section - Theme 2
+4. Team Section - Theme 3
+5. Team Section - Theme 4
+6. Team Section - Horizontal Layout & Theme 4
+7. Team Section - Theme 5
+8. Team Section - Theme 6
+9. Team Section - Theme 7
+10. Team Section - Theme 8
+11. Team Section - Theme 9
+12. Team Section - Theme 10
+13. Team Section - Theme 11
+14.Orbit Team 
 
 
 

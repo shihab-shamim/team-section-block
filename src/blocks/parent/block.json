@@ -6,10 +6,7 @@
   "category": "team-section",
   "description": "Choose and display your favorite team section block",
   "keywords": [
-    "team section",
-    "team members",
-    "team selector",
-    "team block"
+    " selector"
   ],
   "textdomain": "team-section",
   "attributes": {

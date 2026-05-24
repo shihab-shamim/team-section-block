@@ -8,8 +8,6 @@ import { teamMembersIcon } from './utils/icons';
 
 registerBlockType(metadata, {
 	icon: teamMembersIcon,
-
-	// Build in Functions
 	edit: Edit,
 
 	save: () => <InnerBlocks.Content />

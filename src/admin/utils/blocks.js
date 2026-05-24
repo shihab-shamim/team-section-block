@@ -25,12 +25,11 @@ export default [
 		required: true,
 	},
 	{
-		name: 'orbit-team',
+		name: 'orbit-team-section',
 		title: 'Orbit Team',
 		icon: orbitTeamIcon,
 		isPremium: true,
 		required: false,
 	}
 
-	// Future blocks are added here
 ];

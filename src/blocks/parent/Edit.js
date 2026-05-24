@@ -1,10 +1,17 @@
 const { useBlockProps } = wp.blockEditor;
 const { dispatch, withSelect } = wp.data;
+const { useEffect } = wp.element;
 import { teamSectionTemplates } from '../../utils/options';
 
 const Edit = (props) => {
   const blockProps = useBlockProps();
-  const { clientId, currentPostId } = props;
+  const { clientId, currentPostId, CPTType } = props;
+
+  useEffect(() => {
+    if (CPTType && CPTType !== "tsb") {
+      dispatch("core/block-editor").removeBlock(clientId);
+    }
+  }, [CPTType, clientId]);
 
   const isBlockAvailable = (blockName) => {
     return !!wp.blocks.getBlockType(blockName);
@@ -34,6 +41,10 @@ const Edit = (props) => {
   };
 
 
+
+  if (CPTType !== "tsb") {
+    return null;
+  }
 
   return (
     <div {...blockProps}>
